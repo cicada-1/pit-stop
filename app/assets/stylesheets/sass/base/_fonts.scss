@@ -4,6 +4,7 @@ $body-font: 'Poppins', sans-serif;
 $headers-font: 'Poppins', sans-serif; ;
 
 // fonts
+
 // @extend %name;
 %page-header {
   font-family: $body-font;
@@ -45,3 +46,4 @@ $headers-font: 'Poppins', sans-serif; ;
   line-height: 1.4;
   color: $text-color;
 }
+
