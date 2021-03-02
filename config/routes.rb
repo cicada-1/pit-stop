@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  get 'room_socials/create'
-  get 'room_socials/destroy'
   devise_for :users
 
   root to: 'pages#home'
