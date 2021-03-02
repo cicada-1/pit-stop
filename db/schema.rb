@@ -10,10 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_02_164359) do
+
+
+ActiveRecord::Schema.define(version: 2021_03_02_164801) do
+
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "band_members", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "band_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["band_id"], name: "index_band_members_on_band_id"
+    t.index ["user_id"], name: "index_band_members_on_user_id"
+  end
 
   create_table "bands", force: :cascade do |t|
     t.string "name"
@@ -24,6 +36,7 @@ ActiveRecord::Schema.define(version: 2021_03_02_164359) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+
   create_table "bookings", force: :cascade do |t|
     t.date "start_date"
     t.date "end_date"
@@ -31,6 +44,7 @@ ActiveRecord::Schema.define(version: 2021_03_02_164359) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
+
 
   create_table "room_socials", force: :cascade do |t|
     t.string "type"
@@ -64,9 +78,17 @@ ActiveRecord::Schema.define(version: 2021_03_02_164359) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "first_name"
+    t.string "last_name"
+    t.string "type"
+    t.string "stage_name"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
+
+
+  add_foreign_key "band_members", "bands"
+  add_foreign_key "band_members", "users"
 
   add_foreign_key "room_socials", "rooms"
   add_foreign_key "rooms", "users"
