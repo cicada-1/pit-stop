@@ -24,6 +24,15 @@ ActiveRecord::Schema.define(version: 2021_03_02_174500) do
     t.index ["user_id"], name: "index_band_members_on_user_id"
   end
 
+  create_table "band_socials", force: :cascade do |t|
+    t.string "type"
+    t.string "profile_url"
+    t.bigint "band_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["band_id"], name: "index_band_socials_on_band_id"
+  end
+
   create_table "bands", force: :cascade do |t|
     t.string "name"
     t.string "location"
@@ -100,6 +109,7 @@ ActiveRecord::Schema.define(version: 2021_03_02_174500) do
   add_foreign_key "band_members", "bands"
   add_foreign_key "band_members", "users"
   add_foreign_key "gigs", "bands"
+  add_foreign_key "band_socials", "bands"
   add_foreign_key "room_socials", "rooms"
   add_foreign_key "rooms", "users"
 end
