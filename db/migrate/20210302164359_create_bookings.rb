@@ -3,7 +3,7 @@ class CreateBookings < ActiveRecord::Migration[6.1]
     create_table :bookings do |t|
       t.date :start_date
       t.date :end_date
-      t.boolen :confirmation
+      t.boolean :confirmation
 
       t.timestamps
     end
