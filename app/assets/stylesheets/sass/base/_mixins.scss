@@ -1,0 +1,20 @@
+// @include name;
+@mixin margin-fixed($top, $right, $bottom, $left) {
+  margin: $top $right $bottom $left;
+}
+
+@mixin margin-xl {
+  margin: 64 0 64 0;
+}
+
+@mixin margin-lg {
+  margin: 32 0 32 0;
+}
+
+@mixin margin-md {
+  margin: 16 0 16 0;
+}
+
+@mixin margin-sm {
+  margin: 8 0 8 0;
+}
