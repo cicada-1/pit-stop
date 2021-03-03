@@ -3,6 +3,6 @@ class RoomSocial < ApplicationRecord
 
   SOCIAL_TYPES = %w[Instagram Twitter Facebook]
 
-  validates :type, :profile_url, presence: true
-  validates :type, inclusion: { in: SOCIAL_TYPES }
+  validates :user_type, :profile_url, presence: true
+  validates :user_type, inclusion: { in: SOCIAL_TYPES }
 end

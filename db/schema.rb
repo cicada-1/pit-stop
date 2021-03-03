@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_03_150838) do
+ActiveRecord::Schema.define(version: 2021_03_03_174623) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -53,7 +53,7 @@ ActiveRecord::Schema.define(version: 2021_03_03_150838) do
   end
 
   create_table "band_socials", force: :cascade do |t|
-    t.string "type"
+    t.string "social_type"
     t.string "profile_url"
     t.bigint "band_id", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -104,7 +104,7 @@ ActiveRecord::Schema.define(version: 2021_03_03_150838) do
   end
 
   create_table "room_socials", force: :cascade do |t|
-    t.string "type"
+    t.string "social_type"
     t.string "profile_url"
     t.bigint "room_id", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -137,7 +137,7 @@ ActiveRecord::Schema.define(version: 2021_03_03_150838) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "first_name"
     t.string "last_name"
-    t.string "type"
+    t.string "user_type"
     t.string "stage_name"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
