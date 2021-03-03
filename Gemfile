@@ -68,5 +68,6 @@ end
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
 # Gems after rails new
+
 # Use for authorization
 gem 'pundit'
