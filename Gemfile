@@ -65,3 +65,4 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 # Gems after rails new
 #Use for authorization
 gem 'pundit'
+gem 'bootstrap', '~> 5.0.0.beta2'
