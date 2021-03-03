@@ -12,8 +12,6 @@
 
 ActiveRecord::Schema.define(version: 2021_03_03_150838) do
 
-
-
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -149,7 +147,6 @@ ActiveRecord::Schema.define(version: 2021_03_03_150838) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "band_members", "bands"
   add_foreign_key "band_members", "users"
-  add_foreign_key "gigs", "bands"
   add_foreign_key "band_socials", "bands"
   add_foreign_key "bookings", "bands"
   add_foreign_key "bookings", "rooms"

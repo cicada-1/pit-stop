@@ -2,6 +2,8 @@ class BandsController < ApplicationController
   before_action :set_band, only: %i[show edit update destroy]
 
   def show
+
+    # @gig = Gig.where("bands_id = '#{@band.id}'")
   end
 
   def new
@@ -18,9 +20,11 @@ class BandsController < ApplicationController
   end
 
   def update
+    @band.update(band_params)
   end
 
   def destroy
+    @band.destroy
   end
 
   private
