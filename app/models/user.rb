@@ -9,7 +9,9 @@ class User < ApplicationRecord
   has_many :band_members
   has_many :bands, through: :band_members
 
-  validates :first_name, :last_name, :type, presence: true
+  USER_TYPES = %w[host band both]
+
+  validates :first_name, :last_name, :user_type, presence: true
   validates :stage_name, uniqueness: true
-  validates :type, inclusion: { in: %w[host band both] }
+  validates :user_type, inclusion: { in: USER_TYPES }
 end
