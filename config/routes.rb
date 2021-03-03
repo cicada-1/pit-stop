@@ -1,8 +1,5 @@
 Rails.application.routes.draw do
-  get 'reviews/update'
-  get 'reviews/create'
-  get 'reviews/destroy'
-  devise_for :users, controllers: { sessions: 'users/sessions' }
+  devise_for :users
 
   root to: 'pages#home'
 
