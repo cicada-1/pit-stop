@@ -21,9 +21,13 @@ class RoomsController < ApplicationController
   end
 
   def update
+    @room.update(room_params)
+    redirect_to room_path(@room)
   end
 
   def destroy
+    @room.destroy
+    redirect_to root_path
   end
 
   private
