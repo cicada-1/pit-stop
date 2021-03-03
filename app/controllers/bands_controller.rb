@@ -2,8 +2,9 @@ class BandsController < ApplicationController
   before_action :set_band, only: %i[show edit update destroy]
 
   def show
-
-    # @gig = Gig.where("bands_id = '#{@band.id}'")
+    @socials = BandSocial.where(band_id: @band.id)
+    @gig = Gig.where(band_id: @band.id)
+    @booking = Booking.where(band_id: @band.id)
   end
 
   def new
