@@ -1,4 +1,5 @@
 class Review < ApplicationRecord
+  has_many_attached :photos
   belongs_to :rooms
   belongs_to :bands
 
