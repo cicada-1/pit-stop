@@ -2,6 +2,9 @@ class BandsController < ApplicationController
   before_action :set_band, only: %i[show edit update destroy]
 
   def show
+    @socials = BandSocial.where(band_id: @band.id)
+    @gig = Gig.where(band_id: @band.id)
+    @booking = Booking.where(band_id: @band.id)
   end
 
   def new
@@ -18,9 +21,11 @@ class BandsController < ApplicationController
   end
 
   def update
+    @band.update(band_params)
   end
 
   def destroy
+    @band.destroy
   end
 
   private
@@ -31,6 +36,6 @@ class BandsController < ApplicationController
   end
 
   def band_params
-    params.require(:band).permit(:name, :location, :descripyion, :number_of_members)
+    params.require(:band).permit(:name, :location, :description, :number_of_members)
   end
 end
