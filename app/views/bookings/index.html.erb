@@ -1,0 +1,60 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-8 col-sm-8 col-lg-8 ">
+      <div class="account-header">
+        <h1>My Account</h1>
+        <p id="email"><%= @user.email %></p>
+      </div>
+      <h2>My Bookings</h2>
+      <div class="bookings-table">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Room</th>
+              <th>Booking Start Date</th>
+              <th>Booking End Date</th>
+              <th></th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <% @bookings.each do |booking| %>
+              <tr>
+                <td><%= link_to booking.room.name, booking.room, class: 'table-column-one' %></td>
+                <td><%= booking.booking_start_date %></td>
+                <td><%= booking.booking_end_date %></td>
+                <td>
+                  <%= link_to booking_path(booking), method: :delete, data: { confirm: "Delete booking for #{booking.room.name}?" } do %>
+                    <i class="far fa-trash-alt"></i>
+                  <% end %>
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="my-rooms">
+        <h2>My Bookings</h2>
+
+        <div class="rooms-list">
+          <% @user_rooms.each do |room| %>
+            <div class="card mb-3">
+              <div class="card-image">
+                <%= cl_image_tag room.photo.key, height: 211, width: 300, crop: :fill %>
+              </div>
+              <div class="card-body">
+                <h5 class="card-title"><%= room.name %></h5>
+                <p class="card-text"><%= room.description.truncate(50) %></p>
+                <div class="link">
+                  <p class="card-link"><%= link_to "view", room_path(room) %></p>
+                </div>
+                <p class="card-text"><small class="text-muted">Last updated <%= time_ago_in_words(room.updated_at) %></small></p>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
