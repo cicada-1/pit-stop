@@ -1,5 +1,6 @@
 class RoomsController < ApplicationController
   before_action :set_room, only: %i[show edit update destroy]
+  
   def new
     @room = current_user.rooms.new
     authorize @room

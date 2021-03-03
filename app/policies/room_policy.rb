@@ -9,6 +9,14 @@ class RoomPolicy < ApplicationPolicy
     true  # Anyone can view a room
   end
 
+  def new?
+    create?
+  end
+
+  def edit?
+    update?
+  end
+
   def create?
     true # Anyone can create a room
   end

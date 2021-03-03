@@ -1,13 +1,10 @@
 Rails.application.routes.draw do
-  get 'reviews/update'
-  get 'reviews/create'
-  get 'reviews/destroy'
-  devise_for :users, controllers: { sessions: 'users/sessions' }
+  devise_for :users
 
   root to: 'pages#home'
 
   resources :rooms do
-    resources :bookings, only: [:create]
+    resources :bookings, only: [:create, :index]
     resources :reviews, only: [:create]
     resources :room_socials, only: [:create]
   end
