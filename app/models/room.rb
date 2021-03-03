@@ -7,5 +7,5 @@ class Room < ApplicationRecord
 
   validates :name, :address, :description, :bio, :parking, :capacity, presence: true
   validates :parking, inclusion: { in: %w[private street unavailable] }
-  validates :description, :bio, :length { maximum: 1000, message: "Limit is 1000 characters" }
+  validates :description, :bio, length: { maximum: 1000, message: "Limit is 1000 characters" }
 end
