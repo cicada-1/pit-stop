@@ -9,7 +9,7 @@
       <%= f.collection_radio_buttons :parking, Room::PARKING_TYPES.each_slice(1).to_a,
                                      :first, :last, required: true %>
       <%= f.input :bio, placeholder:'Host Bio', required: true %>
-      <%= f.input :photo, as: :file, required: true %>
+      <%= f.input :photo, as: :file %>
       <%= f.button :submit, class: "cta-btn" %>
     </div>
   <% end %>

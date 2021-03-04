@@ -9,6 +9,11 @@ class RoomsController < ApplicationController
   def create
     @room = current_user.rooms.new(room_params)
     authorize @room
+    if @room.save
+      redirect_to room_path(@room)
+    else
+      render :new
+    end
   end
 
   def index
@@ -23,8 +28,11 @@ class RoomsController < ApplicationController
   end
 
   def update
-    @room.update(room_params)
-    redirect_to room_path(@room)
+    if @room.update(room_params)
+      redirect_to room_path(@room)
+    else
+      render :edit
+    end
   end
 
   def destroy
