@@ -1,0 +1,7 @@
+<%= simple_form_for [@room, @room_social] do |f| %>
+  <div class="fg-form">
+    <%= f.input :social_type, as: :select, collection: RoomSocial::SOCIAL_TYPES, include_blank: false %>
+    <%= f.input :profile_url, placeholder:"eg: https://www.instagram.com/pitstop.live/" %>
+    <%= f.button :submit, { class: "cta-btn", value: "Add link to social media profile" } %>
+  </div>
+<% end %>
