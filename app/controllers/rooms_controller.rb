@@ -13,7 +13,8 @@ class RoomsController < ApplicationController
 
   def index
     if params[:query].present?
-      @rooms = policy_scope(Room).where("address ILIKE ?", "%#{params[:query]}%")
+      @rooms = policy_scope(Room).near(params[:query])
+      # @rooms = policy_scope(Room).where("address ILIKE ?", "%#{params[:query]}%")
     else
       @rooms = policy_scope(Room)
     end

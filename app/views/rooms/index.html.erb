@@ -1,30 +1,28 @@
-<h1>FIND YOUR ROOM</h1>
+<div class="index-container">
+  <br>
+    <h1>FIND YOUR ROOM</h1>
+  <br>
+  <div class="index-content-container">
+  <div class="flexbox">
+    <% @rooms.each do |room| %>
+      <div class="index-card">
+        <div class="index-card-body">
+          <%= image_tag "emma-copy.jpg", class: "card-avatar" %>
+          <h5 id="card-title"><%= room.name %></h5>
+          <p><%= room.description.truncate(50) %></p>
+          <p class="card-link"><p><%= link_to "See details", room_path(room) %></p>
+          <p><small class="text-muted">Last updated <%= time_ago_in_words(room.updated_at) %></small></p>
+        </div>
+          <%= image_tag "living-room.jpg", alt: "alttext", class: "card-image"%>
+        </div>
+    <% end %>
+  </div>
 
 
-  <% @rooms.each do |room| %>
-
-  <h5><%= room.name %></h5>
-  <p><%= room.description.truncate(50) %></p>
-  <p><%= link_to "See details", room_path(room) %></p>
-  <p><%= room.address %></p>
-
- <% end %>
-
-
-
- <div class="search-box">
-
- <%= form_tag rooms_path, method: :get do %>
-        <%= text_field_tag :query,
-          params[:query],
-          class: "form-control",
-          placeholder: "Find a room"
-          %>
-        <%= submit_tag "Search", class: "btn btn-primary" %>
-      <% end %>
 <div id="map"
      style="width: 60%; height: 600px;"
      data-markers="<%= @markers.to_json %>"
      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
  </div>
+</div>
 </div>
