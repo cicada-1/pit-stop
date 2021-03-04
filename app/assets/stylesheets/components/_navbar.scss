@@ -14,3 +14,20 @@
 .nav-search-box {
   display: flex;
 }
+
+.navbar-left {
+  display: flex;
+  align-items: center;
+}
+
+#add-room-btn {
+  border-radius: 5px;
+}
+
+#add-band-btn {
+  border-radius: 5px;
+}
+
+.navbar-right .nav-item {
+  margin-left: 4px;
+}
