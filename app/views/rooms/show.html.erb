@@ -1,5 +1,7 @@
 <div class="container">
   <h1>Rooms#show</h1>
+  <%= render 'modal' %>
+  <%= render partial: 'room_socials/modal' %>
 
   <%= link_to 'All Rooms', rooms_path %>
 
@@ -13,20 +15,38 @@
     <p>Parking: <%= @room.parking %></p>
   </div>
 
-
-  <div class=showpage-btn>
-    <%= link_to new_room_path(@room), class: 'booking-btn' do %>
-      Make a booking
-      <br>
-      <% end %><br>
-    <%= link_to 'Edit', edit_room_path(@room), class: 'edit-btn' %>
-
-      <%= link_to "Delete", room_path(@room), class: 'delete-btn',
-      method: :delete,
-      data: { confirm: "Are you sure?" } %>
-  </div>
   <br>
-  <h2>Add Social Media Profile</h2>
+  <h2>Social Media Profiles</h2>
 
-  <%= render "room_socials/form" %>
+  <% if @socials %> 
+  <% @socials.each do |item| %> 
+    <%= link_to item.social_type, item.profile_url %>
+    <%= link_to "x", band_social_path(item), method: :delete, data: {
+      confirm: "Are you sure?" } %>
+  <%end %> 
+<% end %>
+
+<br />
+
+<button
+	type="button"
+	class="btn btn-primary"
+	data-toggle="modal"
+	data-target="#editModal"
+>
+	Edit
+</button>
+
+<button
+	type="button"
+	class="btn btn-primary"
+	data-toggle="modal"
+	data-target="#form_socials"
+>
+	Add Socials
+</button>
+
+<br />
+<%= link_to "Delete #{@room.name}", room_path(@room), method: :delete, data: {
+confirm: "Are you sure?" } %>
 </div>

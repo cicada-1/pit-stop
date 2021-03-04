@@ -34,6 +34,7 @@ class RoomsController < ApplicationController
 
   def show
     @room_social = RoomSocial.new
+    @rooms_socials = RoomSocial.where(room_id: @room.id)
   end
 
   def edit
