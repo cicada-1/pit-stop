@@ -1,31 +1,32 @@
-<h1>Rooms#show</h1>
+<div class="container">
+  <h1>Rooms#show</h1>
 
-<%= link_to 'All Rooms', rooms_path %>
+  <%= link_to 'All Rooms', rooms_path %>
 
-<h3><%= @room.name.upcase %></h3>
-  <p>Bio: <%= @room.bio %></p>
+  <h3><%= @room.name.upcase %></h3>
+    <p>Bio: <%= @room.bio %></p>
 
-<div>
-  <p>Address: <%= @room.address %>/day</p>
-  <p>Capacity: <%= @room.capacity%></p>
-  <p>Description: <%= @room.description %></p>
-  <p>Parking: <%= @room.parking %></p>
+  <div>
+    <p>Address: <%= @room.address %>/day</p>
+    <p>Capacity: <%= @room.capacity%></p>
+    <p>Description: <%= @room.description %></p>
+    <p>Parking: <%= @room.parking %></p>
+  </div>
+
+
+  <div class=showpage-btn>
+    <%= link_to new_room_path(@room), class: 'booking-btn' do %>
+      Make a booking
+      <br>
+      <% end %><br>
+    <%= link_to 'Edit', edit_room_path(@room), class: 'edit-btn' %>
+
+      <%= link_to "Delete", room_path(@room), class: 'delete-btn',
+      method: :delete,
+      data: { confirm: "Are you sure?" } %>
+  </div>
+  <br>
+  <h2>Add Social Media Profile</h2>
+
+  <%= render "room_socials/form" %>
 </div>
-
-
-<div class=showpage-btn>
-  <%= link_to new_room_path(@room), class: 'booking-btn' do %>
-    Make a booking
-    <br>
-    <% end %><br>
-  <%= link_to 'Edit', edit_room_path, class: 'edit-btn' %>
-
-    <%= link_to "Delete", room_path(@room), class: 'delete-btn',
-    method: :delete,
-    data: { confirm: "Are you sure?" } %>
-</div>
-
-
-
-
-
