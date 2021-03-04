@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_04_180453) do
+ActiveRecord::Schema.define(version: 2021_03_04_225024) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -99,6 +99,7 @@ ActiveRecord::Schema.define(version: 2021_03_04_180453) do
     t.text "description"
     t.bigint "room_id", null: false
     t.bigint "band_id", null: false
+    t.string "review_type", default: "host"
     t.index ["band_id"], name: "index_reviews_on_band_id"
     t.index ["room_id"], name: "index_reviews_on_room_id"
   end
