@@ -9,7 +9,7 @@
     <p>Bio: <%= @room.bio %></p>
 
   <div>
-    <p>Address: <%= @room.address %>/day</p>
+    <p>Address: <%= @room.address %></p>
     <p>Capacity: <%= @room.capacity%></p>
     <p>Description: <%= @room.description %></p>
     <p>Parking: <%= @room.parking %></p>
@@ -18,35 +18,35 @@
   <br>
   <h2>Social Media Profiles</h2>
 
-  <% if @socials %> 
-  <% @socials.each do |item| %> 
-    <%= link_to item.social_type, item.profile_url %>
-    <%= link_to "x", band_social_path(item), method: :delete, data: {
-      confirm: "Are you sure?" } %>
-  <%end %> 
-<% end %>
+  <% if @room_socials %>
+    <% @room_socials.each do |item| %> 
+      <%= link_to item.social_type, item.profile_url %>
+      <%= link_to "x", room_social_path(item), method: :delete, data: {
+        confirm: "Are you sure?" } %>
+    <% end %>
+  <% end %>
 
-<br />
+  <br />
 
-<button
-	type="button"
-	class="btn btn-primary"
-	data-toggle="modal"
-	data-target="#editModal"
->
-	Edit
-</button>
+  <button
+    type="button"
+    class="btn btn-primary"
+    data-toggle="modal"
+    data-target="#editModal"
+  >
+    Edit
+  </button>
 
-<button
-	type="button"
-	class="btn btn-primary"
-	data-toggle="modal"
-	data-target="#form_socials"
->
-	Add Socials
-</button>
+  <button
+    type="button"
+    class="btn btn-primary"
+    data-toggle="modal"
+    data-target="#form_socials"
+  >
+    Add Socials
+  </button>
 
-<br />
-<%= link_to "Delete #{@room.name}", room_path(@room), method: :delete, data: {
-confirm: "Are you sure?" } %>
+  <br />
+  <%= link_to "Delete #{@room.name}", room_path(@room), method: :delete, data: {
+  confirm: "Are you sure?" } %>
 </div>
