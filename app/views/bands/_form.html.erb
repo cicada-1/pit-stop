@@ -1,0 +1,8 @@
+<%= simple_form_for @band do |f| %>
+  <%= f.input :name %>
+  <%= f.input :location %>
+  <%= f.input :description, as: :text%>
+  <%= f.input :number_of_members, as: :integer%>
+  <%= f.input :photos, as: :file %>
+  <%= f.button :submit %>
+<% end %>
