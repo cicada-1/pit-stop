@@ -1,0 +1,5 @@
+<%= simple_form_for [@band, @band_social] do |f| %>
+  <%= f.input :social_type, as: :select, collection: BandSocial::SOCIAL_TYPES, include_blank: false %>
+  <%= f.input :profile_url%>
+  <%= f.button :submit %>
+<% end %>
