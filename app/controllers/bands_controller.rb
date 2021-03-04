@@ -4,7 +4,8 @@ class BandsController < ApplicationController
   def show
     @band_social = BandSocial.new
     @socials = BandSocial.where(band_id: @band.id)
-    @gig = Gig.where(band_id: @band.id)
+    @gig = Gig.new
+    @gigs = Gig.where(band_id: @band.id)
     @booking = Booking.where(band_id: @band.id)
   end
 
