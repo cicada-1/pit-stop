@@ -22,7 +22,7 @@ class BandPolicy < ApplicationPolicy
   end
 
   def update?
-    record.user == user
+    record.users.include?(user)
   end
 
   def destroy?

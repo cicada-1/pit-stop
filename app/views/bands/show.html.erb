@@ -1,15 +1,29 @@
 <h1>Bands#show</h1>
+<%= render 'modal' %>
+<%= render 'band_members/modal' %>
 <p>Find me in app/views/bands/show.html.erb</p>
+<br>
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addMembers">
+  Add Members
+</button>
+<br>
+<br>
 <br>
 <p>Name<%= @band.name %></p>
 <p>Location<%= @band.location %></p>
 <p>Description<%= @band.description %></p>
 <p>Number of members<%= @band.number_of_members %></p>
 <br>
-<%= %>
+<br>
+<br>
 
-<%= link_to 'Edit_path', edit_band_path %> <br>
-<%= link_to 'New_path', new_band_path %> <br>
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editModal">
+  Edit
+</button>
+
+<br>
+<br>
+<br>
 <%= link_to "Delete #{@band.name}",
             band_path(@band),
             method: :delete,
