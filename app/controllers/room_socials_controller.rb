@@ -11,5 +11,8 @@ class RoomSocialsController < ApplicationController
   end
 
   def destroy
+    @room_social = RoomSocial.find(params[:id])
+    @room_social.destroy
+    redirect_to room_path(@room), notice: "#{@room_social.social_type} url has been deleted."
   end
 end
