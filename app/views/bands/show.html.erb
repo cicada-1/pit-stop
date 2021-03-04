@@ -15,6 +15,16 @@
 
 <h1>Members</h1>
 
+<% if @band_members.any? %>
+		<% @band_members.each do |item| %>
+		<p><%= item.user.stage_name %></p>
+		<% end %>
+<% end %>
+ 
+    
+
+
+
 
 <h2>Socials</h2>
 
