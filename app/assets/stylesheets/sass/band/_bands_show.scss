@@ -108,7 +108,7 @@
 
 // Poster div
 .poster-container {
-  width: 90%;
+  width: 100%;
 	grid-column: 2/3;
 	border: 1px soli black;
   display: flex;
@@ -120,18 +120,22 @@
 
 // Poster
 .poster-band {
-  width: inherit;
+  width: 700px;
   margin: 32px auto;
   height: 80vh;
   background: rgb(161, 129, 106);
+  border-radius: 6px;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 // Photo Styling
 .photos-container {
-  width: 100vw;
-  border-radius: 6px;
   margin: 0 auto;
+  border-radius: 6px;
+  margin: 0 32px;
   background-color: white;
   box-shadow: 2px 2px 16px $box-shadow;
   display: flex;
@@ -141,12 +145,13 @@
   position: relative;
 }
 .photos-box{
-  width: 90vh;
+  height: 260px;
+  width: 100%;
   margin: 0 auto;
   display: flex;
-  flex-direction: row;
-  align-items: center;
   justify-content: space-around;
+  align-items: center;
+ 
 }
 
 .picture {
