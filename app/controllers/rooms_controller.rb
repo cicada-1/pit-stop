@@ -16,6 +16,7 @@ class RoomsController < ApplicationController
   end
 
   def show
+    @room_social = RoomSocial.new
   end
 
   def edit
