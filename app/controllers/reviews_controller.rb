@@ -1,8 +1,8 @@
 class ReviewsController < ApplicationController
-  def update
+  def create
   end
 
-  def create
+  def update
   end
 
   def destroy
