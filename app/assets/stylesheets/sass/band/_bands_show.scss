@@ -1,0 +1,91 @@
+// Page container
+.page-container {
+	width: 100vw;
+	height: auto;
+	margin: 0 auto;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+}
+#btn-plus {
+  font-size: 16
+  px;
+  text-align: center;
+  border-radius: 100%;
+  border: none;
+  background: none;
+  color: $blue;
+}
+// Band info
+
+.band-info {
+	grid-column: 1/2;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+
+}
+.card-btns {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+}
+.band-info-members {
+  width: 100%;
+  border-radius: 6px;
+  margin: 32px;
+  background-color: white;
+  box-shadow: 2px 2px 16px $box-shadow;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+// top card styling
+.card-header{
+	text-align: center;
+	display: block;
+	padding: 16px;
+  border-style: none;
+  background-color: white;
+	@extend %card-header;
+}
+
+.band-members {
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	align-items: center;
+  padding: 16px;
+}
+.avatar {
+	width: 60px;
+	height: 60px;
+	border-radius: 100%;
+	text-align: center;
+	border: 1px solid black;
+}
+// bottom card styling
+.band-description-container{
+  width: 100%;
+  border-radius: 6px;
+  margin: 32px;
+  background-color: white;
+  box-shadow: 2px 2px 16px $box-shadow;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+// Poster
+.poster-container {
+	grid-column: 2/3;
+	border: 1px soli black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

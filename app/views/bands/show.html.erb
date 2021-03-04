@@ -1,62 +1,92 @@
-<h1>Bands#show</h1>
-<%= render 'modal' %>
-<%= render partial: 'add_photos/modal' %>
-<%= render partial: 'band_socials/modal' %>
-<%= render partial: 'add_gig/modal' %>
-<%= render partial: 'band_members/modal' %>
+<div class="page-container">
+	<%= render 'modal' %>
+	<%= render partial: 'add_photos/modal' %>
+	<%= render partial: 'band_socials/modal' %>
+	<%= render partial: 'add_gig/modal' %>
+	<%= render partial: 'band_members/modal' %>
 
-<br />
-<h1>BAND:</h1>
-<div style="width: 300px border:1px solid black;"></div>
-<p>Name<%= @band.name %></p>
-<p>Location<%= @band.location %></p>
-<p>Description<%= @band.description %></p>
-<p>Number of members<%= @band.number_of_members %></p>
+<div class="band-info">
+	<div class="band-info-members">
+		<span class="card-header"><%= @band.name %></span>
+		<div class="card-btns">
 
-<h1>Members</h1>
+			<button
+			type="button"
+			id="btn-plus"
+			data-toggle="modal"
+			data-target="#form_member"
+		>
+		<i class="fas fa-user-plus"></i>
+		</button>
+		
+		<button
+		type="button"
+		id="btn-plus"
+		data-toggle="modal"
+		data-target="#editModal"
+	>
+	<i class="far fa-edit"></i>
+	</button>
+		</div>
+		<div class="band-members">
+			<% if @band_members.any? %>
+				<% @band_members.each do |item| %>
+					<p class="avatar"><%= item.user.stage_name %></p>
+				<% end %>
+			<% end %>
+		</div>
+	</div>
 
-<% if @band_members.any? %>
-		<% @band_members.each do |item| %>
-		<p><%= item.user.stage_name %></p>
-		<% end %>
-<% end %>
+	<div class="band-description-container">
+
+		<span class="card-header">About us</span>
+		<hr>
+		<div class="description-text">
+			<p>Description<%= @band.description %></p>
+		</div>
+		<!-- <p>Location<%= @band.location %></p> -->
+		
+		<span class="card-header">Follow</span>
+		<hr>
+		<div class="sm-icons">
+			<% if @socials %> 
+				<% @socials.each do |item| %> 
+					<%= link_to item.social_type, item.profile_url %>
+					<%= link_to "x", band_social_path(item), method: :delete, data: {
+						confirm: "Are you sure?" } %>
+				<%end %> 
+			<% end %>
+		</div>
+
+	</div>
+
+
+
+
+</div>
+
  
     
 
 
 
 
-<h2>Socials</h2>
-
-<% if @socials %> 
-  <% @socials.each do |item| %> 
-    <%= link_to item.social_type, item.profile_url %>
-    <%= link_to "x", band_social_path(item), method: :delete, data: {
-      confirm: "Are you sure?" } %>
-  <%end %> 
-<% end %>
 
 
-<h2>Gigs</h2>
-<% if @gigs %> 
-  <% @gigs.each do |item| %> 
-	<p><%= item.date %></p>
-    <p><%= item.location  %></p>
-		
-    <%= link_to "Delete Gig", gig_path(item), method: :delete, data: {
-			confirm: "Are you sure?" } %>
-  <%end %> 
-<% end %>
-<br />
 
-<button
-	type="button"
-	class="btn btn-primary"
-	data-toggle="modal"
-	data-target="#form_member"
->
-	Add Members
-</button>
+<div class="poster-container">
+	<h2>Gigs</h2>
+	<% if @gigs %> 
+		<% @gigs.each do |item| %> 
+		<p><%= item.date %></p>
+			<p><%= item.location  %></p>
+			
+			<%= link_to "Delete Gig", gig_path(item), method: :delete, data: {
+				confirm: "Are you sure?" } %>
+		<%end %> 
+	<% end %>
+	<br />
+
 
 <button
 	type="button"
@@ -68,14 +98,7 @@
 </button>
 <br />
 
-<button
-	type="button"
-	class="btn btn-primary"
-	data-toggle="modal"
-	data-target="#editModal"
->
-	Edit
-</button>
+
 
 <button
 	type="button"
@@ -97,5 +120,11 @@
 <br />
 <%= link_to "Delete #{@band.name}", band_path(@band), method: :delete, data: {
 confirm: "Are you sure?" } %>
+
+</div>
+
+</div>
+
+
 
 
