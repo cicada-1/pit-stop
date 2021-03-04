@@ -3,6 +3,7 @@
 <%= render partial: 'add_photos/modal' %>
 <%= render partial: 'band_socials/modal' %>
 <%= render partial: 'add_gig/modal' %>
+<%= render partial: 'band_members/modal' %>
 
 <br />
 <h1>BAND:</h1>
@@ -30,7 +31,7 @@
 	<p><%= item.date %></p>
     <p><%= item.location  %></p>
 		
-    <%= link_to "Delete Gig", gig_path(@band), method: :delete, data: {
+    <%= link_to "Delete Gig", gig_path(item), method: :delete, data: {
 			confirm: "Are you sure?" } %>
   <%end %> 
 <% end %>
@@ -40,7 +41,7 @@
 	type="button"
 	class="btn btn-primary"
 	data-toggle="modal"
-	data-target="#addMembers"
+	data-target="#form_member"
 >
 	Add Members
 </button>
