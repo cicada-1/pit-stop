@@ -26,6 +26,6 @@ class BandPolicy < ApplicationPolicy
   end
 
   def destroy?
-    record.user == user
+    record.users.include?(user)
   end
 end

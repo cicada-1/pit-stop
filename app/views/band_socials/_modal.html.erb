@@ -1,14 +1,14 @@
-<div class="modal" tabindex="-1" role="dialog" id='addMembers'>
+<div class="modal" tabindex="-1" role="dialog" id='form_socials'>
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title">Modal title</h5>
+        <h5 class="modal-title">Add Socials</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-        <%= render 'form', band_socials: @socials%>
+        <%= render partial: 'band_socials/form_socials'%>
       </div>
     </div>
   </div>
