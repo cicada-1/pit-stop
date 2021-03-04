@@ -1,6 +1,6 @@
 class RoomsController < ApplicationController
   before_action :set_room, only: %i[show edit update destroy]
-  
+
   def new
     @room = current_user.rooms.new
     authorize @room
@@ -17,7 +17,19 @@ class RoomsController < ApplicationController
   end
 
   def index
-    @rooms = policy_scope(Room)
+    if params[:query].present?
+      @rooms = policy_scope(Room).where("address ILIKE ?", "%#{params[:query]}%")
+    else
+      @rooms = policy_scope(Room)
+    end
+
+    @markers = @rooms.geocoded.map do |room|
+      {
+        lat: room.latitude,
+        lng: room.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { room: room })
+      }
+    end
   end
 
   def show

@@ -2,6 +2,7 @@ class BandsController < ApplicationController
   before_action :set_band, only: %i[show edit update destroy]
 
   def show
+    @band_social = BandSocial.new
     @socials = BandSocial.where(band_id: @band.id)
     @gig = Gig.where(band_id: @band.id)
     @booking = Booking.where(band_id: @band.id)

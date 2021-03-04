@@ -1,11 +1,30 @@
-<h1>Rooms#index</h1>
+<h1>FIND YOUR ROOM</h1>
 
-<% @rooms.each do |room| %>
 
-  <%= image_tag "room.jpg", alt: "alttext", class: "card-image" %>
+  <% @rooms.each do |room| %>
+
   <h5><%= room.name %></h5>
   <p><%= room.description.truncate(50) %></p>
   <p><%= link_to "See details", room_path(room) %></p>
-  <p>£<%= room.cost %></p>
+  <p><%= room.address %></p>
 
  <% end %>
+
+
+
+ <div class="search-box">
+
+ <%= form_tag rooms_path, method: :get do %>
+        <%= text_field_tag :query,
+          params[:query],
+          class: "form-control",
+          placeholder: "Find a room"
+          %>
+        <%= submit_tag "Search", class: "btn btn-primary" %>
+      <% end %>
+<div id="map"
+     style="width: 60%; height: 600px;"
+     data-markers="<%= @markers.to_json %>"
+     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+ </div>
+</div>
