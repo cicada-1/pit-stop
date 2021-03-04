@@ -1,0 +1,6 @@
+<%= simple_form_for [@band, @review] do |f| %>
+  <div class="fg-form">
+    <%= f.input :description, placeholder:"What would you like to say about this band?" %>
+    <%= f.button :submit, { class: "cta-btn", value: "Post Review" } %>
+  </div>
+<% end %>

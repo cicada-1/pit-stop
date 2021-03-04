@@ -1,0 +1,7 @@
+<%= simple_form_for [@room, @review] do |f| %>
+  <div class="fg-form">
+    <%= input :band_name, placeholder:"Your band's name" %>
+    <%= f.input :description, placeholder:"What would you like to say about this room and the host?" %>
+    <%= f.button :submit, { class: "cta-btn", value: "Post Review" } %>
+  </div>
+<% end %>
