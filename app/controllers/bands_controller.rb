@@ -29,6 +29,7 @@ class BandsController < ApplicationController
   end
 
   def edit
+    raise
   end
 
   def update
@@ -37,6 +38,7 @@ class BandsController < ApplicationController
 
   def destroy
     @band.destroy
+    redirect_to root_path
   end
 
   private
