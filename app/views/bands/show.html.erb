@@ -4,12 +4,13 @@
 	<%= render partial: 'band_socials/modal' %>
 	<%= render partial: 'add_gig/modal' %>
 	<%= render partial: 'band_members/modal' %>
+<!-- BAND INFO LEFT SIDE OF SCREEN -->
+
 
 <div class="band-info">
 	<div class="band-info-members">
 		<span class="card-header"><%= @band.name %></span>
 		<div class="card-btns">
-
 			<button
 			type="button"
 			id="btn-plus"
@@ -18,7 +19,6 @@
 		>
 		<i class="fas fa-user-plus"></i>
 		</button>
-		
 		<button
 		type="button"
 		id="btn-plus"
@@ -37,8 +37,8 @@
 		</div>
 	</div>
 
-	<div class="band-description-container">
 
+	<div class="band-description-container">
 		<span class="card-header">About us</span>
 		<hr>
 		<div class="description-text">
@@ -49,33 +49,40 @@
 		<span class="card-header">Follow</span>
 		<hr>
 		<div class="sm-icons">
+			<button
+			type="button"
+			class="card-btns"
+			id="btn-plus"
+			data-toggle="modal"
+			data-target="#form_socials">
+				<i class="fas fa-plus-square"></i> 
+			</button>
 			<% if @socials %> 
 				<% @socials.each do |item| %> 
+				<div class="sm-icon">
 					<%= link_to item.social_type, item.profile_url %>
 					<%= link_to "x", band_social_path(item), method: :delete, data: {
 						confirm: "Are you sure?" } %>
+				</div>
 				<%end %> 
 			<% end %>
 		</div>
-
 	</div>
-
-
-
-
 </div>
-
- 
-    
-
-
-
-
-
 
 
 <div class="poster-container">
-	<h2>Gigs</h2>
+	<div class="poster-band">
+		<button
+	type="button"
+	class="card-btns"
+	id="btn-plus"
+	data-toggle="modal"
+	data-target="#form_gigs"
+>
+<i class="fas fa-plus-square"></i> Gig
+</button>
+		<h2>Gigs</h2>
 	<% if @gigs %> 
 		<% @gigs.each do |item| %> 
 		<p><%= item.date %></p>
@@ -86,45 +93,33 @@
 		<%end %> 
 	<% end %>
 	<br />
+	<br />
+	</div>
+	<br />
+	</div>
+</div>
 
 
-<button
+<div class="photos-container">
+	<button
 	type="button"
-	class="btn btn-primary"
+	class="card-btns"
+	id="btn-plus"
 	data-toggle="modal"
 	data-target="#addPhotosModal"
 >
-	Add Photos
-</button>
-<br />
+	<i class="fas fa-plus-square"></i>
+	</button>
+	<span class="card-header">Photos</span>
+	<div class="photos-box">
+		<div class="picture"></div>
+		<div class="picture"></div>
+		<div class="picture"></div>
+		<div class="picture"></div>
+		<div class="picture"></div>
+	</div>
+</div>
 
-
-
-<button
-	type="button"
-	class="btn btn-primary"
-	data-toggle="modal"
-	data-target="#form_socials"
->
-	Add Socials
-</button>
-
-<button
-	type="button"
-	class="btn btn-primary"
-	data-toggle="modal"
-	data-target="#form_gigs"
->
-	Add Gig
-</button>
-<br />
 <%= link_to "Delete #{@band.name}", band_path(@band), method: :delete, data: {
-confirm: "Are you sure?" } %>
-
-</div>
-
-</div>
-
-
-
+	confirm: "Are you sure?" } %>
 
