@@ -3,6 +3,8 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.6'
 
+gem 'country_select'
+
 gem 'geocoder'
 
 gem 'cloudinary', '~> 1.16.0'

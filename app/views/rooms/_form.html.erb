@@ -3,7 +3,9 @@
   <%= simple_form_for(@room) do |f| %>
     <div class="fg-form">
       <%= f.input :name, placeholder:'Room Name', required: true %>
-      <%= f.input :address, placeholder:'35, Pitstop Lane, London PT5 0TP', required: true %>
+      <%= f.input :city, placeholder:'London', required: true %>
+      <%= f.input :postcode, placeholder:'PT5 0TP', required: true %>
+      <%= f.input :country, placeholder:'UK', required: true %>
       <%= f.input :description , placeholder:'Description', required: true %>
       <%= f.input :capacity, placeholder:'1', required: true, input_html: { min: '1', step: 'any' } %>
       <%= f.collection_radio_buttons :parking, Room::PARKING_TYPES.each_slice(1).to_a,
