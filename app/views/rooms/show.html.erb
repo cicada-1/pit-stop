@@ -1,7 +1,7 @@
 <div class="container">
   <%= render 'modal' %>
   <%= render partial: 'room_socials/modal' %>
-  <%= render partial: 'reviews/modal_room' %>
+  <%= render partial: 'room_reviews/modal_room' %>
 
   <%= link_to rooms_path do %>
     <i class="fas fa-undo-alt"></i> Back to all rooms
@@ -46,6 +46,15 @@
     data-target="#form_socials"
   >
     Add Socials
+  </button>
+
+  <button
+    type="button"
+    class="btn btn-primary"
+    data-toggle="modal"
+    data-target="#form_room_reviews"
+  >
+    Add Review
   </button>
 
   <br />

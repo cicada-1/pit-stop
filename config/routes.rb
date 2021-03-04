@@ -5,19 +5,20 @@ Rails.application.routes.draw do
 
   resources :rooms do
     resources :bookings, only: [:create, :index]
-    resources :reviews, only: [:create]
+    resources :room_reviews, only: [:create]
     resources :room_socials, only: [:create]
   end
 
   resources :bands, only: [:show, :new, :edit, :create, :update, :destroy] do
-    resources :reviews, only: [:update, :create]
+    resources :band_reviews, only: [:update, :create]
     resources :gigs, only: [:update, :create]
     resources :band_socials, only: [:create]
     # resources :band_members
   end
 
     resources :bookings, only: [:destroy]
-    resources :reviews, only: [:destroy]
+    resources :room_reviews, only: [:destroy]
+    resources :band_reviews, only: [:destroy]
     resources :gigs, only: [:destroy]
     resources :band_socials, only: [:destroy]
     resources :room_socials, only: [:destroy]

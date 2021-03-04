@@ -2,6 +2,7 @@
 <%= render 'modal' %>
 <%= render partial: 'add_photos/modal' %>
 <%= render partial: 'band_socials/modal' %>
+<%= render partial: 'band_reviews/modal_band' %>
 
 <br />
 <div style="width: 300px border:1px solid black;"></div>
@@ -56,6 +57,15 @@
 >
 	Add Socials
 </button>
+
+<button
+    type="button"
+    class="btn btn-primary"
+    data-toggle="modal"
+    data-target="#form_band_reviews"
+  >
+    Add Review
+  </button>
 
 <br />
 <%= link_to "Delete #{@band.name}", band_path(@band), method: :delete, data: {
