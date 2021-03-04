@@ -13,8 +13,15 @@ class BandsController < ApplicationController
   end
 
   def create
-    @band = current_user.band.new(band_params)
+    @band = Band.new(band_params)
     authorize @band
+
+    if @band.save
+      @band_member = BandMember.create(user_id: current_user.id, band_id: @band.id)
+      redirect_to band_path(@band)
+    else
+      render :new
+    end
   end
 
   def edit
