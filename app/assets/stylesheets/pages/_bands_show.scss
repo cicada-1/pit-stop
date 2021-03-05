@@ -10,6 +10,9 @@
   "buttons buttons"
   "review review"
 }
+.room-link-back{
+  width: 100vw;
+}
 #btn-plus {
   font-size: 16px;
   text-align: center;
@@ -24,6 +27,15 @@
   right: 16px;
 }
 
+#btn-bin {
+  font-size: 16px;
+  text-align: center;
+  border-radius: 100%;
+  border: none;
+  background: none;
+  color: $red;
+}
+
 // Band info
 
 .band-info {
@@ -34,6 +46,7 @@
   align-items: center;
   justify-content: flex-start;
   grid-area: "info";
+  margin: 32px;
 }
 
 
@@ -79,7 +92,7 @@
 .band-description-container{
   width: 100%;
   border-radius: 6px;
-  margin: 16px 32px 32px 32px;
+  margin: 0 32px 32px 32px;
   background-color: white;
   box-shadow: 2px 2px 16px $box-shadow;
   display: flex;
@@ -109,11 +122,13 @@
   margin: 16px;
   position: relative;
   margin: 0;
+  position: relative;
 }
 
 
 // Poster div
 .poster-container {
+  height: 700px;
 	grid-column: 2/3;
   justify-self: stretch;
   display: flex;
@@ -174,8 +189,12 @@
     border-radius: 6px;
   }
 
-
-
+.room-options {
+  margin-top: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .room-button-div {
   grid-area: "buttons";
   grid-column: 1/3;
