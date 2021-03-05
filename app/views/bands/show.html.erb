@@ -31,7 +31,7 @@
 		<div class="band-members">
 			<% if @band_members.any? %>
 				<% @band_members.each do |item| %>
-					<p class="avatar"><%= item.user.stage_name %></p>
+				<%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar-band" %>
 				<% end %>
 			<% end %>
 		</div>
