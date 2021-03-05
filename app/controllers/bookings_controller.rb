@@ -19,7 +19,11 @@ class BookingsController < ApplicationController
   end
 
   def index
-    @bookings = Booking.all
+    # @booking = Booking.where(band_id: current_user.)
+    # @bookings = policy_scope(Booking)
+    #  @room = current_user.rooms.new(room_params)
+    #  authorize @room
+
   end
 
   private

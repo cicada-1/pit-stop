@@ -3,6 +3,13 @@
   justify-content: space-evenly;
   flex-direction: column;
   width: 50%;
+
+}
+
+.index-container {
+  h1 {
+    margin-left: 24px;
+  }
 }
 
 .card-image {
@@ -15,11 +22,13 @@
 .index-card {
  display: flex;
  justify-content: space-between;
- height: 280px;
  background-color: white;
  padding: 10px;
  border-radius: 20px;
-
+ margin-top: 8px;
+ margin-bottom: 8px;
+ width: 640px;
+ height: 280px;
  }
 
 .index-card-body {
@@ -31,7 +40,8 @@
 .index-content-container {
   display: flex;
   justify-content: space-evenly;
-}
+
+ }
 
 .homepage-card {
   /* Add shadows to create the "card" effect */
