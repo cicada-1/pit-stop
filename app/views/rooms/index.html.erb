@@ -13,7 +13,7 @@
           <p class="card-link"><p><%= link_to "See details", room_path(room) %></p>
           <p><small class="text-muted">Last updated <%= time_ago_in_words(room.updated_at) %></small></p>
         </div>
-          <%= cl_image_tag room.photos %>
+          <%= image_tag "living-room.jpg", class: "card-image" %>
         </div>
     <% end %>
   </div>
