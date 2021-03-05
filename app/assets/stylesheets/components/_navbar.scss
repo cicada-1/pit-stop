@@ -11,6 +11,24 @@
   width: 40px;
 }
 
+
+.navbar-home {
+  background: transparent;
+  box-shadow: none;
+  position: absolute;
+  width: 100%;
+   a {
+    color: rgb(212, 215, 209) !important;
+    font-weight: bold;
+   }
+}
+
+.logo {
+  color: #B1DDF1;
+  font-size: 64px;
+  font-family: $brand-font;
+}
+
 .nav-search-box {
   display: flex;
 }
@@ -30,4 +48,5 @@
 
 .navbar-right .nav-item {
   margin-left: 4px;
+
 }
