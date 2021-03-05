@@ -8,8 +8,8 @@
       <%= f.input :country, placeholder:'UK', required: true %>
       <%= f.input :description , placeholder:'Description', required: true %>
       <%= f.input :capacity, placeholder:'1', required: true, input_html: { min: '1', step: 'any' } %>
-      <%= f.collection_radio_buttons :parking, Room::PARKING_TYPES.each_slice(1).to_a,
-                                     :first, :last, required: true %>
+      <%= f.input :parking, collection: Room::PARKING_TYPES,
+                  selected: "street parking", required: true %>
       <%= f.input :bio, placeholder:'Host Bio', required: true %>
       <%= f.input :photo, as: :file %>
       <%= f.button :submit, class: "cta-btn" %>
