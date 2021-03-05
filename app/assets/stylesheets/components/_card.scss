@@ -1,0 +1,34 @@
+.flexbox {
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: column;
+  width: 50%;
+}
+
+.card-image {
+    width: 45%;
+    height: 100%;
+    border-radius: 20%;
+
+  }
+
+.index-card {
+ display: flex;
+ justify-content: space-between;
+ height: 280px;
+ background-color: white;
+ padding: 10px;
+ border-radius: 20px;
+
+ }
+
+.index-card-body {
+  text-align: center;
+  width: 100%;
+
+}
+
+.index-content-container {
+  display: flex;
+  justify-content: space-evenly;
+}

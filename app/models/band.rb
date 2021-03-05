@@ -2,6 +2,7 @@ class Band < ApplicationRecord
   has_many_attached :photos
 
   has_many :band_members
+  has_many :users, through: :band_members
   has_many :gigs
   has_many :band_socials
   has_many :reviews

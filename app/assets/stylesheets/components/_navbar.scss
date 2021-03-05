@@ -11,6 +11,7 @@
   width: 40px;
 }
 
+
 .navbar-home {
   background: transparent;
   box-shadow: none;
@@ -26,4 +27,26 @@
   color: #B1DDF1;
   font-size: 64px;
   font-family: $brand-font;
+}
+
+.nav-search-box {
+  display: flex;
+}
+
+.navbar-left {
+  display: flex;
+  align-items: center;
+}
+
+#add-room-btn {
+  border-radius: 5px;
+}
+
+#add-band-btn {
+  border-radius: 5px;
+}
+
+.navbar-right .nav-item {
+  margin-left: 4px;
+
 }
