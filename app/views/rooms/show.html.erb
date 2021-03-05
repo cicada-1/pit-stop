@@ -16,17 +16,30 @@
 	>
 	<i class="far fa-edit"></i>
 	</button>
+    <div class="room-card">
+
       <h2 class="card-header"><%= @room.name.upcase %></h2>
-      <p>Bio: <%= @room.bio %></p>
-    
-    <div  class="description-text">
-      <p>City: <%= @room.city %></p>
-      <p>Capacity: <%= @room.capacity%></p>
-      <p>Description: <%= @room.description %></p>
-      <p>Parking: <%= @room.parking %></p>
+      <p class="room-"><%= @room.city %></p>
+      
+      <div  class="description-text">
+        <h2 class="card-header">My Bio</h2>
+      <p class="room-decription"><%= @room.bio %></p>
+      <h2 class="card-header">About Room</h2>
+      <p class="room-decription">Description: <%= @room.description %></p>
+      <div class="room-info-icons">
+        <p><i class="room-icons fas fa-car"></i>  <%= @room.parking %></p>
+        <p><i class="room-icons fas fa-user-friends"></i> <%= @room.capacity%></p>
+      </div>
+    </div>
+    </div>
+    <div class="room-sm-icons">
+      <h2 class="card-header">Social Media Profiles</h2>
+      <div class="sm-icons">
+        <i class="room-icons fab fa-twitter"></i>
+        <i class="room-icons fab fa-instagram"></i>
+      </div>
     </div>
 
-  <h2 class="card-header">Social Media Profiles</h2>
 
   <button
   type="button"
@@ -50,7 +63,7 @@
   <!-- poster -->
   <div class="poster-container">
     <div class="poster-band">
-      <h2>POSTER</h2>
+    
     </div>
     </div>
   
@@ -67,11 +80,11 @@
       </button>
       <span class="card-header">Photos</span>
       <div class="photos-box">
-        <div class="picture"></div>
-        <div class="picture"></div>
-        <div class="picture"></div>
-        <div class="picture"></div>
-        <div class="picture"></div>
+      <%= image_tag("pexels-friends-in-livingroom") %>
+      <%= image_tag("pexels-friends-in-livingroom") %>
+      <%= image_tag("pexels-friends-in-livingroom") %>
+      <%= image_tag("pexels-friends-in-livingroom") %>
+    
       </div>
     </div>
 
