@@ -9,9 +9,10 @@
 @import "font-awesome";
 
 // Your CSS partials
+@import './sass/index.scss';
 @import "components/index";
 @import "pages/index";
 
 
 // PitStop Styling
-@import './sass/index.scss';
+
