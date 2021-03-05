@@ -33,6 +33,7 @@ class BandsController < ApplicationController
 
   def update
     @band.update(band_params)
+    redirect_to band_path(@band)
   end
 
   def destroy
