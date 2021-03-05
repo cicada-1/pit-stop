@@ -4,6 +4,7 @@
 	<%= render partial: 'band_socials/modal' %>
 	<%= render partial: 'add_gig/modal' %>
 	<%= render partial: 'band_members/modal' %>
+	
 <!-- BAND INFO LEFT SIDE OF SCREEN -->
 
 
@@ -11,6 +12,9 @@
 	<div class="band-info-members">
 		<span class="card-header"><%= @band.name %></span>
 		<div class="card-btns">
+			<%= link_to band_path(@band), method: :delete, data: { confirm: "Are you sure?" }, id: 'btn-bin' do %>
+			<i  id="btn-bin" class="far fa-trash-alt"></i>
+		 <% end %>
 			<button
 			type="button"
 			id="btn-plus"
@@ -109,32 +113,43 @@
 	</button>
 	<span class="card-header">Photos</span>
 	<div class="photos-box">
-		<div class="picture"></div>
-		<div class="picture"></div>
-		<div class="picture"></div>
-		<div class="picture"></div>
-		<div class="picture"></div>
+	  <%= image_tag("pexels-friends-in-livingroom") %>
+      <%= image_tag("pexels-friends-in-livingroom") %>
+      <%= image_tag("pexels-friends-in-livingroom") %>
+      <%= image_tag("pexels-friends-in-livingroom") %>
 	</div>
 </div>
 
-<%= link_to "Delete #{@band.name}", band_path(@band), method: :delete, data: {
-confirm: "Are you sure?" } %>
 
+
+<div class="room-review">
+	<div class="room-review-header">
 <h2>Shoutouts</h2>
-
-<button type="button" class="btn btn-primary">
-  Add Shoutout
+<button
+type="button"
+id="add-review-btn"
+data-toggle="modal"
+data-target="#rooms_review">
+	<i class="fas fa-plus-square"></i> 
+	Add Review
 </button>
-<%= render partial: 'band_reviews/form_band_reviews'%>
+</div>
+
+
+
 <% if @band_reviews %>
   <% @band_reviews.each do |item| %> 
-    <p>
-		<%= item.room.user.stage_name %>
+  <div class="review-card">
+		<strong class="review-author">
+			<%= item.room.user.stage_name %>
+		</strong>
 		<% if item.room.user_id == current_user.id %>
 			<%= link_to "x", band_review_path(item), method: :delete, data: {
 				confirm: "Are you sure?" } %>
 		<% end %>
-		</p>
-    <p><%= item.content %></p>
+	
+    <span class="review-content"><%= item.content %></span>
+	</div>
   <% end %>
 <% end %>
+</div>
