@@ -5,7 +5,7 @@ class Room < ApplicationRecord
   has_many :bookings, dependent: :destroy
   has_many :room_socials, dependent: :destroy
 
-  PARKING_TYPES = %w[private street unavailable]
+  PARKING_TYPES = ["street parking", "private parking", "car park", "unavailable"]
 
   validates :name, :city, :postcode, :country, :description, :bio, :parking, :capacity, presence: true
   validates :parking, inclusion: { in: PARKING_TYPES }
