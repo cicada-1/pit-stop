@@ -1,4 +1,4 @@
-<div class="container">
+<div class="page-container">
   <%= render 'modal' %>
   <%= render partial: 'room_socials/modal' %>
 
@@ -6,54 +6,86 @@
     <i class="fas fa-undo-alt"></i> Back to all rooms
   <% end %>
 
-  <h2><%= @room.name.upcase %></h2>
-    <p>Bio: <%= @room.bio %></p>
+  <div class="band-info">
+    <div class="band-description-container">
+    	<button
+		type="button"
+		id="btn-plus"
+		data-toggle="modal"
+		data-target="#editModal"
+	>
+	<i class="far fa-edit"></i>
+	</button>
+      <h2 class="card-header"><%= @room.name.upcase %></h2>
+      <p>Bio: <%= @room.bio %></p>
+    
+    <div  class="description-text">
+      <p>City: <%= @room.city %></p>
+      <p>Capacity: <%= @room.capacity%></p>
+      <p>Description: <%= @room.description %></p>
+      <p>Parking: <%= @room.parking %></p>
+    </div>
 
-  <div>
-    <p>City: <%= @room.city %></p>
-    <p>Capacity: <%= @room.capacity%></p>
-    <p>Description: <%= @room.description %></p>
-    <p>Parking: <%= @room.parking %></p>
+  <h2 class="card-header">Social Media Profiles</h2>
+
+  <button
+  type="button"
+  class="card-btns"
+  id="btn-plus"
+  data-toggle="modal"
+  data-target="#form_socials">
+    <i class="fas fa-plus-square"></i> 
+  </button>
+    <% if @room_socials %>
+      <% @room_socials.each do |item| %> 
+        <%= link_to item.social_type, item.profile_url %>
+        <%= link_to "x", room_social_path(item), method: :delete, data: {
+          confirm: "Are you sure?" } %>
+      <% end %>
+    <% end %>
+
+    </div>
   </div>
 
-  <br>
-  <h2>Social Media Profiles</h2>
+  <!-- poster -->
+  <div class="poster-container">
+    <div class="poster-band">
+      <h2>POSTER</h2>
+    </div>
+    </div>
+  
 
-  <% if @room_socials %>
-    <% @room_socials.each do |item| %> 
-      <%= link_to item.social_type, item.profile_url %>
-      <%= link_to "x", room_social_path(item), method: :delete, data: {
-        confirm: "Are you sure?" } %>
-    <% end %>
-  <% end %>
+    <div class="photos-container">
+      <button
+      type="button"
+      class="card-btns"
+      id="btn-plus"
+      data-toggle="modal"
+      data-target="#addPhotosModal"
+    >
+      <i class="fas fa-plus-square"></i>
+      </button>
+      <span class="card-header">Photos</span>
+      <div class="photos-box">
+        <div class="picture"></div>
+        <div class="picture"></div>
+        <div class="picture"></div>
+        <div class="picture"></div>
+        <div class="picture"></div>
+      </div>
+    </div>
 
-  <br />
 
-  <button
-    type="button"
-    class="btn btn-primary"
-    data-toggle="modal"
-    data-target="#editModal"
-  >
-    Edit
-  </button>
-
-  <button
-    type="button"
-    class="btn btn-primary"
-    data-toggle="modal"
-    data-target="#form_socials"
-  >
-    Add Socials
-  </button>
-
-  <br />
+<div class="room-button-div">
   <button type="button" class="btn btn-danger">
     <%= link_to room_path(@room), method: :delete, data: { confirm: "Are you sure?" }, id: "red-delete-button" do %>
       <i class="far fa-trash-alt"></i> Delete this room
     <% end %>
   </button>
-  <br>
+</div>
+
+ 
+<div class="room-review">
   <h2>Shoutouts</h2>
   
   <button type="button" class="btn btn-primary">
@@ -75,4 +107,6 @@
       </div>
     <% end %>
   <% end %>
+</div>
+
 </div>
