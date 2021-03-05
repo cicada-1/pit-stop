@@ -1,8 +1,8 @@
 class Booking < ApplicationRecord
-  belongs_to :rooms
-  belongs_to :bands
+  belongs_to :room
+  belongs_to :band
 
-  validates :start_date, :end_date, presence: true
+  validates :start_date, :end_date, :band_name, presence: true
   validate :end_date_after_start_date
   
   private
