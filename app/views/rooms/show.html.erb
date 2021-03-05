@@ -2,7 +2,7 @@
 <div class="page-container">
   <%= render 'modal' %>
   <%= render partial: 'room_socials/modal' %>
-
+  <%= render partial: 'rooms_reviews/modal'%>
 
   <div class="band-info">
  
@@ -92,36 +92,32 @@
       </div>
     </div>
 
-
-
-
-   
-
-
-
- 
 <div class="room-review">
-  <h2>Shoutouts</h2>
+  <div class="room-review-header">
+    <h2 class="card-header">Shoutouts</h2>
+    <button
+    type="button"
+    id="add-review-btn"
+    data-toggle="modal"
+    data-target="#rooms_review">
+      <i class="fas fa-plus-square"></i> 
+      Add Review
+    </button>
+  </div>
   
-  <button type="button" class="btn btn-primary">
-    Add Review
-  </button>
-  <%= render partial: 'room_reviews/form_room_reviews'%>
   
   <% if @room_reviews %>
     <% @room_reviews.each do |item| %> 
       <div class="review-card">
-        <p>
-        <strong><%= item.band.name %></strong>
-        <% if item.band.band_members.select { |element| element.user == current_user }[0] %>
-          <%= link_to "x", room_review_path(item), method: :delete, data: {
-            confirm: "Are you sure?" } %>
-        <% end %>
-        </p>
-        <p><%= item.content %></p>
+        
+        <strong class="review-author"><%= item.band.name %></strong>
+            <% if item.band.band_members.select { |element| element.user == current_user }[0] %>
+                <span class="review-content"><%= item.content %></span>
+                    <%= link_to "x", room_review_path(item), method: :delete, data: {
+                    confirm: "Are you sure?" } %>
+            <% end %>
       </div>
     <% end %>
   <% end %>
 </div>
-
 </div>
