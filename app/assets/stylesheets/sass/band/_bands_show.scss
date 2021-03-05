@@ -1,10 +1,12 @@
 // Page container
 .page-container {
-	width: 100vw;
-	height: auto;
+	width: 90%;
 	margin: 0 auto;
 	display: grid;
-	grid-template-columns: 1fr 1fr;
+	grid-template-areas:
+  "info poster"
+  "photo photo"
+  "review review";
 }
 #btn-plus {
   font-size: 16px;
@@ -14,23 +16,25 @@
   background: none;
   color: $blue;
 }
-
-// Band info
-
-.band-info {
-  width: 90%;
-	grid-column: 1/2;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-start;
-
-}
 .card-btns {
   position: absolute;
   top: 16px;
   right: 16px;
 }
+
+// Band info
+
+.band-info {
+  width: 50vw;
+	grid-column: 1/2;
+  justify-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  grid-area: "info";
+}
+
 
 .band-info-members {
   min-height: 20vh;
@@ -91,6 +95,7 @@
 }
 .description-text {
  @extend %card-text;
+ padding: 16px;
 }
 
 // social media style
@@ -108,31 +113,35 @@
 
 // Poster div
 .poster-container {
-  width: 100%;
+  width: 50vw;
 	grid-column: 2/3;
-	border: 1px soli black;
+  justify-self: stretch;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
+  grid-area: "poster";
   
 }
 
 // Poster
 .poster-band {
-  width: 700px;
-  margin: 32px auto;
+  width: 575px;
+  margin: 32px;
   height: 80vh;
   background: rgb(161, 129, 106);
   border-radius: 6px;
   position: relative;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  justify-content: flex-start;
+  align-items: flex-start;
+  
 }
 
 // Photo Styling
 .photos-container {
+  grid-area: "photo";
   margin: 0 auto;
   border-radius: 6px;
   margin: 0 32px;
@@ -143,9 +152,11 @@
   align-items: center;
   justify-content: space-around;
   position: relative;
+
 }
 .photos-box{
-  height: 260px;
+  
+  height: 240px;
   width: 100%;
   margin: 0 auto;
   display: flex;
@@ -156,8 +167,8 @@
 
 .picture {
   display: inline-block;
-  width: 200px;
-  height: 200px;
+  width: 160px;
+  height: 160px;
   border-radius: 6px;
   background: rgb(161, 122, 122);
 }
