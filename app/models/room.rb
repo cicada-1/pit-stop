@@ -7,7 +7,7 @@ class Room < ApplicationRecord
 
   PARKING_TYPES = %w[private street unavailable]
 
-  validates :name, :city, :postcode, :country, :description, :bio, :parking, :capacity, presence: true
+  validates :name, :postcode, :city, :country, :description, :bio, :parking, :capacity, presence: true
   validates :parking, inclusion: { in: PARKING_TYPES }
   validates :description, :bio, length: { maximum: 1000, message: "Limit is 1000 characters" }
   validates :capacity, numericality: { greater_than: 0 }
@@ -15,7 +15,7 @@ class Room < ApplicationRecord
   after_validation :geocode, if: -> { :will_save_change_to_city? || :will_save_change_to_country? || :will_save_change_to_postcode? }
 
   def address
-    "#{city}, #{country}, #{postcode}"
+    "#{postcode}, #{city}, #{country}"
   end
 end
 

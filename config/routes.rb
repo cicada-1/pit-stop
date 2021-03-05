@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   root to: 'pages#home'
 
   resources :rooms do
-    resources :bookings, only: [:create, :index]
+    resources :bookings, only: [:create]
     resources :room_reviews, only: [:create]
     resources :room_socials, only: [:create]
   end
@@ -15,6 +15,10 @@ Rails.application.routes.draw do
     resources :band_socials, only: [:create]
     resources :band_members, only: [:create]
   end
+
+  resources :bookings, only: [:index]
+
+
     resources :band_members, only: [:destroy]
     resources :bookings, only: [:destroy]
     resources :room_reviews, only: [:destroy]
