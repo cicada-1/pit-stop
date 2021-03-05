@@ -29,7 +29,6 @@ class BandsController < ApplicationController
   end
 
   def edit
-    raise
   end
 
   def update
