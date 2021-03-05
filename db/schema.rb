@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_04_180453) do
+ActiveRecord::Schema.define(version: 2021_03_04_232137) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -50,6 +50,16 @@ ActiveRecord::Schema.define(version: 2021_03_04_180453) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["band_id"], name: "index_band_members_on_band_id"
     t.index ["user_id"], name: "index_band_members_on_user_id"
+  end
+
+  create_table "band_reviews", force: :cascade do |t|
+    t.text "content"
+    t.bigint "room_id", null: false
+    t.bigint "band_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["band_id"], name: "index_band_reviews_on_band_id"
+    t.index ["room_id"], name: "index_band_reviews_on_room_id"
   end
 
   create_table "band_socials", force: :cascade do |t|
@@ -93,14 +103,15 @@ ActiveRecord::Schema.define(version: 2021_03_04_180453) do
     t.index ["band_id"], name: "index_gigs_on_band_id"
   end
 
-  create_table "reviews", force: :cascade do |t|
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.text "description"
+  create_table "room_reviews", force: :cascade do |t|
+    t.text "content"
+    t.string "band_name"
     t.bigint "room_id", null: false
     t.bigint "band_id", null: false
-    t.index ["band_id"], name: "index_reviews_on_band_id"
-    t.index ["room_id"], name: "index_reviews_on_room_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["band_id"], name: "index_room_reviews_on_band_id"
+    t.index ["room_id"], name: "index_room_reviews_on_room_id"
   end
 
   create_table "room_socials", force: :cascade do |t|
@@ -149,12 +160,14 @@ ActiveRecord::Schema.define(version: 2021_03_04_180453) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "band_members", "bands"
   add_foreign_key "band_members", "users"
+  add_foreign_key "band_reviews", "bands"
+  add_foreign_key "band_reviews", "rooms"
   add_foreign_key "band_socials", "bands"
   add_foreign_key "bookings", "bands"
   add_foreign_key "bookings", "rooms"
   add_foreign_key "gigs", "bands"
-  add_foreign_key "reviews", "bands"
-  add_foreign_key "reviews", "rooms"
+  add_foreign_key "room_reviews", "bands"
+  add_foreign_key "room_reviews", "rooms"
   add_foreign_key "room_socials", "rooms"
   add_foreign_key "rooms", "users"
 end

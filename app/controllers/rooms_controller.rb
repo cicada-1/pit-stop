@@ -38,6 +38,8 @@ class RoomsController < ApplicationController
   def show
     @room_social = RoomSocial.new
     @room_socials = RoomSocial.where(room_id: @room.id)
+    @room_review = RoomReview.new
+    @room_reviews = RoomReview.where(room_id: @room.id)
   end
 
   def edit

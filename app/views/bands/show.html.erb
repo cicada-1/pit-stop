@@ -60,3 +60,22 @@
 <br />
 <%= link_to "Delete #{@band.name}", band_path(@band), method: :delete, data: {
 confirm: "Are you sure?" } %>
+
+<h2>Shoutouts</h2>
+
+<button type="button" class="btn btn-primary">
+  Add Shoutout
+</button>
+<%= render partial: 'band_reviews/form_band_reviews'%>
+<% if @band_reviews %>
+  <% @band_reviews.each do |item| %> 
+    <p>
+		<%= item.room.user.stage_name %>
+		<% if item.room.user_id == current_user.id %>
+			<%= link_to "x", band_review_path(item), method: :delete, data: {
+				confirm: "Are you sure?" } %>
+		<% end %>
+		</p>
+    <p><%= item.content %></p>
+  <% end %>
+<% end %>

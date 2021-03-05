@@ -48,6 +48,31 @@
   </button>
 
   <br />
-  <%= link_to "Delete #{@room.name}", room_path(@room), method: :delete, data: {
-  confirm: "Are you sure?" } %>
+  <button type="button" class="btn btn-danger">
+    <%= link_to room_path(@room), method: :delete, data: { confirm: "Are you sure?" }, id: "red-delete-button" do %>
+      <i class="far fa-trash-alt"></i> Delete this room
+    <% end %>
+  </button>
+  <br>
+  <h2>Shoutouts</h2>
+  
+  <button type="button" class="btn btn-primary">
+    Add Review
+  </button>
+  <%= render partial: 'room_reviews/form_room_reviews'%>
+  
+  <% if @room_reviews %>
+    <% @room_reviews.each do |item| %> 
+      <div class="review-card">
+        <p>
+        <strong><%= item.band.name %></strong>
+        <% if item.band.band_members.select { |element| element.user == current_user }[0] %>
+          <%= link_to "x", room_review_path(item), method: :delete, data: {
+            confirm: "Are you sure?" } %>
+        <% end %>
+        </p>
+        <p><%= item.content %></p>
+      </div>
+    <% end %>
+  <% end %>
 </div>
