@@ -2,7 +2,6 @@
 <%= render 'modal' %>
 <%= render partial: 'add_photos/modal' %>
 <%= render partial: 'band_socials/modal' %>
-<%= render partial: 'band_reviews/modal_band' %>
 
 <br />
 <div style="width: 300px border:1px solid black;"></div>
@@ -58,15 +57,21 @@
 	Add Socials
 </button>
 
-<button
-    type="button"
-    class="btn btn-primary"
-    data-toggle="modal"
-    data-target="#form_band_reviews"
-  >
-    Add Review
-  </button>
-
 <br />
 <%= link_to "Delete #{@band.name}", band_path(@band), method: :delete, data: {
 confirm: "Are you sure?" } %>
+
+<h2>Shoutouts</h2>
+
+<button type="button" class="btn btn-primary">
+  Add Shoutout
+</button>
+<%= render partial: 'band_reviews/form_band_reviews'%>
+<% if @band_reviews %>
+  <% @band_reviews.each do |item| %> 
+    <%= item.room.user.stage_name %>
+    <%= item.content %>
+    <%= link_to "x", band_review_path(item), method: :delete, data: {
+      confirm: "Are you sure?" } %>
+  <% end %>
+<% end %>

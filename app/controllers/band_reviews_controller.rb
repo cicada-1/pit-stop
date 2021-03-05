@@ -5,7 +5,7 @@ class BandReviewsController < ApplicationController
     @band_review = BandReview.new(band_review_params.merge(room_id: @room.id, band_id: @band.id, review_type: "band"))
     authorize @room
     authorize @band
-    if @review.save
+    if @band_review.save
       redirect_to band_path(@band), notice: "Your review has been added!"
     else
       render "bands/show"

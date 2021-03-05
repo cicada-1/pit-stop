@@ -1,7 +1,6 @@
 <div class="container">
   <%= render 'modal' %>
   <%= render partial: 'room_socials/modal' %>
-  <%= render partial: 'room_reviews/modal_room' %>
 
   <%= link_to rooms_path do %>
     <i class="fas fa-undo-alt"></i> Back to all rooms
@@ -48,16 +47,22 @@
     Add Socials
   </button>
 
-  <button
-    type="button"
-    class="btn btn-primary"
-    data-toggle="modal"
-    data-target="#form_room_reviews"
-  >
-    Add Review
-  </button>
-
   <br />
   <%= link_to "Delete #{@room.name}", room_path(@room), method: :delete, data: {
   confirm: "Are you sure?" } %>
+  <br>
+  <h2>Shoutouts</h2>
+  
+  <button type="button" class="btn btn-primary">
+    Add Review
+  </button>
+  <%= render partial: 'room_reviews/form_room_reviews'%>
+  <% if @room_reviews %>
+    <% @room_reviews.each do |item| %> 
+      <%= item.band.name %>
+      <%= item.content %>
+      <%= link_to "x", room_review_path(item), method: :delete, data: {
+        confirm: "Are you sure?" } %>
+    <% end %>
+  <% end %>
 </div>
