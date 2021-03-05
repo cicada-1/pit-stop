@@ -1,9 +1,9 @@
 class Room < ApplicationRecord
   has_many_attached :photos
   belongs_to :user
-  has_many :reviews
-  has_many :bookings
-  has_many :room_socials
+  has_many :room_reviews, dependent: :destroy
+  has_many :bookings, dependent: :destroy
+  has_many :room_socials, dependent: :destroy
 
   PARKING_TYPES = %w[private street unavailable]
 
