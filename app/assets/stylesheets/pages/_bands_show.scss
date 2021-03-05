@@ -6,7 +6,9 @@
 	grid-template-areas:
   "info poster"
   "photo photo"
-  "review review";
+  "review review"
+  "buttons buttons"
+  "review review"
 }
 #btn-plus {
   font-size: 16px;
@@ -99,7 +101,7 @@
 
 // social media style
 .sm-icons {
-  height: 90px;
+  height: 64px;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -127,7 +129,9 @@
 .poster-band {
   width: 575px;
   height: 100%;
-  background: rgb(161, 129, 106);
+  background-image: url('poster');
+  background-position: center;
+  background-size: cover;
   border-radius: 6px;
   position: relative;
   display: flex;
@@ -135,12 +139,46 @@
   justify-content: flex-start;
   align-items: flex-start;
   box-shadow: 2px 2px 16px $box-shadow;
-  
+ 
 }
 
 // Photo Styling
 .photos-container {
   grid-area: "photo";
+  grid-column: 1/3;
+  justify-items: center;
+  margin-bottom: 32px;
+  border-radius: 6px;
+  background-color: white;
+  box-shadow: 2px 2px 16px $box-shadow;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  position: relative;
+  padding-bottom: 32px;
+}
+.photos-box{ 
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+ 
+}
+
+
+  img {
+    width: 260px;
+    overflow: hidden;
+    border-radius: 6px;
+  }
+
+
+
+.room-button-div {
+  grid-area: "buttons";
+  grid-column: 1/3;
   justify-items: center;
   margin: 0 64px;
   border-radius: 6px;
@@ -151,22 +189,37 @@
   align-items: center;
   justify-content: space-around;
   position: relative;
-
 }
-.photos-box{ 
-  height: 240px;
-  width: 100%;
-  margin: 0 auto;
+
+.room-review {
+  grid-area: "review";
+  grid-column: 1/3;
+  justify-items: center;
+  margin: 0 64px;
+  border-radius: 6px;
+  background-color: white;
+  box-shadow: 2px 2px 16px $box-shadow;
   display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  position: relative;
+}
+
+.room-card {
+  display: flex;
+  flex-direction: column;
   justify-content: space-around;
   align-items: center;
- 
+  padding: 8px;
 }
 
-.picture {
-  display: inline-block;
-  width: 160px;
-  height: 160px;
-  border-radius: 6px;
-  background: rgb(161, 122, 122);
+.room-info-icons {
+  display: flex;
+  justify-content: space-around;
+}
+
+.room-icons {
+  color:$blue;
+  height: 24px;
 }
