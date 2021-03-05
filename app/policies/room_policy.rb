@@ -22,10 +22,10 @@ class RoomPolicy < ApplicationPolicy
   end
 
   def update?
-    record.users.include?(user)  # Only room creator can update it
+    record.user == user  # Only room creator can update it
   end
 
   def destroy?
-    record.users.include?(user)  # Only room creator can update it
+    record.user == user  # Only room creator can update it
   end
 end

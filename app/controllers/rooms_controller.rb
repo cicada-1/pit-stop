@@ -1,4 +1,6 @@
 class RoomsController < ApplicationController
+  skip_before_action :authenticate_user!, only: [ :index ]
+  
   before_action :set_room, only: %i[show edit update destroy]
 
   def new
@@ -18,7 +20,8 @@ class RoomsController < ApplicationController
 
   def index
     if params[:query].present?
-      @rooms = policy_scope(Room).where("address ILIKE ?", "%#{params[:query]}%")
+      @rooms = policy_scope(Room).near(params[:query])
+      # @rooms = policy_scope(Room).where("address ILIKE ?", "%#{params[:query]}%")
     else
       @rooms = policy_scope(Room)
     end
@@ -34,6 +37,9 @@ class RoomsController < ApplicationController
 
   def show
     @room_social = RoomSocial.new
+    @room_socials = RoomSocial.where(room_id: @room.id)
+    @room_review = RoomReview.new
+    @room_reviews = RoomReview.where(room_id: @room.id)
   end
 
   def edit
@@ -60,6 +66,6 @@ class RoomsController < ApplicationController
   end
 
   def room_params
-    params.require(:room).permit(:name, :address, :description, :capacity, :parking, :bio, :user_id)
+    params.require(:room).permit(:name, :country, :city, :postcode, :description, :capacity, :parking, :bio, :user_id)
   end
 end

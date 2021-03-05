@@ -1,32 +1,78 @@
 <div class="container">
-  <h1>Rooms#show</h1>
+  <%= render 'modal' %>
+  <%= render partial: 'room_socials/modal' %>
 
-  <%= link_to 'All Rooms', rooms_path %>
+  <%= link_to rooms_path do %>
+    <i class="fas fa-undo-alt"></i> Back to all rooms
+  <% end %>
 
-  <h3><%= @room.name.upcase %></h3>
+  <h2><%= @room.name.upcase %></h2>
     <p>Bio: <%= @room.bio %></p>
 
   <div>
-    <p>Address: <%= @room.address %>/day</p>
+    <p>City: <%= @room.city %></p>
     <p>Capacity: <%= @room.capacity%></p>
     <p>Description: <%= @room.description %></p>
     <p>Parking: <%= @room.parking %></p>
   </div>
 
-
-  <div class=showpage-btn>
-    <%= link_to new_room_path(@room), class: 'booking-btn' do %>
-      Make a booking
-      <br>
-      <% end %><br>
-    <%= link_to 'Edit', edit_room_path(@room), class: 'edit-btn' %>
-
-      <%= link_to "Delete", room_path(@room), class: 'delete-btn',
-      method: :delete,
-      data: { confirm: "Are you sure?" } %>
-  </div>
   <br>
-  <h2>Add Social Media Profile</h2>
+  <h2>Social Media Profiles</h2>
 
-  <%= render "room_socials/form" %>
+  <% if @room_socials %>
+    <% @room_socials.each do |item| %> 
+      <%= link_to item.social_type, item.profile_url %>
+      <%= link_to "x", room_social_path(item), method: :delete, data: {
+        confirm: "Are you sure?" } %>
+    <% end %>
+  <% end %>
+
+  <br />
+
+  <button
+    type="button"
+    class="btn btn-primary"
+    data-toggle="modal"
+    data-target="#editModal"
+  >
+    Edit
+  </button>
+
+  <button
+    type="button"
+    class="btn btn-primary"
+    data-toggle="modal"
+    data-target="#form_socials"
+  >
+    Add Socials
+  </button>
+
+  <br />
+  <button type="button" class="btn btn-danger">
+    <%= link_to room_path(@room), method: :delete, data: { confirm: "Are you sure?" }, id: "red-delete-button" do %>
+      <i class="far fa-trash-alt"></i> Delete this room
+    <% end %>
+  </button>
+  <br>
+  <h2>Shoutouts</h2>
+  
+  <button type="button" class="btn btn-primary">
+    Add Review
+  </button>
+  <%= render partial: 'room_reviews/form_room_reviews'%>
+  
+  <% if @room_reviews %>
+    <% @room_reviews.each do |item| %> 
+      <div class="review-card">
+        <p>
+        <strong><%= item.band.name %></strong>
+        <% if item.band.band_members.select { |element| element.user == current_user }[0] %>
+          <%= link_to "x", room_review_path(item), method: :delete, data: {
+            confirm: "Are you sure?" } %>
+        <% end %>
+        </p>
+        <p><%= item.content %></p>
+      </div>
+    <% end %>
+  <% end %>
 </div>

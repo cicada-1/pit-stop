@@ -1,26 +1,56 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <%= link_to "#", class: "navbar-brand" do %>
-    <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" %>
-    <% end %>
+
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon <%= yield(:navbar_class)  %>">
+  <div class="navbar-left">
+  <%= link_to "/", class: "navbar-brand" do %>
+    <span class="logo">Pit Stop</span>
+  <% end %>
+
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <%= link_to "Home", "/", class: "nav-link" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to "Available Rooms", "/rooms", class: "nav-link" %>
+      </li>
+    </ul>
+  </div>
+
+  <%= form_tag rooms_path, method: :get, class: "nav-search-box" do %>
+    <%= text_field_tag :query,
+      params[:query],
+      class: "form-control",
+      placeholder: "Find a room"
+      %>
+    <%= submit_tag "Search", class: "btn btn-primary" %>
+  <% end %>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+  <div class="collapse navbar-collapse navbar-right" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <%= link_to "/rooms/new", { class: "btn btn-primary", id: "add-room-btn"} do %>
+          <i class="fas fa-plus"></i> Add Room
+        <% end %>
+      </li>
+      <li class="nav-item">
+        <%= link_to "/bands/new", { class: "btn btn-primary", id: "add-band-btn"} do %>
+          <i class="fas fa-plus"></i> Add Band
+        <% end %>
+      </li>
       <% if user_signed_in? %>
-        <li class="nav-item active">
-          <%= link_to "Home", "#", class: "nav-link" %>
-        </li>
         <li class="nav-item">
-          <%= link_to "Messages", "#", class: "nav-link" %>
+          <%= link_to "#", class: "nav-link" do %>
+            <i class="far fa-envelope"></i> Messages
+          <% end %>
         </li>
         <li class="nav-item dropdown">
-          <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <%= image_tag "emma-copy.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-            <%= link_to "Action", "#", class: "dropdown-item" %>
+            <%= link_to "My bookings", "/bookings", class: "dropdown-item" %>
             <%= link_to "Another action", "#", class: "dropdown-item" %>
             <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
           </div>
@@ -28,6 +58,9 @@
       <% else %>
         <li class="nav-item">
           <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Sign up", new_user_session_path, class: "nav-link" %>
         </li>
       <% end %>
     </ul>

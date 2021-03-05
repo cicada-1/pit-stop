@@ -9,6 +9,8 @@ class BandsController < ApplicationController
     @booking = Booking.where(band_id: @band.id)
     @band_member = BandMember.new
     @band_members = @band.band_members
+    @band_review = BandReview.new
+    @band_reviews = BandReview.where(band_id: @band.id)
   end
 
   def new

@@ -1,2 +1,36 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+
+<% content_for(:navbar_class, "navbar-home") %>
+
+<div class="homepage">
+  <div class="banner">
+    <div class="banner-content">
+        <h1>Couch surfing for bands on tour</h1>
+        <p>Pit Stop connects music fans with bands.</p>
+        <div class="form-outline">
+          <input type="search" id="form1" class="form-control" placeholder="Where are you looking to Pit Stop?"
+          aria-label="Search" />
+        </div>
+    </div>
+  </div>
+  <div class="homepage-card-container">
+      <div class="homepage-card">
+        <div class="container">
+          <h4><b>Find a host</b></h4>
+          <p>Search our network of hosts near your upcoming gig venues.</p>
+        </div>
+      </div>
+      <div class="homepage-card">
+        <div class="container">
+          <h4><b>Support your scene</b></h4>
+          <p>Become a host and help out bands touring near you.</p>
+        </div>
+      </div>
+      <div class="homepage-card">
+        <div class="container">
+          <h4><b>Find a host</b></h4>
+          <p>Search our network of hosts near your upcoming gig venues.</p>
+        </div>
+      </div>
+  </div>
+</div>
+
