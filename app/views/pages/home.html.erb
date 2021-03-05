@@ -6,10 +6,15 @@
     <div class="banner-content">
         <h1>Couch surfing for bands on tour</h1>
         <p>Pit Stop connects music fans with bands.</p>
-        <div class="form-outline">
-          <input type="search" id="form1" class="form-control" placeholder="Where are you looking to Pit Stop?"
-          aria-label="Search" />
-        </div>
+
+        <%= form_tag rooms_path, method: :get, class: "nav-search-box" do %>
+            <%= text_field_tag :query,
+              params[:query],
+              class: "form-control",
+              placeholder: "Find a Pit Stop"
+              %>
+            <%= submit_tag "Search", class: "btn btn-primary" %>
+          <% end %>
     </div>
   </div>
   <div class="homepage-card-container">
