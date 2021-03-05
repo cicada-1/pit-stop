@@ -40,6 +40,7 @@ class RoomsController < ApplicationController
     @room_socials = RoomSocial.where(room_id: @room.id)
     @room_review = RoomReview.new
     @room_reviews = RoomReview.where(room_id: @room.id)
+    @booking = Booking.new
   end
 
   def edit
