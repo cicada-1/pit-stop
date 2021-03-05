@@ -1,11 +1,12 @@
 class BookingsController < ApplicationController
   def create
-    @booking = Booking.new(booking_params)
     @room = Room.find(params[:room_id])
-    @booking.room = @room
-
+    @band = Band.where("name ILIKE ?", "%#{params["booking"]["band_name"]}%").select { |element| element.band_members.find_by(user_id: current_user.id) }[0]
+    @booking = Booking.new(booking_params.merge(room_id: @room.id, band_id: @band.id))
+    authorize @room
+    authorize @band
     if @booking.save
-      redirect_to room_path(@room)
+      redirect_to bookings_path, notice: "New booking requested!"
     else
       render "rooms/show"
     end
@@ -19,16 +20,15 @@ class BookingsController < ApplicationController
   end
 
   def index
-    # @booking = Booking.where(band_id: current_user.)
-    # @bookings = policy_scope(Booking)
-    #  @room = current_user.rooms.new(room_params)
-    #  authorize @room
-
+    @bookings = policy_scope(Booking).where(band_id: current_user.bands.ids)
+    @booking_requests = policy_scope(Booking).where(room_id: current_user.room_ids)
+    authorize @bookings
+    authorize @booking_requests
   end
 
   private
 
   def booking_params
-    params.require(:booking).permit(:start_date, :end_date)
+    params.require(:booking).permit(:start_date, :end_date, :band_name)
   end
 end
