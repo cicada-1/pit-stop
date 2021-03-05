@@ -1,11 +1,6 @@
 .navbar-lewagon {
   justify-content: space-between;
   background: white;
-  .logo {
-  color: #B1DDF1;
-  font-size: 64px;
-  font-family: $brand-font;
-}
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -28,6 +23,11 @@
    }
 }
 
+.logo {
+  color: #B1DDF1;
+  font-size: 64px;
+  font-family: $brand-font;
+}
 
 .nav-search-box {
   display: flex;
@@ -49,20 +49,4 @@
 .navbar-right .nav-item {
   margin-left: 4px;
 
-}
-
-
-.navbar-dark-logo {
-  box-shadow: none;
-  position: absolute;
-  width: 100%;
-   a {
-    color: black;
-    font-weight: bold;
-   }
-   .logo {
-  color: black;
-  font-size: 64px;
-  font-family: $brand-font;
-}
 }
