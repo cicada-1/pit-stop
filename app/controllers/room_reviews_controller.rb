@@ -16,6 +16,12 @@ class RoomReviewsController < ApplicationController
   end
 
   def destroy
+    @room_review = RoomReview.find(params[:id])
+    @room = @room_review.room
+    @band = @room_review.band
+    authorize @band
+    @room_review.destroy
+    redirect_to room_path(@room), notice: "Your review has been deleted."
   end
 
   private
