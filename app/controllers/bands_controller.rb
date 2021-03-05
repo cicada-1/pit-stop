@@ -4,8 +4,11 @@ class BandsController < ApplicationController
   def show
     @band_social = BandSocial.new
     @socials = BandSocial.where(band_id: @band.id)
-    @gig = Gig.where(band_id: @band.id)
+    @gig = Gig.new
+    @gigs = Gig.where(band_id: @band.id)
     @booking = Booking.where(band_id: @band.id)
+    @band_member = BandMember.new
+    @band_members = @band.band_members
     @band_review = BandReview.new
     @band_reviews = BandReview.where(band_id: @band.id)
   end
@@ -32,10 +35,12 @@ class BandsController < ApplicationController
 
   def update
     @band.update(band_params)
+    redirect_to band_path(@band)
   end
 
   def destroy
     @band.destroy
+    redirect_to root_path
   end
 
   private

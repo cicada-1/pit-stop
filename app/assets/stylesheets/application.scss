@@ -1,6 +1,7 @@
 // Graphical variables
-@import "config/fonts";
 @import "config/colors";
+@import "config/fonts";
+@import "config/mixins";
 @import "config/bootstrap_variables";
 
 // External libraries
@@ -9,10 +10,6 @@
 @import "font-awesome";
 
 // Your CSS partials
-@import './sass/index.scss';
 @import "components/index";
 @import "pages/index";
-
-
-// PitStop Styling
 

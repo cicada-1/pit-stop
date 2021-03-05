@@ -13,9 +13,9 @@ Rails.application.routes.draw do
     resources :band_reviews, only: [:update, :create]
     resources :gigs, only: [:update, :create]
     resources :band_socials, only: [:create]
-    # resources :band_members
+    resources :band_members, only: [:create]
   end
-
+    resources :band_members, only: [:destroy]
     resources :bookings, only: [:destroy]
     resources :room_reviews, only: [:destroy]
     resources :band_reviews, only: [:destroy]

@@ -1,0 +1,5 @@
+<%= simple_form_for [@band, @band_member] do |f| %>
+  
+  <%= f.association :user, label_method: :stage_name, value_method: :id %>
+  <%= f.button :submit %>
+<% end %>
