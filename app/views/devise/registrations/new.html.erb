@@ -25,10 +25,8 @@
           <%= f.input :last_name,
                       required: true,
                       input_html: { autocomplete: "family-name" } %>
-
-          <%= f.collection_radio_buttons :user_type, User::USER_TYPES.each_slice(1).to_a,
-                      :first, :last, required: true %>
-
+          <%= f.input :user_type, collection: User::USER_TYPES,
+                      required: true %>
           <%= f.input :stage_name,
                       input_html: { autocomplete: "nickname" } %>
           <%= f.input :photo, as: :file %>
