@@ -1,4 +1,4 @@
-<div class="container  d-flex justify-content-around">
+<div class="container">
 	<%= render 'modal' %>
 	<%= render partial: 'add_photos/modal' %>
 	<%= render partial: 'band_socials/modal' %>
@@ -9,9 +9,9 @@
 <!-- BAND INFO LEFT SIDE OF SCREEN -->
 
 
-	<div class="row margin-32">
+	<div class="row">
 		<div class="col-lg-6 col-md-6 col-sm-12">
-		<div class="show-user-info">
+		<div class="show-user-info margin-32 ">
 			<span class="card-header"><%= @band.name %></span>
 			<div class="card-btns">
 				<%= link_to band_path(@band), method: :delete, data: { confirm: "Are you sure?" }, id: 'btn-bin' do %>
@@ -38,14 +38,14 @@
 				<%= image_tag("pexels-friends-in-livingroom") %>
 			</div>
 		</div>
-		<div class="band-description-container">
+		<div class="band-description-container margin-32 ">
 			<span class="card-header">About us</span>
 			<hr>
-			<div class="description-text">
+			<div class="user-description-user">
 				<p>Description<%= @band.description %></p>
 			</div>
 			<!-- <p>Location<%= @band.location %></p> -->
-			
+			<!-- Follow Section -->
 			<span class="card-header">Follow</span>
 			<hr>
 			<div class="sm-icons">
@@ -70,7 +70,7 @@
 		</div>
 
 		</div>
-
+<!-- Poster -->
 		<div class="col-lg-6 col-md-6 col-sm-12">
 		<div class="poster-band">
 			<button
@@ -99,8 +99,8 @@
 	</div>
 </div>
 
-
-<div class="row col-12 show-photos-box container">
+<!-- Phots Section -->
+<div class="row col-12 show-photos-box container show-photo-container ">
 	<button
 	type="button"
 	class="card-btns"
@@ -111,11 +111,19 @@
 	<i class="fas fa-plus-square"></i>
 	</button>
 	<span class="card-header col-12">Photos</span>
-	<div class="row ">
+	<div class="show-photos-display">
+		<div class="show-photo-box">
 	  	<%= image_tag("pexels-friends-in-livingroom") %>
-      <%= image_tag("pexels-friends-in-livingroom")  %>
-      <%= image_tag("pexels-friends-in-livingroom") %>
-      <%= image_tag("pexels-friends-in-livingroom") %>
+		</div>
+		<div class="show-photo-box">
+	  	<%= image_tag("pexels-friends-in-livingroom") %>
+		</div>
+		<div class="show-photo-box">
+	  	<%= image_tag("pexels-friends-in-livingroom") %>
+		</div>
+		<div class="show-photo-box">
+	  	<%= image_tag("pexels-friends-in-livingroom") %>
+		</div>
 	</div>
 </div>
 
@@ -123,7 +131,7 @@
 
 <div class="row col-12 show-review">
 	<div class="room-review-header">
-<h2>Shoutouts</h2>
+<h2 class="page-main-text">Shoutouts</h2>
 <button
 type="button"
 id="add-review-btn"

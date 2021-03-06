@@ -57,12 +57,16 @@ body {
   border-radius: 100%;
   border: none;
   background: none;
-  color: $blue;
+  i {
+    color: $pit-blue;
+  }
 }
+
 .card-btns {
   position: absolute;
   top: 16px;
   right: 16px;
+  z-index: 3;
 }
 
 #btn-bin {
@@ -89,6 +93,7 @@ body {
 
 
 .show-user-info{
+  padding: 32px;
   width: 100%;
   border-radius: 6px;
   box-shadow: 2px 2px 16px $box-shadow;
@@ -107,6 +112,7 @@ body {
   background: $pit-background;
   color: $pit-gray;
 	@extend %card-header;
+  font-family: $headers-font;
 }
 
 .user-info-main-photo {
@@ -125,28 +131,26 @@ body {
 }
 // bottom card styling
 .band-description-container{
-  width: 100%;
   border-radius: 6px;
-  margin: 0 32px 32px 32px;
-  background-color: white;
+  background-color: $pit-background;
   box-shadow: 2px 2px 16px $box-shadow;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  background: $pit-background;
   hr {
     height: 1px;
     border: none;
-    border-bottom: 1px solid $text-color;
+    border-bottom: 1px solid $pit-gray;
     width: 30%;
     margin: 8px auto;
   }
 }
-.description-text {
+.user-description-user {
  @extend %card-text;
  padding: 16px;
  color: $pit-gray;
+ font-family: $body-font;
 }
 
 // social media style
@@ -165,22 +169,16 @@ body {
 
 // Poster div
 .poster-container {
-  height: 700px;
-
-  justify-self: stretch;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-start;
-
-  margin: 32px;
-  
 }
 
 // Poster
 .poster-band {
-  width: 100%;
-  height: 100%;
+  width: 94%;
+  height: 94%;
   background-image: url(poster);
   background-position: center;
   background-size: cover;
@@ -191,31 +189,26 @@ body {
   justify-content: flex-start;
   align-items: flex-start;
   box-shadow: 2px 2px 16px $box-shadow;
-  margin: 32px;
- 
 }
 
 // Photo Styling
-.show-photos-box {
+.show-photo-container {
   width: 90%;
   margin: 32px auto;
   border-radius: 6px;
   background-color: $pit-background;
   box-shadow: 2px 2px 16px $box-shadow;
-  position: relative;
-  
 }
-.photos-box{ 
+.show-photos-display {
   width: 100%;
-  margin: 0 auto;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-around;
-  align-items: center;
-  span {
-    @extend %page-header;
-    color: $pit-gray;
-  }
+  align-items: flex-start;
+  padding: 16px;
+  padding-bottom: 32px;
 }
+
 
 
   img {
@@ -318,4 +311,10 @@ body {
   text-align: center;
   @extend %card-text;
   margin-bottom: 8px;
+}
+
+.page-main-text {
+  @extend %page-header;
+  font-family: $headers-font;
+  color: $pit-gray;
 }
