@@ -4,6 +4,7 @@
 	<%= render partial: 'band_socials/modal' %>
 	<%= render partial: 'add_gig/modal' %>
 	<%= render partial: 'band_members/modal' %>
+	<%= render partial: 'show-settings/modal'%>
 
 	
 <!-- BAND INFO LEFT SIDE OF SCREEN -->
@@ -14,25 +15,14 @@
 		<div class="show-user-info margin-32 ">
 			<span class="card-header"><%= @band.name %></span>
 			<div class="card-btns">
-				<%= link_to band_path(@band), method: :delete, data: { confirm: "Are you sure?" }, id: 'btn-bin' do %>
-				<i  id="btn-bin" class="far fa-trash-alt"></i>
-			 <% end %>
 				<button
 				type="button"
 				id="btn-plus"
 				data-toggle="modal"
-				data-target="#form_member"
-			>
-			<i class="fas fa-user-plus"></i>
-			</button>
-			<button
-			type="button"
-			id="btn-plus"
-			data-toggle="modal"
-			data-target="#editModal"
-		>
-		<i class="far fa-edit"></i>
-		</button>
+				data-target="#user_settings"
+				>
+				<i class="fas fa-user-cog"></i>
+				</button>
 			</div>
 			<div class="user-info-main-photo">
 				<%= image_tag("pexels-friends-in-livingroom") %>
@@ -49,14 +39,6 @@
 			<span class="card-header">Follow</span>
 			<hr>
 			<div class="sm-icons">
-				<button
-				type="button"
-				class="card-btns"
-				id="btn-plus"
-				data-toggle="modal"
-				data-target="#form_socials">
-					<i class="fas fa-plus-square"></i> 
-				</button>
 				<% if @socials %> 
 					<% @socials.each do |item| %> 
 					<div class="sm-icon">
@@ -73,15 +55,8 @@
 <!-- Poster -->
 		<div class="col-lg-6 col-md-6 col-sm-12">
 		<div class="poster-band">
-			<button
-		type="button"
-		class="card-btns"
-		id="btn-plus"
-		data-toggle="modal"
-		data-target="#form_gigs"
-	>
-	<i class="fas fa-plus-square"></i> Gig
-	</button>
+
+
 			<h2>Gigs</h2>
 		<% if @gigs %> 
 			<% @gigs.each do |item| %> 
@@ -101,15 +76,6 @@
 
 <!-- Phots Section -->
 <div class="row col-12 show-photos-box container show-photo-container ">
-	<button
-	type="button"
-	class="card-btns"
-	id="btn-plus"
-	data-toggle="modal"
-	data-target="#addPhotosModal"
->
-	<i class="fas fa-plus-square"></i>
-	</button>
 	<span class="card-header col-12">Photos</span>
 	<div class="show-photos-display">
 		<div class="show-photo-box">
@@ -154,7 +120,7 @@ data-target="#rooms_review">
 			<%= link_to "x", band_review_path(item), method: :delete, data: {
 				confirm: "Are you sure?" } %>
 		<% end %>
-	
+
     <span class="review-content"><%= item.content %></span>
 	</div>
   <% end %>
