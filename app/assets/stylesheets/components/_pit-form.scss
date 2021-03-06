@@ -1,0 +1,119 @@
+
+
+
+.modal-backdrop {
+	-webkit-backdrop-filter: blur(16px);
+	backdrop-filter: blur(16px);
+	background-color: $pit-gray;
+  opacity: 0.6;
+  @include pit-flex-center;
+}
+.modal-content {
+  border-radius: 6px;
+  border: 1px solid $pit-gray;
+  box-shadow: 2px 2px 16px $box-shadow;
+  background: $pit-background;
+  color: $pit-gray;
+  h5 {
+    @extend %page-header;
+    font-family: $headers-font;
+  }
+  button {
+    color: $pit-gray;
+    &:hover {
+      color: $bright-red;
+    }
+  }
+}
+
+
+.simple_form {
+  label {
+    color: $pit-gray;
+    @extend %card-subheader;
+  }
+  input {
+    color: $pit-gray;
+    font-family: $body-font;
+    @extend %card-text;
+  }
+  select {
+    border-radius: 6px;
+    border-color: $pit-gray;
+    background: $pit-background;
+    color: $pit-gray;
+    font-family: $body-font;
+    @extend %card-text;
+    option {
+      color: $pit-gray;
+      font-family: $body-font;
+      @extend %card-text;
+    }
+  }
+  input {
+    font-family: $body-font;
+    @extend %bt-text;
+    color: $pit-gray;
+    border: 1px solid $pit-gray;
+    border-radius: 6px;
+    background: $pit-background;
+  }
+  .form-control:focus {
+    color: $pit-gray;
+    background-color: $pit-background;
+    border-color: none;
+    outline: 0;
+    box-shadow: none;
+}
+
+input[type='text'] {
+  font-family: $body-font;
+    @extend %bt-text;
+    color: $pit-gray;
+    border: 1px solid $pit-gray;
+    border-radius: 6px;
+    background: $pit-background;
+  }
+  .form-control:focus {
+    color: $pit-gray;
+    background-color: $pit-background;
+    border-color: none;
+    outline: 0;
+    box-shadow: none;
+}
+
+
+  textarea {
+    overflow: auto;
+    resize: vertical;
+    font-family: $body-font;
+    @extend %bt-text;
+    color: $pit-gray;
+    border: 1px solid $pit-gray;
+    border-radius: 6px;
+    background: $pit-background;
+    &:active {
+      background: $pit-gray;
+      color: $pit-background;
+      border: 1px solid $pit-gray;
+      border-radius: 6px;
+    }
+  }
+  input[type='file'] {
+    content: 'Epic pictures';
+  display: inline-block;
+  background: $pit-background;
+  border: 1px solid $pit-gray;
+  border-radius: 6px;
+  outline: none;
+  white-space: nowrap;
+  -webkit-user-select: none;
+  cursor: pointer;
+    &:hover::before {
+      
+    }
+    &:active::before {
+      background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9);
+    }
+  }
+}

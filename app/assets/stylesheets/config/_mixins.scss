@@ -18,3 +18,9 @@
 @mixin margin-sm {
   margin: 8px 0 8px 0;
 }
+
+@mixin pit-flex-center {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
