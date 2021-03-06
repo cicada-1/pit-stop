@@ -1,4 +1,7 @@
 // Page container
+body {
+  background: $pit-body-bg;
+}
 .page-container {
 	width: 90%;
 	margin: 0 auto;
@@ -82,6 +85,7 @@
   justify-content: flex-start;
   grid-area: "info";
   margin: 32px;
+  
 }
 
 
@@ -97,6 +101,7 @@
   align-items: center;
   justify-content: space-between;
   position: relative;
+
 }
 // top card styling
 .card-header{
