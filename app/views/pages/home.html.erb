@@ -1,38 +1,49 @@
 
 <% content_for(:navbar_class, "navbar-home") %>
 
-<main>
+
+<div class="homepage">
+
   <div class="banner">
     <div class="banner-content">
-        <h1>Couch surfing for bands on tour</h1>
-        <p>Pit Stop connects music fans with bands.</p>
+
+
+      <h1 class="animated-logo"><span class='one'>P</span><span class='two'>i</span><span class='three'>t</span><span class='four'>S</span><span class='five'>t</span><span class='six'>o</span><span class='seven'>p</span></h1>
 
         <%= form_tag rooms_path, method: :get, class: "nav-search-box" do %>
             <%= text_field_tag :query,
               params[:query],
-              class: "form-control",
+              class: "form-control search-form",
               placeholder: "Find a Pit Stop"
               %>
           <% end %>
+
+          <br>
+          <br>
+
+           <h1>Couch surfing for bands on tour</h1>
+            <p>We connect the fans with the bands</p>
+
+       </div>
     </div>
   </div>
   <div class="homepage-card-container">
       <div class="homepage-card">
         <div class="container">
-          <h4><b>Find a host</b></h4>
-          <p>Search our network of hosts near your upcoming gig venues.</p>
+          <h4><b>The best things in life are free</b></h4>
+          <p>Our hosts don't believe in cash. Thank them by brining them to your gig!</p>
         </div>
       </div>
       <div class="homepage-card">
         <div class="container">
           <h4><b>Support your scene</b></h4>
-          <p>Become a host and help out bands touring near you.</p>
+          <p>Become a host and be a part of an unique artist community.</p>
         </div>
       </div>
       <div class="homepage-card">
         <div class="container">
-          <h4><b>Find a host</b></h4>
-          <p>Search our network of hosts near your upcoming gig venues.</p>
+          <h4><b>Spend time with your favorite band</b></h4>
+          <p>Make use of that extra futon and help out an artist in need.</p>
         </div>
       </div>
   </div>
