@@ -1,7 +1,7 @@
 class BookingsController < ApplicationController
   def create
     @room = Room.find(params[:room_id])
-    @band = Band.where("name ILIKE ?", "%#{params["booking"]["band_name"]}%").select { |element| element.band_members.find_by(user_id: current_user.id) }[0]
+    @band = Band.find_by(id: params["booking"]["band_name"])
     @booking = Booking.new(booking_params.merge(room_id: @room.id, band_id: @band.id))
     authorize @room
     authorize @band

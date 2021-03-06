@@ -41,6 +41,7 @@ class RoomsController < ApplicationController
     @room_review = RoomReview.new
     @room_reviews = RoomReview.where(room_id: @room.id)
     @booking = Booking.new
+    @user_bands = Band.where(id: current_user.bands.ids)
   end
 
   def edit
