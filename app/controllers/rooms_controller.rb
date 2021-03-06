@@ -1,6 +1,6 @@
 class RoomsController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :index ]
-  
+
   before_action :set_room, only: %i[show edit update destroy]
 
   def new
@@ -30,7 +30,8 @@ class RoomsController < ApplicationController
       {
         lat: room.latitude,
         lng: room.longitude,
-        infoWindow: render_to_string(partial: "info_window", locals: { room: room })
+        infoWindow: render_to_string(partial: "info_window", locals: { room: room }),
+        image_url: helpers.asset_url('Vector.png')
       }
     end
   end
