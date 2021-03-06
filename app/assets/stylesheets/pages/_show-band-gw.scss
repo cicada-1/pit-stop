@@ -284,7 +284,7 @@ body {
   margin: 16px 0;
   padding: 32px;
   position: relative;
-
+  background-color: $pit-background;
   a {
     position: absolute;
     top: 8px;
@@ -299,15 +299,18 @@ body {
 .review-author {
   display: block;
   text-align: center;
-  @extend %card-header;
   margin-bottom: 8px;
+  color: $pit-gray;
+  background-color: $pit-background;
+  @extend %card-header;
 }
 
 .review-content {
   display: block;
   text-align: center;
-  @extend %card-text;
+  color: $pit-gray;
   margin-bottom: 8px;
+  @extend %card-text;
 }
 
 .page-main-text {
