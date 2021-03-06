@@ -3,11 +3,16 @@ body {
   background: $pit-body-bg;
 }
 
-
-.style-reset {
-	margin: 0;
-  padding: 0;
+.margin-32 {
+  margin: 32px;
 }
+.margin-16 {
+  margin: 16px
+}
+.margin-8 {
+  margin: 8px;
+}
+
 .room-link-back{
   width: 100vw;
 }
@@ -83,43 +88,40 @@ body {
 }
 
 
-.band-info-members {
-  min-height: 20vh;
+.show-user-info{
   width: 100%;
   border-radius: 6px;
-  background-color: white;
   box-shadow: 2px 2px 16px $box-shadow;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
   position: relative;
-
+  background: $pit-background;
 }
+
 // top card styling
 .card-header{
 	text-align: center;
-	display: block;
 	padding: 8px;
-  border-style: none;
-  background-color: white;
+  background: $pit-background;
+  color: $pit-gray;
 	@extend %card-header;
 }
 
-.band-members {
+.user-info-main-photo {
+  margin: 32px;
 	width: 100%;
 	display: flex;
 	flex-direction: row;
 	justify-content: space-around;
 	align-items: center;
-  padding: 16px;
-}
-.avatar-band {
-	width: 80px;
-	height: 80px;
-	border-radius: 100%;
-	text-align: center;
-	border: 1px solid black;
+  img {
+    margin: 16px;
+    width: 260px;
+    height: 260px;
+    border-radius: 6px;
+  }
 }
 // bottom card styling
 .band-description-container{
@@ -132,6 +134,7 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
+  background: $pit-background;
   hr {
     height: 1px;
     border: none;
@@ -143,6 +146,7 @@ body {
 .description-text {
  @extend %card-text;
  padding: 16px;
+ color: $pit-gray;
 }
 
 // social media style
@@ -193,17 +197,13 @@ body {
 
 // Photo Styling
 .show-photos-box {
+  width: 90%;
   margin: 32px auto;
-  grid-column: 1/3;
-  justify-items: center;
   border-radius: 6px;
-  background-color: white;
+  background-color: $pit-background;
   box-shadow: 2px 2px 16px $box-shadow;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-around;
   position: relative;
+  
 }
 .photos-box{ 
   width: 100%;
@@ -211,7 +211,10 @@ body {
   display: flex;
   justify-content: space-around;
   align-items: center;
- 
+  span {
+    @extend %page-header;
+    color: $pit-gray;
+  }
 }
 
 
