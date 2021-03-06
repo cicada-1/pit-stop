@@ -34,7 +34,6 @@
 			<div class="user-description-user">
 				<p>Description<%= @band.description %></p>
 			</div>
-			<!-- <p>Location<%= @band.location %></p> -->
 			<!-- Follow Section -->
 			<span class="card-header">Follow</span>
 			<hr>
@@ -55,22 +54,20 @@
 <!-- Poster -->
 		<div class="col-lg-6 col-md-6 col-sm-12">
 		<div class="poster-band">
-
-
-			<h2>Gigs</h2>
-		<% if @gigs %> 
-			<% @gigs.each do |item| %> 
-			<p><%= item.date %></p>
-				<p><%= item.location  %></p>
-				
-				<%= link_to "Delete Gig", gig_path(item), method: :delete, data: {
-					confirm: "Are you sure?" } %>
-			<%end %> 
-		<% end %>
+			<div class="poster-gig">
+				<span class="poster-title">GIGS</span>
+				<% if @gigs %> 
+					<% @gigs.each do |item| %> 
+					<span class="poster-date"><%= item.date %></span>
+					<span class="poster-location"><%= item.location  %></span>
+						<hr class="hr-poster">
+						<%= link_to "Delete Gig", gig_path(item), method: :delete, data: {
+							confirm: "Are you sure?" } %>
+					<%end %> 
+				<% end %>
+				</div>
 		</div>
 		</div>
-
-
 	</div>
 </div>
 

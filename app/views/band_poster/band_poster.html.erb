@@ -1,0 +1,14 @@
+
+<div class="poster-gig">
+<span class="poster-title">GIGS</span>
+<% if @gigs %> 
+  <% @gigs.each do |item| %> 
+  <span class="poster-date"><%= item.date %></span>
+  <span class="poster-location"><%= item.location  %></span>
+    <hr class="hr-poster">
+    <%= link_to "Delete Gig", gig_path(item), method: :delete, data: {
+      confirm: "Are you sure?" } %>
+  <%end %> 
+<% end %>
+</div>
+
