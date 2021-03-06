@@ -1,7 +1,9 @@
 <% content_for(:navbar_class, "navbar-dark-logo") %>
-<h2>Log in</h2>
+
+
 
   <div class="login-container">
+    <h2 class="text-center">Log in</h2>
     <div class="row justify-content-center">
       <div class="col-12 col-lg-4">
         <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
@@ -13,7 +15,10 @@
             <%= f.input :password,
                         required: false,
                         input_html: { autocomplete: "current-password" } %>
-            <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+
+            <div class="text-left">
+              <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+            </div>
           </div>
 
           <div class="form-actions">

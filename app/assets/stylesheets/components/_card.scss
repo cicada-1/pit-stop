@@ -8,14 +8,17 @@
 
 .index-container {
   h1 {
-    margin-left: 24px;
+    padding-top: 2rem;
+    padding-bottom: 1rem;
+    margin-left: 0px;
+    font-family: $headers-font;
   }
 }
 
 .card-image {
-    width: 64%;
+    width: 100%;
     height: 100%;
-    border-radius: 20%;
+    border-radius: 10px;
 
   }
 
