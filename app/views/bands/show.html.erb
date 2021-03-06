@@ -1,4 +1,4 @@
-<div class="page-container">
+<div class="container style-reset">
 	<%= render 'modal' %>
 	<%= render partial: 'add_photos/modal' %>
 	<%= render partial: 'band_socials/modal' %>
@@ -9,103 +9,102 @@
 <!-- BAND INFO LEFT SIDE OF SCREEN -->
 
 
-<div class="band-info">
-	<div class="band-info-members">
-		<span class="card-header"><%= @band.name %></span>
-		<div class="card-btns">
-			<%= link_to band_path(@band), method: :delete, data: { confirm: "Are you sure?" }, id: 'btn-bin' do %>
-			<i  id="btn-bin" class="far fa-trash-alt"></i>
-		 <% end %>
+	<div class="row">
+		<div class="col-lg-6 col-md-6 col-sm-12">
+		<div class="band-info-members">
+			<span class="card-header"><%= @band.name %></span>
+			<div class="card-btns">
+				<%= link_to band_path(@band), method: :delete, data: { confirm: "Are you sure?" }, id: 'btn-bin' do %>
+				<i  id="btn-bin" class="far fa-trash-alt"></i>
+			 <% end %>
+				<button
+				type="button"
+				id="btn-plus"
+				data-toggle="modal"
+				data-target="#form_member"
+			>
+			<i class="fas fa-user-plus"></i>
+			</button>
 			<button
 			type="button"
 			id="btn-plus"
 			data-toggle="modal"
-			data-target="#form_member"
+			data-target="#editModal"
 		>
-		<i class="fas fa-user-plus"></i>
+		<i class="far fa-edit"></i>
 		</button>
-		<button
+			</div>
+			<div class="band-members">
+				<% if @band_members.any? %>
+					<% @band_members.each do |item| %>
+					<%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar-band" %>
+					<% end %>
+				<% end %>
+			</div>
+		</div>
+		<div class="band-description-container">
+			<span class="card-header">About us</span>
+			<hr>
+			<div class="description-text">
+				<p>Description<%= @band.description %></p>
+			</div>
+			<!-- <p>Location<%= @band.location %></p> -->
+			
+			<span class="card-header">Follow</span>
+			<hr>
+			<div class="sm-icons">
+				<button
+				type="button"
+				class="card-btns"
+				id="btn-plus"
+				data-toggle="modal"
+				data-target="#form_socials">
+					<i class="fas fa-plus-square"></i> 
+				</button>
+				<% if @socials %> 
+					<% @socials.each do |item| %> 
+					<div class="sm-icon">
+						<%= link_to item.social_type, item.profile_url %>
+						<%= link_to "x", band_social_path(item), method: :delete, data: {
+							confirm: "Are you sure?" } %>
+					</div>
+					<%end %> 
+				<% end %>
+			</div>
+		</div>
+
+		</div>
+
+		<div class="col-lg-6 col-md-6 col-sm-12">
+		<div class="poster-band">
+			<button
 		type="button"
+		class="card-btns"
 		id="btn-plus"
 		data-toggle="modal"
-		data-target="#editModal"
+		data-target="#form_gigs"
 	>
-	<i class="far fa-edit"></i>
+	<i class="fas fa-plus-square"></i> Gig
 	</button>
+			<h2>Gigs</h2>
+		<% if @gigs %> 
+			<% @gigs.each do |item| %> 
+			<p><%= item.date %></p>
+				<p><%= item.location  %></p>
+				
+				<%= link_to "Delete Gig", gig_path(item), method: :delete, data: {
+					confirm: "Are you sure?" } %>
+			<%end %> 
+		<% end %>
 		</div>
-		<div class="band-members">
-			<% if @band_members.any? %>
-				<% @band_members.each do |item| %>
-				<%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar-band" %>
-				<% end %>
-			<% end %>
 		</div>
-	</div>
 
 
-	<div class="band-description-container">
-		<span class="card-header">About us</span>
-		<hr>
-		<div class="description-text">
-			<p>Description<%= @band.description %></p>
-		</div>
-		<!-- <p>Location<%= @band.location %></p> -->
-		
-		<span class="card-header">Follow</span>
-		<hr>
-		<div class="sm-icons">
-			<button
-			type="button"
-			class="card-btns"
-			id="btn-plus"
-			data-toggle="modal"
-			data-target="#form_socials">
-				<i class="fas fa-plus-square"></i> 
-			</button>
-			<% if @socials %> 
-				<% @socials.each do |item| %> 
-				<div class="sm-icon">
-					<%= link_to item.social_type, item.profile_url %>
-					<%= link_to "x", band_social_path(item), method: :delete, data: {
-						confirm: "Are you sure?" } %>
-				</div>
-				<%end %> 
-			<% end %>
-		</div>
 	</div>
 </div>
 
 
-<div class="poster-container">
-	<div class="poster-band">
-		<button
-	type="button"
-	class="card-btns"
-	id="btn-plus"
-	data-toggle="modal"
-	data-target="#form_gigs"
->
-<i class="fas fa-plus-square"></i> Gig
-</button>
-		<h2>Gigs</h2>
-	<% if @gigs %> 
-		<% @gigs.each do |item| %> 
-		<p><%= item.date %></p>
-			<p><%= item.location  %></p>
-			
-			<%= link_to "Delete Gig", gig_path(item), method: :delete, data: {
-				confirm: "Are you sure?" } %>
-		<%end %> 
-	<% end %>
-	</div>
-	</div>
-
-<i class="far fa-edit"></i>
-</button>
-</div>
-
-
-<div class="photos-container">
+<div class="row col-10 show-photos-box m-3">
 	<button
 	type="button"
 	class="card-btns"
@@ -126,7 +125,7 @@
 
 
 
-<div class="room-review">
+<div class="row col-12 show-review">
 	<div class="room-review-header">
 <h2>Shoutouts</h2>
 <button

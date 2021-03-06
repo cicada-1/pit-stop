@@ -2,29 +2,24 @@
 body {
   background: $pit-body-bg;
 }
-.page-container {
-	width: 90%;
-	margin: 0 auto;
-	display: grid;
-	grid-template-areas:
-  "info poster"
-  "photo photo"
-  "review review"
-  "buttons buttons"
-  "review review"
+
+
+.style-reset {
+	margin: 0;
+  padding: 0;
 }
 .room-link-back{
   width: 100vw;
 }
 #booking-btn {
   font-size: 24px;
-  padding: 12px 24px;
+
   color: $blue;
   border: 1px solid $blue;
   background: none;
   &:hover {
     font-size: 24px;
-    padding: 12px 24px;
+
     color: black;
     border: 1px solid $blue;
     background: $blue;
@@ -77,14 +72,13 @@ body {
 // Band info
 
 .band-info {
-	grid-column: 1/2;
+
   justify-self: stretch;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  grid-area: "info";
-  margin: 32px;
+
   
 }
 
@@ -93,7 +87,6 @@ body {
   min-height: 20vh;
   width: 100%;
   border-radius: 6px;
-  margin: 32px 32px 16px 32px;
   background-color: white;
   box-shadow: 2px 2px 16px $box-shadow;
   display: flex;
@@ -169,13 +162,13 @@ body {
 // Poster div
 .poster-container {
   height: 700px;
-	grid-column: 2/3;
+
   justify-self: stretch;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-start;
-  grid-area: "poster";
+
   margin: 32px;
   
 }
@@ -199,11 +192,10 @@ body {
 }
 
 // Photo Styling
-.photos-container {
-  grid-area: "photo";
+.show-photos-box {
+  margin: 32px auto;
   grid-column: 1/3;
   justify-items: center;
-  margin: 0 32px;
   border-radius: 6px;
   background-color: white;
   box-shadow: 2px 2px 16px $box-shadow;
@@ -212,7 +204,6 @@ body {
   align-items: center;
   justify-content: space-around;
   position: relative;
-  padding-bottom: 32px;
 }
 .photos-box{ 
   width: 100%;
@@ -284,7 +275,7 @@ body {
   height: 24px;
 }
 
-.room-review{
+.show-review{
   display: flex;
   flex-direction: column;
   justify-content: center;
