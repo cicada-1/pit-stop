@@ -3,18 +3,21 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
+  // background-color: #181832;
   background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), image-url("pexels-dariusz-grosa-736355.jpg");
   background-size: cover;
   h1 {
     color: white;
     font-weight: bold;
-    font-size: 45px;
     font-family: $headers-font;
+    font-size: 40px;
+    line-height: 1.6;
+    letter-spacing: 1px;
   }
   p {
     color: white;
     opacity: 0.8;
-    font-size: 30px;
+    font-size: 32px;
     font-weight: lighter;
   }
 }
