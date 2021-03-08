@@ -2,6 +2,15 @@
   <div class="fg-form">
     <%= f.input :social_type, as: :select, collection: RoomSocial::SOCIAL_TYPES, include_blank: false %>
     <%= f.input :profile_url, placeholder:"eg: https://www.instagram.com/pitstop.live/" %>
-    <%= f.button :submit, { class: "cta-btn", value: "Add link to social media profile" } %>
+    <label>Existing profiles:</label>
+    <div class="socials-list">
+      <% @room_socials.each do |social| %>
+        <p><%= social.profile_url %></p>
+        <%= link_to room_social_path(social), method: :delete, data: { confirm: "Are you sure?" } do %>
+          <i id="btn-bin" class="far fa-trash-alt"></i>
+        <% end %>
+      <% end %>
+    </div>
+    <%= f.button :submit, { class: "cta-btn", value: "Add profile" } %>
   </div>
 <% end %>

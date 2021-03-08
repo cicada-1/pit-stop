@@ -9,7 +9,9 @@
   <div class="band-info">
 
     <div class="band-description-container">
+
       <div class="setting-dropdown">
+      <% if @room.user_id == current_user.id %>
 				<div id="my-tooltip" class="tooltip">
 					<button
 					type="button"
@@ -21,6 +23,8 @@
 					</button>
 					<span class="tooltiptext">Room Settings</span>
 				</div>
+        <% end %>
+
     <div class="room-card">
 
       <h2 class="card-header"><%= @room.name.upcase %></h2>
@@ -30,7 +34,7 @@
         <h2 class="card-header">My Bio</h2>
       <p class="room-decription"><%= @room.bio %></p>
       <h2 class="card-header">About Room</h2>
-      <p class="room-decription">Description: <%= @room.description %></p>
+      <p class="room-decription"><%= @room.description %></p>
       <div class="room-info-icons">
         <p><i class="room-icons fas fa-car"></i>  <%= @room.parking %></p>
         <p><i class="room-icons fas fa-user-friends"></i> <%= @room.capacity%></p>
@@ -40,18 +44,33 @@
     <div class="room-sm-icons">
       <h2 class="card-header">Social Media Profiles</h2>
       <div class="sm-icons">
-        <i class="room-icons fab fa-twitter"></i>
-        <i class="room-icons fab fa-instagram"></i>
+
+        <div class="social-media-icons">
+          <% if @room_socials %>
+            <% @room_socials.each do |item| %>
+              <div class="room-social-icon">
+                <% if item.social_type == "Instagram" %>
+                  <%= link_to item.profile_url do %>
+                    <i class="fab fa-instagram"></i>
+                  <% end %>
+                <% elsif item.social_type == "Twitter" %>
+                  <%= link_to item.profile_url do %>
+                    <i class="fab fa-twitter"></i>
+                  <% end %>
+                <% elsif item.social_type == "Facebook" %>
+                  <%= link_to item.profile_url do %>
+                    <i class="fab fa-facebook-square"></i>
+                  <% end %>
+                <% end %>
+              </div>
+            <% end %>
+          <% end %>
+        </div>
       </div>
     </div>
 
-    <% if @room_socials %>
-      <% @room_socials.each do |item| %> 
-        <%= link_to item.social_type, item.profile_url %>
-        <%= link_to "x", room_social_path(item), method: :delete, data: {
-          confirm: "Are you sure?" } %>
-      <% end %>
-    <% end %>
+
+
     </div>
     <button
     type="button"
@@ -96,13 +115,13 @@
   <% if @room_reviews %>
     <% @room_reviews.each do |item| %> 
       <div class="review-card">
-        
         <strong class="review-author"><%= item.band.name %></strong>
-            <% if item.band.band_members.select { |element| element.user == current_user }[0] %>
-                <span class="review-content"><%= item.content %></span>
-                    <%= link_to "x", room_review_path(item), method: :delete, data: {
-                    confirm: "Are you sure?" } %>
-            <% end %>
+
+        <% if item.band.band_members.select { |element| element.user == current_user }[0] %>
+          <%= link_to "x", room_review_path(item), method: :delete, data: { confirm: "Are you sure?" } %>
+        <% end %>
+
+        <span class="review-content"><%= item.content %></span>
       </div>
     <% end %>
   <% end %>

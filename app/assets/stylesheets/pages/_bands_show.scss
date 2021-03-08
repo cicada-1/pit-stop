@@ -165,7 +165,7 @@ body {
 }
 
 // social media style
-.sm-icons {
+.social-media-icons {
   height: 64px;
   display: flex;
   justify-content: space-around;
@@ -175,6 +175,9 @@ body {
   position: relative;
   margin: 0;
   position: relative;
+  .band-social-icon a {
+    text-decoration: none;
+  }
 }
 
 

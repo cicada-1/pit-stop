@@ -1,11 +1,19 @@
 .navbar-lewagon {
-  justify-content: space-between;
-  background: white;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
-.navbar-lewagon .navbar-collapse {
-  flex-grow: 0;
+.nav-link-right {
+  text-decoration: none;
+  color: rgba(0, 0, 0, 0.55);
+  &:hover {
+    text-decoration: none;
+    color: rgba(0, 0, 0, 0.7);
+  }
 }
+/////////////
 
 .navbar-lewagon .navbar-brand img {
   width: 40px;
@@ -13,6 +21,7 @@
 
 
 .navbar-home {
+  justify-content: space-between;
   background: transparent;
   box-shadow: none;
   position: absolute;
