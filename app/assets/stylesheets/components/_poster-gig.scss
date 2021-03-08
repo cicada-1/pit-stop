@@ -1,0 +1,51 @@
+.poster-band {
+  width: 100%;
+  height: 100%;
+  background: $pit-background;
+  border-radius: 6px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  box-shadow: 2px 2px 16px $box-shadow;
+  margin: 32px;
+ 
+}
+
+
+.poster-gig {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.poster-title {
+  font-family: $brand-font;
+  font-size: 40px;
+  color: $pit-gray;
+  margin: 32px auto;
+}
+
+.poster-date {
+  font-family: $headers-font;
+  @extend %card-text;
+  color: $pit-gray;
+  margin-bottom: 8px;
+}
+
+.poster-location {
+  font-family: $headers-font;
+  @extend %card-subheader;
+  color: $pit-gray;
+  margin-bottom: 8px;
+}
+
+.hr-poster {
+  margin: 0;
+  border: none;
+  border-bottom: 1px solid $pit-gray;
+  width: 30%;
+}

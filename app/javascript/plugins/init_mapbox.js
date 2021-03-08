@@ -15,7 +15,7 @@ const initMapbox = () => {
     mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
     const map = new mapboxgl.Map({
       container: 'map',
-      style: 'mapbox://styles/emmanopola/cklutd6m33qgq17qkr3w33dst'
+      style: 'mapbox://styles/emmanopola/ckll152jv0zxy17quunrk2nxt'
     });
 
 
@@ -24,7 +24,14 @@ const initMapbox = () => {
   markers.forEach((marker) => {
     const popup = new mapboxgl.Popup().setHTML(marker.infoWindow);
 
-      new mapboxgl.Marker()
+    const element = document.createElement('div');
+          element.className = 'marker';
+          element.style.backgroundImage = `url('${marker.image_url}')`;
+          element.style.backgroundSize = 'contain';
+          element.style.width = '23px';
+          element.style.height = '33px';
+
+      new mapboxgl.Marker(element)
         .setLngLat([ marker.lng, marker.lat ])
         .setPopup(popup)
         .addTo(map);

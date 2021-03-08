@@ -1,6 +1,6 @@
 body {
-  background-color: #36292D;
-  color: #a3cef1;
+  background-color: #16141E;
+  // color: white;
   margin: 0;
 
   .animated-logo {
@@ -27,7 +27,7 @@ body {
 
   @keyframes glow {
     from {
-      text-shadow: 0 0 20px #a3cef1;
+      text-shadow: 0 0 10px #a3cef1;
     }
     to {
       text-shadow: 0 0 30px #a3cef1, 0 0 10px #4dbbc7;

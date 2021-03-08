@@ -1,0 +1,72 @@
+<div class="modal" tabindex="-1" role="dialog" id="user_settings">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content form-bg">
+			<div class="modal-header">
+				<h5 class="modal-title">User Settings</h5>
+				<button
+					type="button"
+					class="close"
+					data-dismiss="modal"
+					aria-label="Close"
+					id="button-user-settings"
+				>
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body">
+				<div class="pit-settings-list">
+					<button
+						id="settings-member"
+						class="setting-button"
+						type="button"
+						data-toggle="modal"
+						data-target="#form_member"
+					>
+						Add Member
+					</button>
+					<button
+						type="button"
+						class="setting-button"
+						id="settings-edit"
+						data-toggle="modal"
+						data-target="#editModal"
+					>
+						Edit Band Profile
+					</button>
+					<button
+						type="button"
+						class="setting-button"
+						id="settings-socials"
+						data-toggle="modal"
+						data-target="#form_socials"
+					>
+						Add Social Media
+					</button>
+					<button
+						type="button"
+						class="setting-button"
+						id="settings-photos"
+						data-toggle="modal"
+						data-target="#addPhotosModal"
+					>
+						Add Photos
+					</button>
+					<button
+						type="button"
+						class="setting-button"
+						id="setting-gig"
+						data-toggle="modal"
+						data-target="#form_gigs"
+					>
+						Add Gig
+					</button>
+					<%= link_to band_path(@band), method: :delete, data: { confirm: "Are
+					you sure?" } do %>
+					<span class="delete-text">Dissolve Band</span>
+					<% end %>
+      
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
