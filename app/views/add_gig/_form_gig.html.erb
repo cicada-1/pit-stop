@@ -1,5 +1,14 @@
 <%= simple_form_for [@band, @gig] do |f| %>
   <%= f.input :date%>
   <%= f.input :location%>
+  <label>Existing gigs:</label>
+  <div class="gigs-list">
+      <% @gigs.each do |gig| %>
+        <p><%= gig.location %> - <%= gig.date.strftime('%d/%m/%Y') %></p>
+        <%= link_to gig_path(gig), method: :delete, data: { confirm: "Are you sure?" } do %>
+          <i id="btn-bin" class="far fa-trash-alt"></i>
+        <% end %>
+      <% end %>
+    </div>
   <%= f.button :submit %>
 <% end %>
