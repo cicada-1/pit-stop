@@ -11,6 +11,7 @@
             <th>Location</th>
             <th>Booking Start Date</th>
             <th>Booking End Date</th>
+            <th>Confirmation Status</th>
             <th></th>
           </tr>
         </thead>
@@ -23,6 +24,15 @@
               <td><%= booking.room.city %></td>
               <td><%= booking.start_date.strftime('%d/%m/%Y') %></td>
               <td><%= booking.end_date.strftime('%d/%m/%Y') %></td>
+              <td>
+              <% if booking.confirmation.nil? %>
+                <i class="far fa-question-circle"></i>
+              <% elsif booking.confirmation %>
+                <i class="far fa-check-circle"></i>
+              <% else %>
+                <i class="far fa-times-circle"></i>
+              <% end %>
+              </td>
               <td>
                 <%= link_to booking_path(booking), method: :delete, data: { confirm: "Delete booking for #{booking.room.name}?" }, id: "btn-bin" do %>
                   <i class="far fa-trash-alt"></i>
@@ -44,6 +54,7 @@
             <th>Booking Start Date</th>
             <th>Booking End Date</th>
             <th>Confirmation Status</th>
+            <th>Accept Booking?</th>
           </tr>
         </thead>
 
@@ -54,7 +65,21 @@
               <td><%= request.start_date.strftime('%d/%m/%Y') %></td>
               <td><%= request.end_date.strftime('%d/%m/%Y') %></td>
               <td>
-                <%  %>
+                <% if request.confirmation.nil? %>
+                  <i class="far fa-question-circle"></i>
+                <% elsif request.confirmation %>
+                  <i class="far fa-check-circle"></i>
+                <% else %>
+                  <i class="far fa-times-circle"></i>
+                <% end %>
+              </td>
+              <td>
+                <%= link_to confirm_booking_path(request), method: :patch do %>
+                  <i class="fas fa-check-circle"></i>
+                <% end %>
+                <%= link_to reject_booking_path(request), method: :patch do %>
+                  <i class="fas fa-times-circle"></i>
+                <% end %>
               </td>
             </tr>
           <% end %>

@@ -26,6 +26,22 @@ class BookingsController < ApplicationController
     authorize @booking_requests
   end
 
+  def confirm
+    @booking = Booking.find(params[:id])
+    @booking.confirmation = true
+    authorize @booking
+    @booking.save
+    redirect_to bookings_path
+  end
+
+  def reject
+    @booking = Booking.find(params[:id])
+    @booking.confirmation = false
+    authorize @booking
+    @booking.save
+    redirect_to bookings_path
+  end
+
   private
 
   def booking_params
