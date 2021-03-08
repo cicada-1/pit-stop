@@ -1,134 +1,100 @@
-<div class="page-container">
+<div class="container">
 	<%= render 'modal' %>
 	<%= render partial: 'add_photos/modal' %>
 	<%= render partial: 'band_socials/modal' %>
 	<%= render partial: 'add_gig/modal' %>
 	<%= render partial: 'band_members/modal' %>
+	<%= render partial: 'show-settings/modal'%>
+	<%= render partial: 'band_reviews/modal'%>
 
 	
 <!-- BAND INFO LEFT SIDE OF SCREEN -->
 
 
-<div class="band-info">
-	<div class="band-info-members">
-		<span class="card-header"><%= @band.name %></span>
-		<div class="card-btns">
-			<%= link_to band_path(@band), method: :delete, data: { confirm: "Are you sure?" }, id: 'btn-bin' do %>
-			<i  id="btn-bin" class="far fa-trash-alt"></i>
-		 <% end %>
-			<button
-			type="button"
-			id="btn-plus"
-			data-toggle="modal"
-			data-target="#form_member"
-		>
-		<i class="fas fa-user-plus"></i>
-		</button>
-		<button
-		type="button"
-		id="btn-plus"
-		data-toggle="modal"
-		data-target="#editModal"
-	>
-	<i class="far fa-edit"></i>
-	</button>
+	<div class="row">
+		<div class="col-lg-6 col-md-6 col-sm-12">
+		<div class="show-user-info margin-32 ">
+			<span class="card-header"><%= @band.name %></span>
+			<div class="card-btns">
+				<button
+				type="button"
+				id="btn-plus"
+				data-toggle="modal"
+				data-target="#user_settings"
+				>
+				<i class="fas fa-user-cog"></i>
+				</button>
+			</div>
+			<div class="user-info-main-photo">
+				<%= image_tag("pexels-friends-in-livingroom") %>
+			</div>
 		</div>
-		<div class="band-members">
-			<% if @band_members.any? %>
-				<% @band_members.each do |item| %>
-				<%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar-band" %>
+		<div class="band-description-container margin-32 ">
+			<span class="card-header">About us</span>
+			<hr>
+			<div class="user-description-user">
+				<p>Description<%= @band.description %></p>
+			</div>
+			<!-- Follow Section -->
+			<span class="card-header">Follow</span>
+			<hr>
+			<div class="sm-icons">
+				<% if @socials %> 
+					<% @socials.each do |item| %> 
+					<div class="sm-icon">
+						<%= link_to item.social_type, item.profile_url %>
+						<%= link_to "x", band_social_path(item), method: :delete, data: {
+							confirm: "Are you sure?" } %>
+					</div>
+					<%end %> 
 				<% end %>
-			<% end %>
+			</div>
 		</div>
-	</div>
 
-
-	<div class="band-description-container">
-		<span class="card-header">About us</span>
-		<hr>
-		<div class="description-text">
-			<p>Description<%= @band.description %></p>
 		</div>
-		<!-- <p>Location<%= @band.location %></p> -->
-		
-		<span class="card-header">Follow</span>
-		<hr>
-		<div class="sm-icons">
-			<button
-			type="button"
-			class="card-btns"
-			id="btn-plus"
-			data-toggle="modal"
-			data-target="#form_socials">
-				<i class="fas fa-plus-square"></i> 
-			</button>
-			<% if @socials %> 
-				<% @socials.each do |item| %> 
-				<div class="sm-icon">
-					<%= link_to item.social_type, item.profile_url %>
-					<%= link_to "x", band_social_path(item), method: :delete, data: {
-						confirm: "Are you sure?" } %>
+<!-- Poster -->
+		<div class="col-lg-6 col-md-6 col-sm-12">
+		<div class="poster-band">
+			<div class="poster-gig">
+				<span class="poster-title">GIGS</span>
+				<% if @gigs %> 
+					<% @gigs.each do |item| %> 
+					<span class="poster-date"><%= item.date %></span>
+					<span class="poster-location"><%= item.location  %></span>
+						<hr class="hr-poster">
+						<%= link_to "Delete Gig", gig_path(item), method: :delete, data: {
+							confirm: "Are you sure?" } %>
+					<%end %> 
+				<% end %>
 				</div>
-				<%end %> 
-			<% end %>
+		</div>
+		</div>
+	</div>
+</div>
+
+<!-- Phots Section -->
+<div class="row col-12 show-photos-box container show-photo-container ">
+	<span class="card-header col-12">Photos</span>
+	<div class="show-photos-display">
+		<div class="show-photo-box">
+	  	<%= image_tag("pexels-friends-in-livingroom") %>
+		</div>
+		<div class="show-photo-box">
+	  	<%= image_tag("pexels-friends-in-livingroom") %>
+		</div>
+		<div class="show-photo-box">
+	  	<%= image_tag("pexels-friends-in-livingroom") %>
+		</div>
+		<div class="show-photo-box">
+	  	<%= image_tag("pexels-friends-in-livingroom") %>
 		</div>
 	</div>
 </div>
 
 
-<div class="poster-container">
-	<div class="poster-band">
-		<button
-	type="button"
-	class="card-btns"
-	id="btn-plus"
-	data-toggle="modal"
-	data-target="#form_gigs"
->
-<i class="fas fa-plus-square"></i> Gig
-</button>
-		<h2>Gigs</h2>
-	<% if @gigs %> 
-		<% @gigs.each do |item| %> 
-		<p><%= item.date %></p>
-			<p><%= item.location  %></p>
-			
-			<%= link_to "Delete Gig", gig_path(item), method: :delete, data: {
-				confirm: "Are you sure?" } %>
-		<%end %> 
-	<% end %>
-	</div>
-	</div>
-
-<i class="far fa-edit"></i>
-</button>
-</div>
-
-
-<div class="photos-container">
-	<button
-	type="button"
-	class="card-btns"
-	id="btn-plus"
-	data-toggle="modal"
-	data-target="#addPhotosModal"
->
-	<i class="fas fa-plus-square"></i>
-	</button>
-	<span class="card-header">Photos</span>
-	<div class="photos-box">
-	  <%= image_tag("https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/small-living-rooms-bungalow-etna-nook-029-1608661123.jpg") %>
-      <%= image_tag("https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/small-living-rooms-bungalow-etna-nook-029-1608661123.jpg") %>
-      <%= image_tag("https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/small-living-rooms-bungalow-etna-nook-029-1608661123.jpg") %>
-      <%= image_tag("https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/small-living-rooms-bungalow-etna-nook-029-1608661123.jpg") %>
-	</div>
-</div>
-
-
-
-<div class="room-review">
+<div class="row col-12 show-review">
 	<div class="room-review-header">
-<h2>Shoutouts</h2>
+<h2 class="page-main-text">Shoutouts</h2>
 <button
 type="button"
 id="add-review-btn"
@@ -151,7 +117,7 @@ data-target="#rooms_review">
 			<%= link_to "x", band_review_path(item), method: :delete, data: {
 				confirm: "Are you sure?" } %>
 		<% end %>
-	
+
     <span class="review-content"><%= item.content %></span>
 	</div>
   <% end %>

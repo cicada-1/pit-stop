@@ -1,0 +1,123 @@
+
+
+
+.modal-backdrop {
+  width: 100%;
+  height: 100%;
+	-webkit-backdrop-filter: blur(16px);
+	backdrop-filter: blur(16px);
+	background-color: $pit-gray;
+  opacity: 0.6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  @include pit-flex-center;
+}
+.modal-content {
+  border-radius: 6px;
+  border: 1px solid $pit-gray;
+  box-shadow: 2px 2px 16px $box-shadow;
+  background: $pit-background;
+  color: $pit-gray;
+  h5 {
+    @extend %page-header;
+    font-family: $headers-font;
+  }
+  button {
+    color: $pit-gray;
+    &:hover {
+      color: $bright-red;
+    }
+  }
+}
+
+.simple_form {
+  
+  .form-control:focus {
+    color: $pit-gray;
+    background-color: $pit-background;
+    border-color: none;
+    outline: 0;
+    box-shadow: none;
+  }
+  
+  label {
+    color: $pit-gray;
+    @extend %card-subheader;
+  }
+
+  select {
+    border-radius: 6px;
+    border-color: $pit-gray;
+    background: $pit-background;
+    color: $pit-gray;
+    font-family: $body-font;
+    @extend %card-text;
+    option {
+      color: $pit-gray;
+      font-family: $body-font;
+      @extend %card-text;
+    }
+  }
+
+  input {
+    font-family: $body-font;
+    @extend %bt-text;
+    color: $pit-gray;
+    border: 1px solid $pit-gray;
+    border-radius: 6px;
+    background: $pit-background;
+    &:active {
+      font-family: $body-font;
+      @extend %bt-text;
+      color: $pit-gray;
+      border: 1px solid $pit-gray;
+      border-radius: 6px;
+      background: $pit-background;
+    }
+  }
+
+  input[type='text'] {
+    font-family: $body-font;
+    @extend %bt-text;
+    color: $pit-gray;
+    border: 1px solid $pit-gray;
+    border-radius: 6px;
+    background: $pit-background;
+  }
+
+  textarea {
+    overflow: auto;
+    resize: vertical;
+    font-family: $body-font;
+    @extend %bt-text;
+    color: $pit-gray;
+    border: 1px solid $pit-gray;
+    border-radius: 6px;
+    background: $pit-background;
+    &:active {
+      background: $pit-gray;
+      color: $pit-background;
+      border: 1px solid $pit-gray;
+      border-radius: 6px;
+    }
+  }
+
+  input[type='submit'] {
+    font-family: $headers-font;
+    @extend %bt-text;
+    color: $pit-gray;
+    border: 1px solid $pit-gray;
+    border-radius: 6px;
+    background: $pit-background;
+    &:hover {
+      font-family: $headers-font;
+    @extend %bt-text;
+    color: $pit-background;
+    border: 1px solid $pit-background;
+    border-radius: 6px;
+    background: $pit-gray;
+    }
+  }
+
+}
