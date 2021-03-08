@@ -1,5 +1,12 @@
 <%= simple_form_for [@band, @band_social] do |f| %>
   <%= f.input :social_type, as: :select, collection: BandSocial::SOCIAL_TYPES, include_blank: false %>
   <%= f.input :profile_url%>
+  <div class="socials-list">
+    <% @socials.each do |social| %>
+      <%= social.profile_url %>
+      <%= link_to "x", band_social_path(social), method: :delete, data: {
+                  confirm: "Are you sure?" } %>
+    <% end %>
+  </div>
   <%= f.button :submit %>
 <% end %>

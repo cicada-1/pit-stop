@@ -14,16 +14,22 @@
 	<div class="row">
 		<div class="col-lg-6 col-md-6 col-sm-12">
 		<div class="show-user-info margin-32 ">
-			<span class="card-header"><%= @band.name %></span>
-			<div class="card-btns">
-				<button
-				type="button"
-				id="btn-plus"
-				data-toggle="modal"
-				data-target="#user_settings"
-				>
-				<i class="fas fa-user-cog"></i>
-				</button>
+
+			<span class="card-header" ><%= @band.name %></span>
+			<div class="setting-dropdown">
+        <% if current_user.bands.ids.include?(@band.id) %>
+				<div id="my-tooltip" class="tooltip">
+					<button
+					type="button"
+					id="btn-plus"
+					data-toggle="modal"
+					data-target="#user_settings"
+					>
+					<i class="fas fa-user-cog"></i>
+					</button>
+					<span class="tooltiptext">Band Settings</span>
+				</div>
+				<% end %>
 			</div>
 			<div class="user-info-main-photo">
 				<%= image_tag("pexels-friends-in-livingroom") %>
@@ -32,21 +38,37 @@
 		<div class="band-description-container margin-32 ">
 			<span class="card-header">About us</span>
 			<hr>
-			<div class="user-description-user">
+			<div class="user-description">
 				<p>Description<%= @band.description %></p>
 			</div>
 			<!-- Follow Section -->
 			<span class="card-header">Follow</span>
 			<hr>
-			<div class="sm-icons">
+			<div class="social-media-icons">
 				<% if @socials %> 
-					<% @socials.each do |item| %> 
-					<div class="sm-icon">
-						<%= link_to item.social_type, item.profile_url %>
-						<%= link_to "x", band_social_path(item), method: :delete, data: {
-							confirm: "Are you sure?" } %>
-					</div>
-					<%end %> 
+					<% @socials.each do |item| %>
+						<% if item.social_type == "Instagram" %>
+              <%= link_to item.profile_url do %>
+                <i class="band-social-icon fab fa-instagram"></i>
+              <% end %>
+            <% elsif item.social_type == "Twitter" %>
+              <%= link_to item.profile_url do %>
+                <i class="band-social-icon fab fa-twitter"></i>
+              <% end %>
+            <% elsif item.social_type == "Facebook" %>
+              <%= link_to item.profile_url do %>
+                <i class="band-social-icon fab fa-facebook-square"></i>
+              <% end %>
+						<% elsif item.social_type == "Soundcloud" %>
+							<%= link_to item.profile_url do %>
+                <i class="band-social-icon fab fa-soundcloud"></i>
+              <% end %>
+						<% elsif item.social_type == "Bandcamp" %>
+							<%= link_to item.profile_url do %>
+                <i class="band-social-icon fab fa-bandcamp"></i>
+              <% end %>
+            <% end %>
+					<% end %> 
 				<% end %>
 			</div>
 		</div>
@@ -54,16 +76,13 @@
 		</div>
 <!-- Poster -->
 		<div class="col-lg-6 col-md-6 col-sm-12">
-		<div class="poster-band">
+		<div class="poster-box">
 			<div class="poster-gig">
 				<span class="poster-title">GIGS</span>
 				<% if @gigs %> 
 					<% @gigs.each do |item| %> 
-					<span class="poster-date"><%= item.date %></span>
+					<span class="poster-date"><%= item.date.strftime('%d/%m/%Y') %></span>
 					<span class="poster-location"><%= item.location  %></span>
-						<hr class="hr-poster">
-						<%= link_to "Delete Gig", gig_path(item), method: :delete, data: {
-							confirm: "Are you sure?" } %>
 					<%end %> 
 				<% end %>
 				</div>
@@ -71,9 +90,11 @@
 		</div>
 	</div>
 </div>
+<div class="container d-flex flex-column justify-content-center">
+
 
 <!-- Phots Section -->
-<div class="row col-12 show-photos-box container show-photo-container ">
+<div class="row col-12 show-photo-container ">
 	<span class="card-header col-12">Photos</span>
 	<div class="show-photos-display">
 		<div class="show-photo-box">
@@ -93,7 +114,7 @@
 
 
 <div class="row col-12 show-review">
-	<div class="room-review-header">
+	<div>
 <h2 class="page-main-text">Shoutouts</h2>
 <button
 type="button"
@@ -105,21 +126,42 @@ data-target="#rooms_review">
 </button>
 </div>
 
-
-
 <% if @band_reviews %>
   <% @band_reviews.each do |item| %> 
-  <div class="review-card">
-		<strong class="review-author">
-			<%= item.room.user.stage_name %>
-		</strong>
-		<% if item.room.user_id == current_user.id %>
-			<%= link_to "x", band_review_path(item), method: :delete, data: {
-				confirm: "Are you sure?" } %>
-		<% end %>
 
-    <span class="review-content"><%= item.content %></span>
+	<div class="review-card">
+		<div class="review-top">
+			<div class="reviewavatar">
+			<%= image_tag('poster') %>
+			</div>
+			<div class="review-header">
+				<strong class="review-author">
+				  <% if item.room.user.stage_name.nil? %>
+				   <%= item.room.user.first_name %>
+			    <% else %>
+				   <%= item.room.user.stage_name %>
+			    <% end %>  
+				</strong>
+				<strong class="review-title">
+					This is review title
+				</strong>
+			</div>
+		</div>
+		<div class="review-content">
+			<% if item.room.user_id == current_user.id %>
+				<%= link_to "x", band_review_path(item), method: :delete, data: {
+					confirm: "Are you sure?" } %>
+			<% end %>
+	
+			<span class="review-text-content"><%= item.content %></span>
+		</div>
 	</div>
-  <% end %>
-<% end %>
-</div>
+		<% end %>	
+	<% end %>
+	</div>
+	</div>
+
+
+
+	
+

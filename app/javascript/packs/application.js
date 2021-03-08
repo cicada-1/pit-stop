@@ -29,6 +29,8 @@ import { pressExitBtn } from '../modal-settings/modalSettings';
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
+
    initMapbox();
    pressExitBtn();
+  
 });

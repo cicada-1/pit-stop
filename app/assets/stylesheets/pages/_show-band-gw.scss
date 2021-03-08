@@ -1,7 +1,3 @@
-// Page container
-// body {
-//   background: $pit-body-bg;
-// }
 
 .margin-32 {
   margin: 32px;
@@ -16,71 +12,6 @@
 .room-link-back{
   width: 100vw;
 }
-#booking-btn {
-  font-size: 24px;
-
-  color: $blue;
-  border: 1px solid $blue;
-  background: none;
-  &:hover {
-    font-size: 24px;
-
-    color: black;
-    border: 1px solid $blue;
-    background: $blue;
-  }
-}
-#add-review-btn {
-  font-size: 16px;
-  padding: 8px 16px;
-  font-family: $body-font;
-  text-align: center;
-  border-radius: 16px;
-  border: 1px solid $blue;
-  background: none;
-  color: $blue;
-  &:hover {
-    font-size: 16px;
-    padding: 8px 16px;
-    text-align: center;
-    border-radius: 16px;
-    border: 1px solid $blue;
-    background: $blue;
-    color: $text-color;
-    box-shadow: 2px 2px 16px $box-shadow;
-    transform: translateY(-2px);
-  }
-}
-
-
-.card-btns {
-  position: absolute;
-  top: 16px;
-  right: 16px;
-  z-index: 3;
-}
-
-#btn-bin {
-  font-size: 16px;
-  text-align: center;
-  border-radius: 100%;
-  border: none;
-  background: none;
-  color: $red;
-}
-
-// Band info
-
-.band-info {
-  justify-self: stretch;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-
-
-}
-
 
 .show-user-info{
   padding: 32px;
@@ -95,7 +26,7 @@
   background: $pit-background;
 }
 
-// top card styling
+// Card Header Style
 .card-header{
 	text-align: center;
 	padding: 8px;
@@ -133,7 +64,7 @@
     margin: 8px auto;
   }
 }
-.user-description-user {
+.user-description {
  @extend %card-text;
  padding: 16px;
  color: $pit-gray;
@@ -151,137 +82,4 @@
   position: relative;
   margin: 0;
   position: relative;
-}
-
-
-// Poster div
-.poster-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: flex-start;
-}
-
-// Poster
-.poster-band {
-  width: 94%;
-  height: 94%;
-  background-image: url(poster);
-  background-position: center;
-  background-size: cover;
-  border-radius: 6px;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-  box-shadow: 2px 2px 16px $box-shadow;
-}
-
-// Photo Styling
-.show-photo-container {
-  width: 90%;
-  margin: 32px auto;
-  border-radius: 6px;
-  background-color: $pit-background;
-  box-shadow: 2px 2px 16px $box-shadow;
-}
-.show-photos-display {
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  align-items: flex-start;
-  padding: 16px;
-  padding-bottom: 32px;
-}
-  img {
-    width: 260px;
-    overflow: hidden;
-    border-radius: 6px;
-  }
-
-
-.room-review {
-  grid-area: "review";
-  grid-column: 1/3;
-  justify-items: center;
-  margin: 0 64px;
-  border-radius: 6px;
-  background-color: white;
-  box-shadow: 2px 2px 16px $box-shadow;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-around;
-  position: relative;
-}
-
-.room-card {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
-  padding: 8px;
-}
-
-.room-info-icons {
-  display: flex;
-  justify-content: space-around;
-}
-
-.room-icons {
-  color:$blue;
-  height: 24px;
-}
-
-.show-review{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 16px;
-  margin: 32px;
-}
-
-.review-card {
-  width: 90%;
-  box-shadow: 2px 2px 16px $box-shadow;
-  border-radius: 6px;
-  margin: 16px 0;
-  padding: 32px;
-  position: relative;
-  background-color: $pit-background;
-  a {
-    position: absolute;
-    top: 8px;
-    right: 16px;
-    color: $blue;
-    &:hover {
-      color: $red;
-    }
-  }
-}
-
-.review-author {
-  display: block;
-  text-align: center;
-  margin-bottom: 8px;
-  color: $pit-gray;
-  background-color: $pit-background;
-  @extend %card-header;
-}
-
-.review-content {
-  display: block;
-  text-align: center;
-  color: $pit-gray;
-  margin-bottom: 8px;
-  @extend %card-text;
-}
-
-.page-main-text {
-  @extend %page-header;
-  font-family: $headers-font;
-  color: $pit-gray;
 }

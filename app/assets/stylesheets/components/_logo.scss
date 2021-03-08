@@ -1,6 +1,9 @@
 .logo {
-  color: white;
+  color: #B1DDF1;
   font-size: 64px;
   font-family: $brand-font;
+  &:hover {
+    color: white;
+  }
 }
 
