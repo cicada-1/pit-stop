@@ -59,7 +59,7 @@ body {
   background: none;
   color: $blue;
 }
-.card-btns {
+.setting-dropdown {
   position: absolute;
   top: 16px;
   right: 16px;
@@ -179,17 +179,7 @@ body {
 
 
 // Poster div
-.poster-container {
-  height: 700px;
-	grid-column: 2/3;
-  justify-self: stretch;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: flex-start;
-  grid-area: "poster";
-  margin: 32px;
-}
+
 
 
 // Photo Styling
