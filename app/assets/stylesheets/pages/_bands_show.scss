@@ -1,7 +1,7 @@
 // Page container
-body {
-  background: $pit-body-bg;
-}
+// body {
+//   background: $pit-body-bg;
+// }
 .page-container {
 	width: 90%;
 	margin: 0 auto;
@@ -85,7 +85,7 @@ body {
   justify-content: flex-start;
   grid-area: "info";
   margin: 32px;
-  
+
 }.poster-band {
   width: 100%;
   height: 100%;
@@ -97,7 +97,7 @@ body {
   align-items: flex-start;
   box-shadow: 2px 2px 16px $box-shadow;
   margin: 32px;
- 
+
 }
 
 
@@ -208,7 +208,7 @@ body {
   position: relative;
   padding-bottom: 32px;
 }
-.photos-box{ 
+.photos-box{
   width: 100%;
   margin: 0 auto;
   display: flex;

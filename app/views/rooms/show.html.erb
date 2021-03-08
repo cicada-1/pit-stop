@@ -6,7 +6,7 @@
   <%= render partial: 'bookings/modal' %>
 
   <div class="band-info">
- 
+
     <div class="band-description-container">
       <div class="room-options">
         <button
@@ -25,7 +25,7 @@
 
       <h2 class="card-header"><%= @room.name.upcase %></h2>
       <p class="room-"><%= @room.city %></p>
-      
+
       <div  class="description-text">
         <h2 class="card-header">My Bio</h2>
       <p class="room-decription"><%= @room.bio %></p>
@@ -47,7 +47,7 @@
         id="btn-plus"
         data-toggle="modal"
         data-target="#form_socials">
-          <i class="fas fa-plus-square"></i> 
+          <i class="fas fa-plus-square"></i>
         </button>
         <i class="room-icons fab fa-twitter"></i>
         <i class="room-icons fab fa-instagram"></i>
@@ -55,7 +55,7 @@
     </div>
 
     <% if @room_socials %>
-      <% @room_socials.each do |item| %> 
+      <% @room_socials.each do |item| %>
         <%= link_to item.social_type, item.profile_url %>
         <%= link_to "x", room_social_path(item), method: :delete, data: {
           confirm: "Are you sure?" } %>
@@ -74,10 +74,10 @@
   <!-- poster -->
   <div class="poster-container">
     <div class="poster-band">
-    
+
     </div>
     </div>
-  
+
 
     <div class="photos-container">
       <button
@@ -95,7 +95,7 @@
       <%= image_tag("https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/small-living-rooms-bungalow-etna-nook-029-1608661123.jpg") %>
       <%= image_tag("https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/small-living-rooms-bungalow-etna-nook-029-1608661123.jpg") %>
       <%= image_tag("https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/small-living-rooms-bungalow-etna-nook-029-1608661123.jpg") %>
-    
+
       </div>
     </div>
 
@@ -107,16 +107,16 @@
     id="add-review-btn"
     data-toggle="modal"
     data-target="#rooms_review">
-      <i class="fas fa-plus-square"></i> 
+      <i class="fas fa-plus-square"></i>
       Add Review
     </button>
   </div>
-  
-  
+
+
   <% if @room_reviews %>
-    <% @room_reviews.each do |item| %> 
+    <% @room_reviews.each do |item| %>
       <div class="review-card">
-        
+
         <strong class="review-author"><%= item.band.name %></strong>
             <% if item.band.band_members.select { |element| element.user == current_user }[0] %>
                 <span class="review-content"><%= item.content %></span>
