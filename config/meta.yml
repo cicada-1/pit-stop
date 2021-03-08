@@ -1,0 +1,5 @@
+meta_product_name: "PitStop"
+meta_title: "PitStop - Couch surfing for bands on tour"
+meta_description: "PitStop connects music fans with a spare room to touring bands in need of accomodation"
+meta_image: "band-photo.jpg" # should exist in `app/assets/images/`
+twitter_account: "@product_twitter_account"   # required for Twitter Cards
