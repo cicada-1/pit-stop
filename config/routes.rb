@@ -16,7 +16,12 @@ Rails.application.routes.draw do
     resources :band_members, only: [:create]
   end
 
-  resources :bookings, only: [:index]
+  resources :bookings, only: [:index] do
+    member do
+      patch :confirm
+      patch :reject
+    end
+  end
 
 
     resources :band_members, only: [:destroy]

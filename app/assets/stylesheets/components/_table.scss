@@ -1,0 +1,43 @@
+.bookings-table {
+  thead {
+    color: #B1DDF1;
+  }
+
+  tbody {
+    color: rgba(255,255,255,0.87);
+  }
+
+  th, td {
+    width: 16%;
+  }
+  
+  thead:last-child, tbody:last-child{
+    width: 4%;
+  }
+}
+
+.booking-requests-table {
+  thead {
+    color: #B1DDF1;
+  }
+
+  tbody {
+    color: rgba(255,255,255,0.87);
+  }
+
+  th, td {
+    width: 20%;
+  }
+}
+
+.confirmation-status-yellow {
+  color: #F7B32B;
+}
+
+.confirmation-status-green {
+  color: #46A833;
+}
+
+.confirmation-status-red {
+  color: #ED303A;
+}

@@ -32,4 +32,12 @@ class BookingPolicy < ApplicationPolicy
   def destroy?
     record.users.include?(user)
   end
+
+  def confirm?
+    record.room.user == user
+  end
+
+  def reject?
+    confirm?
+  end
 end
