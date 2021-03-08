@@ -29,7 +29,7 @@
 
       <h2 class="card-header"><%= @room.name.upcase %></h2>
       <p class="room-"><%= @room.city %></p>
-      
+
       <div  class="description-text">
         <h2 class="card-header">My Bio</h2>
       <p class="room-decription"><%= @room.bio %></p>
@@ -44,7 +44,10 @@
     <div class="room-sm-icons">
       <h2 class="card-header">Social Media Profiles</h2>
       <div class="sm-icons">
-
+<div class="room-sm-icons">
+      <h2 class="card-header">Social Media Profiles</h2>
+      <div class="sm-icons">
+  
         <div class="social-media-icons">
           <% if @room_socials %>
             <% @room_socials.each do |item| %>
@@ -67,9 +70,6 @@
           <% end %>
         </div>
       </div>
-    </div>
-
-
 
     </div>
     <button
@@ -85,7 +85,7 @@
     <div class="poster-band">
     </div>
     </div>
-  
+
 
     <div class="photos-container"> 
       <span class="card-header">Photos</span>
@@ -94,7 +94,7 @@
       <%= image_tag("https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/small-living-rooms-bungalow-etna-nook-029-1608661123.jpg") %>
       <%= image_tag("https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/small-living-rooms-bungalow-etna-nook-029-1608661123.jpg") %>
       <%= image_tag("https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/small-living-rooms-bungalow-etna-nook-029-1608661123.jpg") %>
-    
+
       </div>
     </div>
 
@@ -106,15 +106,16 @@
     id="add-review-btn"
     data-toggle="modal"
     data-target="#rooms_review">
-      <i class="fas fa-plus-square"></i> 
+      <i class="fas fa-plus-square"></i>
       Add Review
     </button>
   </div>
-  
-  
+
+
   <% if @room_reviews %>
-    <% @room_reviews.each do |item| %> 
+    <% @room_reviews.each do |item| %>
       <div class="review-card">
+
         <strong class="review-author"><%= item.band.name %></strong>
 
         <% if item.band.band_members.select { |element| element.user == current_user }[0] %>
