@@ -1,9 +1,3 @@
-#red-delete-button {
-  color: rgb(247, 245, 245);
-  &:hover {
-    text-decoration: none;
-  }
-}
 
 .btn {
   color: white;
@@ -11,3 +5,20 @@
   font-weight: bold;
 }
 
+.nav-bar-button {
+  color: $light-gray;
+  padding: 10px;
+  font-family: $body-font;
+  a:hover {
+    color: white;
+  }
+}
+
+.custom-btn {
+  padding: 5px;
+}
+
+.btn-spacing {
+  display: flex;
+  align-items: center;
+}
