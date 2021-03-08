@@ -1,31 +1,32 @@
 
 
 const  pressExitBtn = () => {
-const addMemberOptions = document.getElementById('btn-plus');
+const addMemberOptions = document.getElementById('settings-member');
 const addPhotosOptions = document.getElementById('settings-photos');
 const addSocialsOptions = document.getElementById('settings-socials');
-const EditOptions = document.getElementById('settings-edit');
+const editOptions = document.getElementById('settings-edit');
+const addGig = document.getElementById('setting-gig');
 
 
 
 addMemberOptions.addEventListener('click', () => {
     document.getElementById('button-user-settings').click();
-    console.log(document.getElementById('button-user-settings').click());
   });
 
   addPhotosOptions.addEventListener('click', () => {
     document.getElementById('button-user-settings').click();
-    console.log(document.getElementById('button-user-settings').click());
   });
 
   addSocialsOptions.addEventListener('click', () => {
     document.getElementById('button-user-settings').click();
-    console.log(document.getElementById('button-user-settings').click());
   });
 
-  EditOptions.addEventListener('click', () => {
+  editOptions.addEventListener('click', () => {
     document.getElementById('button-user-settings').click();
-    console.log(document.getElementById('button-user-settings').click());
+  });
+
+  addGig.addEventListener('click', () => {
+    document.getElementById('button-user-settings').click();
   });
   
 }

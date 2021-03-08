@@ -1,28 +1,30 @@
 
-<div class="page-container">
+<div class="container">
   <%= render 'modal' %>
   <%= render partial: 'room_socials/modal' %>
   <%= render partial: 'rooms_reviews/modal'%>
   <%= render partial: 'bookings/modal' %>
+  <%= render partial: 'room_settings/modal' %>
 
   <div class="band-info">
- 
+
     <div class="band-description-container">
-      <div class="room-options">
-        <% if @room.user_id == current_user.id %>
-          <button
-            type="button"
-            id="btn-plus"
-            data-toggle="modal"
-            data-target="#editModal"
-          >
-          <i class="far fa-edit"></i>
-          </button>
-          <%= link_to room_path(@room), method: :delete, data: { confirm: "Are you sure?" }, id: 'btn-bin' do %>
-            <i id="btn-bin" class="far fa-trash-alt"></i>
-          <% end %>
+
+      <div class="setting-dropdown">
+      <% if @room.user_id == current_user.id %>
+				<div id="my-tooltip" class="tooltip">
+					<button
+					type="button"
+					id="btn-plus"
+					data-toggle="modal"
+					data-target="#room_settings"
+					>
+					<i class="fas fa-user-cog"></i>
+					</button>
+					<span class="tooltiptext">Room Settings</span>
+				</div>
         <% end %>
-      </div>
+
     <div class="room-card">
 
       <h2 class="card-header"><%= @room.name.upcase %></h2>
@@ -40,19 +42,8 @@
     </div>
     </div>
     <div class="room-sm-icons">
-
       <h2 class="card-header">Social Media Profiles</h2>
       <div class="sm-icons">
-        <% if @room.user_id == current_user.id %>
-          <button
-          type="button"
-          class="card-btns"
-          id="btn-plus"
-          data-toggle="modal"
-          data-target="#form_socials">
-            <i class="fas fa-plus-square"></i> 
-          </button>
-        <% end %>
 
         <div class="social-media-icons">
           <% if @room_socials %>
@@ -79,6 +70,7 @@
     </div>
 
 
+
     </div>
     <button
     type="button"
@@ -91,21 +83,11 @@
   <!-- poster -->
   <div class="poster-container">
     <div class="poster-band">
-    
     </div>
     </div>
   
 
-    <div class="photos-container">
-      <button
-      type="button"
-      class="card-btns"
-      id="btn-plus"
-      data-toggle="modal"
-      data-target="#addPhotosModal"
-    >
-      <i class="fas fa-plus-square"></i>
-      </button>
+    <div class="photos-container"> 
       <span class="card-header">Photos</span>
       <div class="photos-box">
       <%= image_tag("https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/small-living-rooms-bungalow-etna-nook-029-1608661123.jpg") %>

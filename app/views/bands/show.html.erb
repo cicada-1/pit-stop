@@ -14,9 +14,11 @@
 	<div class="row">
 		<div class="col-lg-6 col-md-6 col-sm-12">
 		<div class="show-user-info margin-32 ">
-			<span class="card-header"><%= @band.name %></span>
-			<div class="card-btns">
-				<% if current_user.bands.ids.include?(@band.id) %>
+
+			<span class="card-header" ><%= @band.name %></span>
+			<div class="setting-dropdown">
+        <% if current_user.bands.ids.include?(@band.id) %>
+				<div id="my-tooltip" class="tooltip">
 					<button
 					type="button"
 					id="btn-plus"
@@ -25,6 +27,8 @@
 					>
 					<i class="fas fa-user-cog"></i>
 					</button>
+					<span class="tooltiptext">Band Settings</span>
+				</div>
 				<% end %>
 			</div>
 			<div class="user-info-main-photo">
@@ -34,7 +38,7 @@
 		<div class="band-description-container margin-32 ">
 			<span class="card-header">About us</span>
 			<hr>
-			<div class="user-description-user">
+			<div class="user-description">
 				<p>Description<%= @band.description %></p>
 			</div>
 			<!-- Follow Section -->
@@ -72,7 +76,7 @@
 		</div>
 <!-- Poster -->
 		<div class="col-lg-6 col-md-6 col-sm-12">
-		<div class="poster-band">
+		<div class="poster-box">
 			<div class="poster-gig">
 				<span class="poster-title">GIGS</span>
 				<% if @gigs %> 
@@ -86,9 +90,11 @@
 		</div>
 	</div>
 </div>
+<div class="container d-flex flex-column justify-content-center">
+
 
 <!-- Phots Section -->
-<div class="row col-12 show-photos-box container show-photo-container ">
+<div class="row col-12 show-photo-container ">
 	<span class="card-header col-12">Photos</span>
 	<div class="show-photos-display">
 		<div class="show-photo-box">
@@ -108,7 +114,7 @@
 
 
 <div class="row col-12 show-review">
-	<div class="room-review-header">
+	<div>
 <h2 class="page-main-text">Shoutouts</h2>
 <button
 type="button"
@@ -120,25 +126,42 @@ data-target="#rooms_review">
 </button>
 </div>
 
-
-
 <% if @band_reviews %>
   <% @band_reviews.each do |item| %> 
-  <div class="review-card">
-		<strong class="review-author">
-			<% if item.room.user.stage_name.nil? %>
-				<%= item.room.user.first_name %>
-			<% else %>
-				<%= item.room.user.stage_name %>
-			<% end %>
-		</strong>
-		<% if item.room.user_id == current_user.id %>
-			<%= link_to "x", band_review_path(item), method: :delete, data: {
-				confirm: "Are you sure?" } %>
-		<% end %>
 
-    <span class="review-content"><%= item.content %></span>
+	<div class="review-card">
+		<div class="review-top">
+			<div class="reviewavatar">
+			<%= image_tag('poster') %>
+			</div>
+			<div class="review-header">
+				<strong class="review-author">
+				  <% if item.room.user.stage_name.nil? %>
+				   <%= item.room.user.first_name %>
+			    <% else %>
+				   <%= item.room.user.stage_name %>
+			    <% end %>  
+				</strong>
+				<strong class="review-title">
+					This is review title
+				</strong>
+			</div>
+		</div>
+		<div class="review-content">
+			<% if item.room.user_id == current_user.id %>
+				<%= link_to "x", band_review_path(item), method: :delete, data: {
+					confirm: "Are you sure?" } %>
+			<% end %>
+	
+			<span class="review-text-content"><%= item.content %></span>
+		</div>
 	</div>
-  <% end %>
-<% end %>
-</div>
+		<% end %>	
+	<% end %>
+	</div>
+	</div>
+
+
+
+	
+

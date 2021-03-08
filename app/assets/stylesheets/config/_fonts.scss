@@ -6,7 +6,17 @@ $headers-font: 'Poppins', sans-serif;
 $brand-font:'Special Elite', cursive;
 
 // fonts
-
+.text-gradient {
+  background: -webkit-linear-gradient(#B1DDF1, #528aa0);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+// SHOUTOUTS Style
+.page-main-text {
+  @extend %page-header;
+  font-family: $headers-font;
+  color: $pit-gray;
+}
 // @extend %name;
 %page-header {
   font-weight: 600;
