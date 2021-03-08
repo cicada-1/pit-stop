@@ -12,7 +12,6 @@ body {
 
 // top card styling
 
-
 .band-members {
 	width: 100%;
 	display: flex;
@@ -42,10 +41,22 @@ body {
   hr {
     height: 2px;
     border: none;
-    border-bottom: 1px solid $text-color;
+    border-bottom: 1px solid $pit-gray;
     width: 30%;
     margin: 8px auto;
   }
+}
+.show-user-info{
+  padding: 32px;
+  width: 100%;
+  border-radius: 6px;
+  box-shadow: 2px 2px 16px $box-shadow;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  background: $pit-background;
 }
 .description-text {
  @extend %card-text;
@@ -68,10 +79,7 @@ body {
     height: 24px;
     margin: 8px;
   }
-  
 }
-
-
 
 .room-options {
   margin-top: 8px;
