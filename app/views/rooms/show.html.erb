@@ -9,7 +9,7 @@
 
   <div class="row">
     <div  class="col-lg-6 col-md-6 col-sm-12">
-    <div class="room-description-container ">
+    <div class="show-user-info margin-32">
 
       <div class="setting-dropdown">
       <% if @room.user_id == current_user.id %>
@@ -37,8 +37,8 @@
       <h2 class="card-header">About Room</h2>
       <p class="room-decription"><%= @room.description %></p>
       <div class="room-info-icons">
-        <p><i class="room-icons fas fa-car"></i>  <%= @room.parking %></p>
-        <p><i class="room-icons fas fa-user-friends"></i> <%= @room.capacity%></p>
+        <p><i class="fas fa-car"></i>  <%= @room.parking %></p>
+        <p><i class="fas fa-user-friends"></i> <%= @room.capacity%></p>
       </div>
     </div>
     

@@ -40,7 +40,7 @@ body {
   align-items: center;
   justify-content: space-between;
   hr {
-    height: 1px;
+    height: 2px;
     border: none;
     border-bottom: 1px solid $text-color;
     width: 30%;
@@ -56,16 +56,19 @@ body {
 .social-media-icons {
   height: 64px;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
   align-items: center;
   width: 100%;
   margin: 16px;
   position: relative;
   margin: 0;
   position: relative;
-  .band-social-icon a {
-    text-decoration: none;
+    i {
+    color:$blue;
+    height: 24px;
+    margin: 8px;
   }
+  
 }
 
 
@@ -90,12 +93,12 @@ body {
 
 .room-info-icons {
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
+  i {
+    color:$blue;
+    height: 24px;
+    margin: 8px;
+  }
 }
 
-.room-icons {
-  color:$blue;
-  height: 24px;
-  margin: 8px;
-}
 

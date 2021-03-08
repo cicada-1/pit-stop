@@ -8,26 +8,31 @@ const editOptions = document.getElementById('settings-edit');
 const addGig = document.getElementById('setting-gig');
 
 
-
-addMemberOptions.addEventListener('click', () => {
-    document.getElementById('button-user-settings').click();
-  });
-
+if (addMemberOptions){
+  addMemberOptions.addEventListener('click', () => {
+      document.getElementById('button-user-settings').click();
+    });
+}
+if (addPhotosOptions) {
   addPhotosOptions.addEventListener('click', () => {
     document.getElementById('button-user-settings').click();
   });
-
+}
+if (addSocialsOptions) {
   addSocialsOptions.addEventListener('click', () => {
     document.getElementById('button-user-settings').click();
   });
-
+}
+if (editOptions) {
   editOptions.addEventListener('click', () => {
     document.getElementById('button-user-settings').click();
   });
-
+}
+if (addGig) {
   addGig.addEventListener('click', () => {
     document.getElementById('button-user-settings').click();
   });
+}
   
 }
 
