@@ -42,6 +42,8 @@ class RoomsController < ApplicationController
     @room_review = RoomReview.new
     @room_reviews = RoomReview.where(room_id: @room.id)
     @booking = Booking.new
+    @poster_bookings = Booking.where(room_id: @room.id).where("end_date < ?", Date.today)
+    # authorize @poster_bookings
     @user_bands = Band.where(id: current_user.bands.ids)
   end
 

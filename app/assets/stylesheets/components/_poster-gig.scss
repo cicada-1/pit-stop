@@ -50,3 +50,36 @@
   border-bottom: 1px solid $pit-gray;
   width: 30%;
 }
+
+.room-poster {
+  background-color: #41B286;
+  color: rgb(14, 13, 13);
+  font-family: $brand-font;
+  text-transform: uppercase;
+  text-align: center;
+  align-items: center;
+  
+  .poster-top {
+    overflow: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    height: 90%;
+    font-weight: bolder;
+    font-size: 36px;
+    
+    p {
+      margin-bottom: 0;
+    }
+  }
+
+  .poster-bottom {
+    display: grid;
+    width: 100%;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    height: 10%;
+    font-weight: bolder;
+    font-size: 24px;
+  }
+}

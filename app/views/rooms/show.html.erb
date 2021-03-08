@@ -81,9 +81,16 @@
  
     <!-- poster -->
     <div class="col-lg-6 col-md-6 col-sm-12">
-      <div class="poster-box">
-      <div class="poster-gig">
-      </div>
+      <div class="poster-box room-poster">
+        <div class="poster-gig poster-top">
+          <% @poster_bookings.last(8).each do |booking| %>
+            <p><%= booking.band.name %></p>
+          <% end %>
+        </div>
+        <p id="supported-by">Supported by:</p>
+        <div class="poster-bottom">
+          <p><%= @room.parking %></p><p>sleeps <%= @room.capacity %></p>
+        </div>
       </div>
     </div>
   </div>
@@ -133,7 +140,7 @@
               This is review title</strong>
           </div>
         </div>
-          <div class="review-conten">
+          <div class="review-content">
             <% if item.band.band_members.select { |element| element.user == current_user }[0] %>
             <%= link_to "x", room_review_path(item), method: :delete, data: { confirm: "Are you sure?" } %>
             <% end %>

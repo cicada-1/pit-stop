@@ -30,7 +30,7 @@ class BookingPolicy < ApplicationPolicy
   end
 
   def destroy?
-    record.users.include?(user)
+    record.band_id == user.bands.ids
   end
 
   def confirm?
