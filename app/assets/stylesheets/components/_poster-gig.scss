@@ -61,12 +61,23 @@
   
   .poster-top {
     overflow: auto;
+    height: 15%;
+    font-weight: bolder;
+    font-size: 56px;
+    font-family: $poster-head-font;
+
+    p {
+      margin-bottom: 0;
+    }
+  }
+  
+  .poster-bands {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr;
-    height: 90%;
+    height: 75%;
     font-weight: bolder;
-    font-size: 36px;
+    font-size: 32px;
     
     p {
       margin-bottom: 0;

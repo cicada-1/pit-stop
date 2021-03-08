@@ -83,6 +83,13 @@
     <div class="col-lg-6 col-md-6 col-sm-12">
       <div class="poster-box room-poster">
         <div class="poster-gig poster-top">
+          <% if @room.user.stage_name %>
+            <p><%= @room.user.stage_name %>Fest!</p>
+          <% else %>
+            <p><%= @room.user.first_name %>Fest!</p>
+          <% end %>
+        </div>
+        <div class="poster-bands">
           <% @poster_bookings.last(8).each do |booking| %>
             <p><%= booking.band.name %></p>
           <% end %>
