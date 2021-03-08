@@ -11,12 +11,24 @@ $brand-font:'Special Elite', cursive;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+
+// show cards header
+.card-header{
+	text-align: center;
+	padding: 8px;
+  background: $pit-background;
+  color: $pit-gray;
+	@extend %card-header;
+  font-family: $headers-font;
+}
+
 // SHOUTOUTS Style
 .page-main-text {
   @extend %page-header;
   font-family: $headers-font;
   color: $pit-gray;
 }
+
 // @extend %name;
 %page-header {
   font-weight: 600;
@@ -26,7 +38,6 @@ $brand-font:'Special Elite', cursive;
 }
 
 %card-header {
-
   font-weight: 500;
   font-size: 24px;
   line-height: 1.6;

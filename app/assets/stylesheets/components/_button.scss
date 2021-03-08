@@ -28,7 +28,24 @@
     transform: translateY(-2px);
   }
 }
+// setting btn
+#btn-plus {
+  font-size: 16px;
+  text-align: center;
+  border-radius: 100%;
+  border: none;
+  background: none;
+  color: $blue;
+}
 
+#btn-bin {
+  font-size: 16px;
+  text-align: center;
+  border-radius: 100%;
+  border: none;
+  background: none;
+  color: $red;
+}
 // Booking Button
 #booking-btn {
   font-size: 24px;
@@ -78,3 +95,4 @@
     color: #ED303A;
   }
 }
+

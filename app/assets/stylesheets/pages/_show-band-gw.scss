@@ -1,8 +1,4 @@
-// Page container
-body {
-  background: $pit-body-bg;
-}
-// Margin classes
+
 .margin-32 {
   margin: 32px;
 }
@@ -16,29 +12,9 @@ body {
 .room-link-back{
   width: 100vw;
 }
-//? move to room
-.show-user-info{
-  padding: 32px;
-  width: 100%;
-  border-radius: 6px;
-  box-shadow: 2px 2px 16px $box-shadow;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  position: relative;
-  background: $pit-background;
-}
 
 // Card Header Style
-.card-header{
-	text-align: center;
-	padding: 8px;
-  background: $pit-background;
-  color: $pit-gray;
-	@extend %card-header;
-  font-family: $headers-font;
-}
+
 
 .user-info-main-photo {
 	width: 100%;
@@ -66,6 +42,7 @@ body {
     border-bottom: 1px solid $pit-gray;
     width: 30%;
     margin: 8px auto;
+    color: $pit-gray;
   }
 }
 .user-description {
@@ -87,7 +64,3 @@ body {
   margin: 0;
   position: relative;
 }
-
-
-
-

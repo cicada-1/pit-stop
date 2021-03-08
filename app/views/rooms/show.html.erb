@@ -6,45 +6,45 @@
   <%= render partial: 'bookings/modal' %>
   <%= render partial: 'room_settings/modal' %>
 
-  <div class="band-info">
 
-    <div class="band-description-container">
+  <div class="row">
+    <div  class="col-lg-6 col-md-6 col-sm-12">
+    <div class="show-user-info margin-32">
 
       <div class="setting-dropdown">
       <% if @room.user_id == current_user.id %>
-				<div id="my-tooltip" class="tooltip">
-					<button
-					type="button"
-					id="btn-plus"
-					data-toggle="modal"
-					data-target="#room_settings"
-					>
-					<i class="fas fa-user-cog"></i>
-					</button>
-					<span class="tooltiptext">Room Settings</span>
-				</div>
+        <div id="my-tooltip" class="tooltip">
+          <button
+          type="button"
+          id="btn-plus"
+          data-toggle="modal"
+          data-target="#room_settings"
+          >
+          <i class="fas fa-user-cog"></i>
+          </button>
+          <span class="tooltiptext">Room Settings</span>
+        </div>
         <% end %>
-
+      </div>
     <div class="room-card">
-
+  
       <h2 class="card-header"><%= @room.name.upcase %></h2>
       <p class="room-"><%= @room.city %></p>
-      
+
       <div  class="description-text">
         <h2 class="card-header">My Bio</h2>
       <p class="room-decription"><%= @room.bio %></p>
       <h2 class="card-header">About Room</h2>
       <p class="room-decription"><%= @room.description %></p>
       <div class="room-info-icons">
-        <p><i class="room-icons fas fa-car"></i>  <%= @room.parking %></p>
-        <p><i class="room-icons fas fa-user-friends"></i> <%= @room.capacity%></p>
+        <p><i class="fas fa-car"></i>  <%= @room.parking %></p>
+        <p><i class="fas fa-user-friends"></i> <%= @room.capacity%></p>
       </div>
     </div>
-    </div>
+    
     <div class="room-sm-icons">
       <h2 class="card-header">Social Media Profiles</h2>
       <div class="sm-icons">
-
         <div class="social-media-icons">
           <% if @room_socials %>
             <% @room_socials.each do |item| %>
@@ -68,8 +68,7 @@
         </div>
       </div>
     </div>
-
-
+  </div>
 
     </div>
     <button
@@ -77,53 +76,72 @@
     id="booking-btn"
     data-toggle="modal"
     data-target="#booking_room"
-  >Request Booking</button>
-  </div>
-
-  <!-- poster -->
-  <div class="poster-container">
-    <div class="poster-band">
+    >Request Booking</button>
     </div>
-    </div>
-  
-
-    <div class="photos-container"> 
-      <span class="card-header">Photos</span>
-      <div class="photos-box">
-      <%= image_tag("https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/small-living-rooms-bungalow-etna-nook-029-1608661123.jpg") %>
-      <%= image_tag("https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/small-living-rooms-bungalow-etna-nook-029-1608661123.jpg") %>
-      <%= image_tag("https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/small-living-rooms-bungalow-etna-nook-029-1608661123.jpg") %>
-      <%= image_tag("https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/small-living-rooms-bungalow-etna-nook-029-1608661123.jpg") %>
-    
+ 
+    <!-- poster -->
+    <div class="col-lg-6 col-md-6 col-sm-12">
+      <div class="poster-box">
+      <div class="poster-gig">
+      </div>
       </div>
     </div>
-
-<div class="room-review">
-  <div class="room-review-header">
-    <h2 class="card-header">Shoutouts</h2>
-    <button
-    type="button"
-    id="add-review-btn"
-    data-toggle="modal"
-    data-target="#rooms_review">
-      <i class="fas fa-plus-square"></i> 
-      Add Review
-    </button>
   </div>
-  
-  
-  <% if @room_reviews %>
+
+
+  <div class="row col-12 show-photo-container ">
+    <span class="card-header col-12">Photos</span>
+    <div class="show-photos-display">
+      <div class="show-photo-box">
+        <%= image_tag("pexels-friends-in-livingroom") %>
+      </div>
+      <div class="show-photo-box">
+        <%= image_tag("pexels-friends-in-livingroom") %>
+      </div>
+      <div class="show-photo-box">
+        <%= image_tag("pexels-friends-in-livingroom") %>
+      </div>
+      <div class="show-photo-box">
+        <%= image_tag("pexels-friends-in-livingroom") %>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="row col-12 show-review">
+    <div>
+      <h2 class="page-main-text">Shoutouts</h2>
+      <button
+  type="button"
+  id="add-review-btn"
+  data-toggle="modal"
+  data-target="#rooms_review">
+    <i class="fas fa-plus-square"></i> 
+    Add Review
+      </button>
+    </div> 
+    <% if @room_reviews %>
     <% @room_reviews.each do |item| %> 
       <div class="review-card">
-        <strong class="review-author"><%= item.band.name %></strong>
-
-        <% if item.band.band_members.select { |element| element.user == current_user }[0] %>
-          <%= link_to "x", room_review_path(item), method: :delete, data: { confirm: "Are you sure?" } %>
-        <% end %>
-
-        <span class="review-content"><%= item.content %></span>
+        <div class="review-top">
+          <div class="reviewavatar">
+            <%= image_tag('poster') %>
+          </div>
+          <div class="review-header">
+            <strong class="review-author"><%= item.band.name %></strong>
+            <strong class="review-title">
+              This is review title</strong>
+          </div>
+        </div>
+          <div class="review-conten">
+            <% if item.band.band_members.select { |element| element.user == current_user }[0] %>
+            <%= link_to "x", room_review_path(item), method: :delete, data: { confirm: "Are you sure?" } %>
+            <% end %>
+            <span class="review-text-content"><%= item.content %></span>
+          </div>
       </div>
     <% end %>
-  <% end %>
+    <% end %>
+  </div>
 </div>
-</div>
+
