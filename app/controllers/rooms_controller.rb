@@ -31,7 +31,7 @@ class RoomsController < ApplicationController
         lat: room.latitude,
         lng: room.longitude,
         infoWindow: render_to_string(partial: "info_window", locals: { room: room }),
-        image_url: helpers.asset_url('Vector.png')
+        image_url: helpers.asset_url('vector.png')
       }
     end
   end

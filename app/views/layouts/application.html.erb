@@ -13,7 +13,13 @@
     <%= stylesheet_pack_tag 'application' %>
   </head>
 
-  <body>
+  <body class="<%= if controller.action_name == 'home'
+              'background-home'
+            else
+              'background'
+            end %>">
+
+
     <% if params[:action] == "home" %>
        <!-- yield(:navbar_class)  -->
       <%= render 'shared/navbar_home'%>
