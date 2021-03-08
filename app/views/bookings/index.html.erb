@@ -1,67 +1,66 @@
-<div class="container">
-  <div class="row justify-content-center">
-    <div class="col-8 col-sm-8 col-lg-8 ">
-      <div class="account-header">
-        <h1>My Account</h1>
-      </div>
+<div class="row justify-content-center">
+  <div class="col-8 col-sm-8 col-lg-8 ">
+    <div class="my-bookings bookings-card">
       <h2>My Bookings</h2>
-      <div class="bookings-table">
-        <table class="table">
-          <thead>
+
+      <table class="table bookings-table">
+        <thead>
+          <tr>
+            <th>Room</th>
+            <th>Band</th>
+            <th>Location</th>
+            <th>Booking Start Date</th>
+            <th>Booking End Date</th>
+            <th></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @bookings.each do |booking| %>
             <tr>
-              <th>Room</th>
-              <th>Booking Start Date</th>
-              <th>Booking End Date</th>
-              <th></th>
+              <td><%= link_to booking.room.name, booking.room, class: 'table-column-one' %></td>
+              <td><%= link_to booking.band.name, booking.band %></td>
+              <td><%= booking.room.city %></td>
+              <td><%= booking.start_date.strftime('%d/%m/%Y') %></td>
+              <td><%= booking.end_date.strftime('%d/%m/%Y') %></td>
+              <td>
+                <%= link_to booking_path(booking), method: :delete, data: { confirm: "Delete booking for #{booking.room.name}?" }, id: "btn-bin" do %>
+                  <i class="far fa-trash-alt"></i>
+                <% end %>
+              </td>
             </tr>
-          </thead>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
 
-          <tbody>
-            <% @bookings.each do |booking| %>
-              <tr>
-                <td><%= link_to booking.room.name, booking.room, class: 'table-column-one' %></td>
-                <td><%= booking.start_date %></td>
-                <td><%= booking.end_date %></td>
-                <td>
-                  <%= link_to booking_path(booking), method: :delete, data: { confirm: "Delete booking for #{booking.room.name}?" } do %>
-                    <i class="far fa-trash-alt"></i>
-                  <% end %>
-                </td>
-              </tr>
-            <% end %>
-          </tbody>
-        </table>
-      </div>
+    <div class="my-room-bookings bookings-card">
+      <h2>Bookings for my Pitstop</h2>
 
-      <div class="my-rooms">
-        <h2>Bookings made for my room</h2>
+      <table class="table booking-requests-table">
+        <thead>
+          <tr>
+            <th>Band</th>
+            <th>Booking Start Date</th>
+            <th>Booking End Date</th>
+            <th>Confirmation Status</th>
+          </tr>
+        </thead>
 
-        <div class="bookings-table">
-        <table class="table">
-          <thead>
+        <tbody>
+          <% @booking_requests.each do |request| %>
             <tr>
-              <th>Band</th>
-              <th>Booking Start Date</th>
-              <th>Booking End Date</th>
-              <th>Confirmed?</th>
+              <td><%= link_to request.band.name, request.band, class: 'table-column-one' %></td>
+              <td><%= request.start_date.strftime('%d/%m/%Y') %></td>
+              <td><%= request.end_date.strftime('%d/%m/%Y') %></td>
+              <td>
+                <%  %>
+              </td>
             </tr>
-          </thead>
-
-          <tbody>
-            <% @booking_requests.each do |request| %>
-              <tr>
-                <td><%= link_to request.band.name, request.band, class: 'table-column-one' %></td>
-                <td><%= request.start_date %></td>
-                <td><%= request.end_date %></td>
-                <td>
-                  
-                </td>
-              </tr>
-            <% end %>
-          </tbody>
-        </table>
-      </div>
-      </div>
+          <% end %>
+        </tbody>
+      </table>
     </div>
   </div>
 </div>
+

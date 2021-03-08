@@ -1,0 +1,31 @@
+.bookings-table {
+  thead {
+    color: #B1DDF1;
+  }
+
+  tbody {
+    color: rgba(255,255,255,0.87);
+  }
+
+  th, td {
+    width: 19%;
+  }
+  
+  thead:last-child, tbody:last-child{
+    width: 5%;
+  }
+}
+
+.booking-requests-table {
+  thead {
+    color: #B1DDF1;
+  }
+
+  tbody {
+    color: rgba(255,255,255,0.87);
+  }
+
+  th, td {
+    width: 25%;
+  }
+}
