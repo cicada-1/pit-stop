@@ -26,11 +26,11 @@
               <td><%= booking.end_date.strftime('%d/%m/%Y') %></td>
               <td>
               <% if booking.confirmation.nil? %>
-                <i class="far fa-question-circle"></i>
+                <i class="far fa-question-circle confirmation-status-yellow"></i>
               <% elsif booking.confirmation %>
-                <i class="far fa-check-circle"></i>
+                <i class="far fa-check-circle confirmation-status-green"></i>
               <% else %>
-                <i class="far fa-times-circle"></i>
+                <i class="far fa-times-circle confirmation-status-red"></i>
               <% end %>
               </td>
               <td>
@@ -66,18 +66,18 @@
               <td><%= request.end_date.strftime('%d/%m/%Y') %></td>
               <td>
                 <% if request.confirmation.nil? %>
-                  <i class="far fa-question-circle"></i>
+                  <i class="far fa-question-circle confirmation-status-yellow"></i>
                 <% elsif request.confirmation %>
-                  <i class="far fa-check-circle"></i>
+                  <i class="far fa-check-circle confirmation-status-green"></i>
                 <% else %>
-                  <i class="far fa-times-circle"></i>
+                  <i class="far fa-times-circle confirmation-status-red"></i>
                 <% end %>
               </td>
-              <td>
-                <%= link_to confirm_booking_path(request), method: :patch do %>
+              <td class="requests-table-last-column">
+                <%= link_to confirm_booking_path(request), method: :patch, class: "booking-btn-green-hover" do %>
                   <i class="fas fa-check-circle"></i>
                 <% end %>
-                <%= link_to reject_booking_path(request), method: :patch do %>
+                <%= link_to reject_booking_path(request), method: :patch, class: "booking-btn-red-hover" do %>
                   <i class="fas fa-times-circle"></i>
                 <% end %>
               </td>

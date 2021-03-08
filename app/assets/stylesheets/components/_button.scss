@@ -60,3 +60,21 @@
   display: flex;
   align-items: center;
 }
+
+.booking-btn-green-hover {
+  font-size: 20px;
+
+  &:hover {
+    text-decoration: none;
+    color: #46A833;
+  }
+}
+
+.booking-btn-red-hover {
+  font-size: 20px;
+
+  &:hover {
+    text-decoration: none;
+    color: #ED303A;
+  }
+}
