@@ -23,13 +23,20 @@ Rails.application.routes.draw do
     end
   end
 
+  get '/bookings/requests', to: 'bookings#requests' do
+    member do
+      patch :confirm
+      patch :reject
+    end
+  end
 
-    resources :band_members, only: [:destroy]
-    resources :bookings, only: [:destroy]
-    resources :room_reviews, only: [:destroy]
-    resources :band_reviews, only: [:destroy]
-    resources :gigs, only: [:destroy]
-    resources :band_socials, only: [:destroy]
-    resources :room_socials, only: [:destroy]
+
+  resources :band_members, only: [:destroy]
+  resources :bookings, only: [:destroy]
+  resources :room_reviews, only: [:destroy]
+  resources :band_reviews, only: [:destroy]
+  resources :gigs, only: [:destroy]
+  resources :band_socials, only: [:destroy]
+  resources :room_socials, only: [:destroy]
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

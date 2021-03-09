@@ -13,6 +13,10 @@ class BookingPolicy < ApplicationPolicy
     true
   end
 
+  def requests?
+    true
+  end
+
   def new?
     create?
   end
