@@ -11,7 +11,7 @@
       <%= f.input :parking, collection: Room::PARKING_TYPES,
                   selected: "street parking", required: true %>
       <%= f.input :bio, placeholder:'Host Bio', required: true %>
-      <%= f.input :photo, as: :file %>
+      <%= f.input :photos, as: :file, input_html: { multiple: true } %>
       <%= f.button :submit, class: "cta-btn" %>
     </div>
   <% end %>
