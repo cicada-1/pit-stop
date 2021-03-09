@@ -8,6 +8,7 @@ class User < ApplicationRecord
   has_many :rooms
   has_many :band_members
   has_many :bands, through: :band_members
+  has_many :chatrooms
 
   USER_TYPES = %w[host band both]
 

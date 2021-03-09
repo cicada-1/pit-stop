@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_05_141212) do
+ActiveRecord::Schema.define(version: 2021_03_09_154625) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -93,6 +93,16 @@ ActiveRecord::Schema.define(version: 2021_03_05_141212) do
     t.index ["room_id"], name: "index_bookings_on_room_id"
   end
 
+  create_table "chatrooms", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "user_id", null: false
+    t.bigint "room_id", null: false
+    t.index ["room_id"], name: "index_chatrooms_on_room_id"
+    t.index ["user_id"], name: "index_chatrooms_on_user_id"
+  end
+
   create_table "gigs", force: :cascade do |t|
     t.date "date"
     t.string "location"
@@ -102,6 +112,16 @@ ActiveRecord::Schema.define(version: 2021_03_05_141212) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["band_id"], name: "index_gigs_on_band_id"
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.string "content"
+    t.bigint "chatroom_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["chatroom_id"], name: "index_messages_on_chatroom_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
   create_table "room_reviews", force: :cascade do |t|
@@ -166,7 +186,11 @@ ActiveRecord::Schema.define(version: 2021_03_05_141212) do
   add_foreign_key "band_socials", "bands"
   add_foreign_key "bookings", "bands"
   add_foreign_key "bookings", "rooms"
+  add_foreign_key "chatrooms", "rooms"
+  add_foreign_key "chatrooms", "users"
   add_foreign_key "gigs", "bands"
+  add_foreign_key "messages", "chatrooms"
+  add_foreign_key "messages", "users"
   add_foreign_key "room_reviews", "bands"
   add_foreign_key "room_reviews", "rooms"
   add_foreign_key "room_socials", "rooms"
