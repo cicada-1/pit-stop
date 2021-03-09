@@ -13,10 +13,11 @@ class BookingsController < ApplicationController
   end
 
   def destroy
-    @booking = Booking.find(params[:id])
+    @booking = policy_scope(Booking).find(params[:id])
+    authorize @booking
     room = @booking.room
     @booking.destroy
-    redirect_to room_path(room)
+    redirect_to bookings_path
   end
 
   def index
