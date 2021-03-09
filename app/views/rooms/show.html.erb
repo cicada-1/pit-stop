@@ -91,7 +91,9 @@
         </div>
         <div class="poster-bands">
           <% @poster_bookings.last(8).each do |booking| %>
-            <p><%= booking.band.name %></p>
+            <div class="poster-band">
+              <p><%= booking.band.name %></p>
+            </div>
           <% end %>
         </div>
         <p id="supported-by">Supported by:</p>
@@ -106,18 +108,11 @@
   <div class="row col-12 show-photo-container ">
     <span class="card-header col-12">Photos</span>
     <div class="show-photos-display">
-      <div class="show-photo-box">
-        <%= image_tag("pexels-friends-in-livingroom") %>
-      </div>
-      <div class="show-photo-box">
-        <%= image_tag("pexels-friends-in-livingroom") %>
-      </div>
-      <div class="show-photo-box">
-        <%= image_tag("pexels-friends-in-livingroom") %>
-      </div>
-      <div class="show-photo-box">
-        <%= image_tag("pexels-friends-in-livingroom") %>
-      </div>
+      <% @room.photos.each do |photo| %>
+        <div class="show-photo-box">
+          <%= cl_image_tag photo.key %>
+        </div>
+      <% end %>
     </div>
   </div>
 

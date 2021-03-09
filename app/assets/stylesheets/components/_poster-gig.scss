@@ -52,7 +52,8 @@
 }
 
 .room-poster {
-  background-color: #41B286;
+  background-image: image-url("paper-background.jpg");
+  background-size: cover;
   color: rgb(14, 13, 13);
   font-family: $brand-font;
   text-transform: uppercase;
@@ -60,7 +61,7 @@
   align-items: center;
   
   .poster-top {
-    overflow: auto;
+    overflow: hidden;
     height: 15%;
     font-weight: bolder;
     font-size: 56px;
@@ -68,19 +69,21 @@
 
     p {
       margin-bottom: 0;
+      transform: rotate(-2deg);
     }
   }
   
   .poster-bands {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr;
     height: 75%;
     font-weight: bolder;
     font-size: 32px;
     
-    p {
-      margin-bottom: 0;
+    .poster-band {
+      display: grid;
+      grid-template-columns: 1fr;
+      p {
+        margin-bottom: 0;
+      }
     }
   }
 
