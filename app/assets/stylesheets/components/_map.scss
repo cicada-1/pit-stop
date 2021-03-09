@@ -8,14 +8,8 @@
 }
 
 #map {
-  width: 100%;
-  max-width: 550px;
-  min-width: 300px;
-  height: 95vh;
+  min-width: 100%;
   position: sticky;
-  top: 56px;
-  margin-top: 8px;
-  margin-left: 16px;
-  margin-bottom: 16px;
-  left: 20px;
+  top: 32px;
+  border-radius: 6px;
 }
