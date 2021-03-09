@@ -1,26 +1,28 @@
 <div class="index-container">
   <div class="index-content-container">
-  <div class="flexbox">
-    <br>
+  <div class="flexbox-right">
     <% @rooms.each do |room| %>
       <div class="index-card">
         <div class="index-card-body">
           <%= image_tag "emma-copy.jpg", class: "card-avatar" %>
           <h5 id="card-title"><%= room.name %></h5>
-          <p id="card-title"><%= room.description.truncate(50) %></p>
-          <p class="card-link"><p><%= link_to "See details", room_path(room) %></p>
-          <p id="card-title"><small class="text-muted">Last updated <%= time_ago_in_words(room.updated_at) %> ago</small></p>
+          <p id="index-card-description"><%= room.description.truncate(50) %></p>
+          <span class="card-link"><%= link_to "See details", room_path(room) %></span>
+          <span id="text-muted">Last updated <%= time_ago_in_words(room.updated_at) %> ago</span>
         </div>
+        <div class="card-main-photo">
           <%= cl_image_tag room.photos.first.key, class: "card-image" %>
+        </div>
         </div>
     <% end %>
   </div>
 
-
-<div id="map"
-     style="width: 60%; height: 600px;"
-     data-markers="<%= @markers.to_json %>"
-     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
- </div>
+<div class="flexbox-left">
+  <div id="map"
+       style="width: 60%; height: 600px;"
+       data-markers="<%= @markers.to_json %>"
+       data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+   </div>
+</div>
 </div>
 </div>
