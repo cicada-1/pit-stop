@@ -25,7 +25,25 @@ body {
 	height: 120px;
 	border-radius: 100%;
 	text-align: center;
-	border: 1px solid black;
+	border: 1px solid $pit-gray;
+}
+.room-name-btn {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+.card-name-location {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+.show-location {
+  padding: 0 20px;
+  font-family: $headers-font;
+  font-size: 20px;
+  color: $pit-gray;
 }
 // bottom card styling
 .band-description-container{
@@ -97,6 +115,12 @@ body {
   background-color: $pit-background;
   border-radius: 6px;
   box-shadow: $box-shadow;
+  hr {
+    border: none;
+    border-bottom: 1px solid $pit-gray;
+    width: 60%;
+    height: 1px;
+  }
 }
 
 .room-info-icons {

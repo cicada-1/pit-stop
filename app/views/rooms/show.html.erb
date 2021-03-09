@@ -5,6 +5,7 @@
   <%= render partial: 'rooms_reviews/modal'%>
   <%= render partial: 'bookings/modal' %>
   <%= render partial: 'room_settings/modal' %>
+  <%= render partial: 'add_photos_room/modal' %>
 
 
   <div class="row">
@@ -12,9 +13,13 @@
     <div class="show-user-info margin-32">
       <div class="container">
         <div class="row">
-          <!-- <%= cl_image_tag @room.photos.first.key, class: "avatar-show" %> -->
-          <h2 class="card-header"><%= @room.name.upcase %></h2>
-          <p class="room-"><%= @room.city %></p>
+          <div class="col-4">
+            <%= cl_image_tag @room.photos.first.key, class: "avatar-show" %>
+          </div>
+          <div class="col-8 card-name-location">
+              <h2 class="card-header"><%= @room.name.upcase %></h2>
+              <p class="show-location"><%= @room.city %></p>
+          </div>
         </div>
       </div>
       <div class="setting-dropdown">
@@ -33,7 +38,18 @@
         <% end %>
       </div>
     <div class="room-card">
-  
+      <hr>
+      <div class="col-12 room-name-btn">
+        <h2 class="card-header"><%= @room.name.upcase %></h2>
+        <button
+        type="button"
+        id="booking-btn"
+        class="book-btn "
+        data-toggle="modal"
+        data-target="#booking_room"
+        >Request Booking</button>
+        </div>
+      </div>
 
       <div  class="description-text">
         <h2 class="card-header">My Bio</h2>
@@ -75,13 +91,6 @@
   </div>
 
     </div>
-    <button
-    type="button"
-    id="booking-btn"
-    data-toggle="modal"
-    data-target="#booking_room"
-    >Request Booking</button>
-    </div>
  
     <!-- poster -->
     <div class="col-lg-6 col-md-6 col-sm-12">
@@ -110,18 +119,11 @@
   <div class="row col-12 show-photo-container ">
     <span class="card-header col-12">Photos</span>
     <div class="show-photos-display">
+      <% @room.photos.each do |photo| %>
       <div class="show-photo-box">
-        <%= image_tag("pexels-friends-in-livingroom") %>
+        <%= cl_image_tag photo.key%>
       </div>
-      <div class="show-photo-box">
-        <%= image_tag("pexels-friends-in-livingroom") %>
-      </div>
-      <div class="show-photo-box">
-        <%= image_tag("pexels-friends-in-livingroom") %>
-      </div>
-      <div class="show-photo-box">
-        <%= image_tag("pexels-friends-in-livingroom") %>
-      </div>
+      <% end %>
     </div>
   </div>
 

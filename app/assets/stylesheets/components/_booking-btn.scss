@@ -1,0 +1,52 @@
+.book-btn {
+  &,
+  &:link,
+  &:visited{
+      font-size: 16px;
+      font-family: $body-font;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 8px 16px;
+      display: inline-block;
+      border-radius: 32px;
+      transition: all .2s;
+      position: relative;
+      border: none;
+      cursor: pointer;
+      color: $pit-munsell;
+      background: none;
+      border: 1px solid $pit-munsell;
+  }
+
+  &:hover {
+      transform: translateY(-3px);
+      box-shadow: 2px 5px 10px rgba($pit-munsell, 0.2);
+      color: $pit-background;
+      background: #528aa0;
+ 
+      border: 1px solid $pit-munsell;
+      &::after{
+          transform: scaleX(1.4) scaleY(1.6);
+          opacity: 0;
+      }
+  }
+  
+  &:active,
+  &:focus {
+      outline: none;
+      transform: translateY(3px);
+      box-shadow: 2px 5px 10px rgba($pit-blue, 0.2);
+  }
+  &::after{
+      content: "";
+      display: inline-block;
+      height: 100%;
+      width: 100%;
+      border-radius: 32px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      transition: all .4s;
+  }
+}
