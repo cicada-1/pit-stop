@@ -104,7 +104,9 @@
         </div>
         <div class="poster-bands">
           <% @poster_bookings.last(8).each do |booking| %>
-            <p><%= booking.band.name %></p>
+            <div class="poster-band">
+              <%= link_to booking.band.name, band_path(booking.band) %>
+            </div>
           <% end %>
         </div>
         <p id="supported-by">Supported by:</p>
@@ -120,9 +122,9 @@
     <span class="card-header col-12">Photos</span>
     <div class="show-photos-display">
       <% @room.photos.each do |photo| %>
-      <div class="show-photo-box">
-        <%= cl_image_tag photo.key%>
-      </div>
+        <div class="show-photo-box">
+          <%= cl_image_tag photo.key %>
+        </div>
       <% end %>
     </div>
   </div>
