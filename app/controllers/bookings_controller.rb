@@ -17,7 +17,7 @@ class BookingsController < ApplicationController
     authorize @booking
     room = @booking.room
     @booking.destroy
-    redirect_to room_path(room)
+    redirect_to bookings_path
   end
 
   def index

@@ -26,11 +26,11 @@ class BookingPolicy < ApplicationPolicy
   end
 
   def update?
-    record.users.include?(user)
+    user.bands.ids.include?(record.band_id)
   end
 
   def destroy?
-    record.band_id == user.bands.ids
+    user.bands.ids.include?(record.band_id)
   end
 
   def confirm?
