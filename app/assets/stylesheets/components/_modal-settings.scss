@@ -36,6 +36,10 @@
   padding: 16px;
 }
 
+.modal-dialog {
+  max-width: 500px;
+  margin: 160px auto;
+ }
 
 .delete-text{
   color: $bright-red;
