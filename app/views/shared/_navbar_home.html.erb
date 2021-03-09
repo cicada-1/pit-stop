@@ -13,8 +13,14 @@
         <li class="nav-item dropdown">
           <%= image_tag "emma-copy.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-            <%= link_to "My bookings", "/bookings", class: "dropdown-item" %>
-            <%= link_to "Another action", "#", class: "dropdown-item" %>
+            <% if current_user.bands.exists? %>
+              <%= link_to "Tour Itinerary", "/bookings", class: "dropdown-item" %>
+            <% else %>
+              <%= link_to "Tour Itinerary", "/bands/new", class: "dropdown-item" %>
+            <% end %>
+            <% if current_user.rooms.exists? %>
+              <%= link_to "My PitStop Bookings", "/bookings/requests", class: "dropdown-item" %>
+            <% end %>
             <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
           </div>
         </li>

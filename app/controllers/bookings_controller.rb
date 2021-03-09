@@ -23,7 +23,7 @@ class BookingsController < ApplicationController
   def index
     @bookings = policy_scope(Booking).where(band_id: current_user.bands.ids).order(:start_date)
     @future_bookings = @bookings.where("end_date >= ?", Date.today).order(:start_date)
-    @past_bookings = @bookings.where("end_date < ?", Date.today).order(:start_date).reverse.first(5)
+    @past_bookings = @bookings.where("end_date < ?", Date.today).where(confirmation: true).order(:start_date).reverse.first(5)
     # raise
     authorize @bookings
   end
@@ -31,7 +31,7 @@ class BookingsController < ApplicationController
   def requests
     @booking_requests = policy_scope(Booking).where(room_id: current_user.room_ids)
     @future_booking_requests = @booking_requests.where("end_date >= ?", Date.today).order(:start_date)
-    @past_booking_requests = @booking_requests.where("end_date < ?", Date.today).order(:start_date).reverse.first(5)
+    @past_booking_requests = @booking_requests.where("end_date < ?", Date.today).where(confirmation: true).order(:start_date).reverse.first(5)
     authorize @booking_requests
   end
 
@@ -40,7 +40,7 @@ class BookingsController < ApplicationController
     @booking.confirmation = true
     authorize @booking
     @booking.save
-    redirect_to bookings_path
+    redirect_to bookings_requests_path
   end
 
   def reject
@@ -48,7 +48,7 @@ class BookingsController < ApplicationController
     @booking.confirmation = false
     authorize @booking
     @booking.save
-    redirect_to bookings_path
+    redirect_to bookings_requests_path
   end
 
   private
