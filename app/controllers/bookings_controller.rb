@@ -21,9 +21,17 @@ class BookingsController < ApplicationController
   end
 
   def index
-    @bookings = policy_scope(Booking).where(band_id: current_user.bands.ids)
-    @booking_requests = policy_scope(Booking).where(room_id: current_user.room_ids)
+    @bookings = policy_scope(Booking).where(band_id: current_user.bands.ids).order(:start_date)
+    @future_bookings = @bookings.where("end_date >= ?", Date.today).order(:start_date)
+    @past_bookings = @bookings.where("end_date < ?", Date.today).order(:start_date).reverse.first(5)
+    # raise
     authorize @bookings
+  end
+
+  def requests
+    @booking_requests = policy_scope(Booking).where(room_id: current_user.room_ids)
+    @future_booking_requests = @booking_requests.where("end_date >= ?", Date.today).order(:start_date)
+    @past_booking_requests = @booking_requests.where("end_date < ?", Date.today).order(:start_date).reverse.first(5)
     authorize @booking_requests
   end
 

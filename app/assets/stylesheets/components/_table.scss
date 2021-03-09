@@ -1,4 +1,4 @@
-.bookings-table {
+.future-bookings-table {
   thead {
     color: #B1DDF1;
   }
@@ -16,7 +16,7 @@
   }
 }
 
-.booking-requests-table {
+.past-bookings-table {
   thead {
     color: #B1DDF1;
   }
@@ -27,6 +27,34 @@
 
   th, td {
     width: 20%;
+  }
+}
+
+.future-booking-requests-table {
+  thead {
+    color: #B1DDF1;
+  }
+
+  tbody {
+    color: rgba(255,255,255,0.87);
+  }
+
+  th, td {
+    width: 20%;
+  }
+}
+
+.past-booking-requests-table {
+  thead {
+    color: #B1DDF1;
+  }
+
+  tbody {
+    color: rgba(255,255,255,0.87);
+  }
+
+  th, td {
+    width: 25%;
   }
 }
 

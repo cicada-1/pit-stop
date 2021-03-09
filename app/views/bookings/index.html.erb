@@ -1,9 +1,10 @@
 <div class="row justify-content-center">
   <div class="col-8 col-sm-8 col-lg-8 ">
+    
     <div class="my-bookings bookings-card">
-      <h2>My Bookings</h2>
+      <h2>Tour Itinerary</h2>
 
-      <table class="table bookings-table">
+      <table class="table future-bookings-table">
         <thead>
           <tr>
             <th>Room</th>
@@ -17,7 +18,7 @@
         </thead>
 
         <tbody>
-          <% @bookings.each do |booking| %>
+          <% @future_bookings.each do |booking| %>
             <tr>
               <td><%= link_to booking.room.name, booking.room, class: 'table-column-one' %></td>
               <td><%= link_to booking.band.name, booking.band %></td>
@@ -44,48 +45,43 @@
       </table>
     </div>
 
-    <div class="my-room-bookings bookings-card">
-      <h2>Bookings for my Pitstop</h2>
+    <% if !@past_bookings.empty? %>
+      <div class="my-room-bookings bookings-card">
+        <h2>Past Tour</h2>
 
-      <table class="table booking-requests-table">
-        <thead>
-          <tr>
-            <th>Band</th>
-            <th>Booking Start Date</th>
-            <th>Booking End Date</th>
-            <th>Confirmation Status</th>
-            <th>Accept Booking?</th>
-          </tr>
-        </thead>
-
-        <tbody>
-          <% @booking_requests.each do |request| %>
+        <table class="table past-bookings-table">
+          <thead>
             <tr>
-              <td><%= link_to request.band.name, request.band, class: 'table-column-one' %></td>
-              <td><%= request.start_date.strftime('%d/%m/%Y') %></td>
-              <td><%= request.end_date.strftime('%d/%m/%Y') %></td>
-              <td>
-                <% if request.confirmation.nil? %>
-                  <i class="far fa-question-circle confirmation-status-yellow"></i>
-                <% elsif request.confirmation %>
-                  <i class="far fa-check-circle confirmation-status-green"></i>
-                <% else %>
-                  <i class="far fa-times-circle confirmation-status-red"></i>
-                <% end %>
-              </td>
-              <td class="requests-table-last-column">
-                <%= link_to confirm_booking_path(request), method: :patch, class: "booking-btn-green-hover" do %>
-                  <i class="fas fa-check-circle"></i>
-                <% end %>
-                <%= link_to reject_booking_path(request), method: :patch, class: "booking-btn-red-hover" do %>
-                  <i class="fas fa-times-circle"></i>
-                <% end %>
-              </td>
+              <th>Room</th>
+              <th>Band</th>
+              <th>Booking Start Date</th>
+              <th>Booking End Date</th>
+              <th>Confirmation Status</th>
             </tr>
-          <% end %>
-        </tbody>
-      </table>
-    </div>
+          </thead>
+
+          <tbody>
+            <% @past_bookings.each do |booking| %>
+              <tr>
+                <td><%= link_to booking.room.name, booking.room, class: 'table-column-one' %></td>
+                <td><%= link_to booking.band.name, booking.band, class: 'table-column-one' %></td>
+                <td><%= booking.start_date.strftime('%d/%m/%Y') %></td>
+                <td><%= booking.end_date.strftime('%d/%m/%Y') %></td>
+                <td>
+                  <% if booking.confirmation.nil? %>
+                    <i class="far fa-question-circle confirmation-status-yellow"></i>
+                  <% elsif booking.confirmation %>
+                    <i class="far fa-check-circle confirmation-status-green"></i>
+                  <% else %>
+                    <i class="far fa-times-circle confirmation-status-red"></i>
+                  <% end %>
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    <% end %>
   </div>
 </div>
 
