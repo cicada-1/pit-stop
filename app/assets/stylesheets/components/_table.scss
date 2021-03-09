@@ -69,3 +69,21 @@
 .confirmation-status-red {
   color: #ED303A;
 }
+
+.title-and-key {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  h2 {
+    line-height: 1.6;
+  }
+
+  .bookings-key {
+    display: flex;
+
+    p {
+      margin-left: 16px;
+    }
+  }
+}

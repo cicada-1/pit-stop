@@ -2,7 +2,14 @@
   <div class="col-8 col-sm-8 col-lg-8 ">
     
     <div class="my-room-bookings bookings-card">
-      <h2>Upcoming Bookings for my Pitstop</h2>
+      <div class="title-and-key">
+        <h2>Upcoming Bookings<br>for my PitStop</h2>
+        <div class="bookings-key">
+          <p><strong>Key:</strong> <i class="far fa-question-circle confirmation-status-yellow"></i> = Booking unconfirmed</p>
+          <p><i class="far fa-check-circle confirmation-status-green"></i> = Booking confirmed</p>
+          <p><i class="far fa-times-circle confirmation-status-red"></i> = Booking rejected</p>
+        </div>
+      </div>
 
       <table class="table future-booking-requests-table">
         <thead>
@@ -46,7 +53,7 @@
 
     <% if !@past_booking_requests.empty? %>
       <div class="my-room-bookings bookings-card">
-        <h2>Past Bookings for my Pitstop</h2>
+        <h2>Past Bookings for my PitStop</h2>
 
         <table class="table past-booking-requests-table">
           <thead>
