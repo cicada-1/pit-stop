@@ -13,6 +13,7 @@
             <th>Booking End Date</th>
             <th>Confirmation Status</th>
             <th></th>
+            <th></th>
           </tr>
         </thead>
 
@@ -38,6 +39,11 @@
                   <i class="far fa-trash-alt"></i>
                 <% end %>
               </td>
+              <td>
+                <%= link_to chatrooms_path(booking.room), method: :post do %>
+                  Chat
+                  <% end %>
+             </td>
             </tr>
           <% end %>
         </tbody>

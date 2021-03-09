@@ -24,6 +24,10 @@ Rails.application.routes.draw do
   end
 
 
+  resources :chatrooms, only: [:show, :index, :create] do
+    resources :messages, only: :create
+  end
+
     resources :band_members, only: [:destroy]
     resources :bookings, only: [:destroy]
     resources :room_reviews, only: [:destroy]
