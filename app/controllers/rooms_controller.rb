@@ -1,5 +1,5 @@
 class RoomsController < ApplicationController
-  skip_before_action :authenticate_user!, only: [ :index ]
+  skip_before_action :authenticate_user!, only: [:index]
 
   before_action :set_room, only: %i[show edit update destroy]
 
