@@ -81,8 +81,10 @@
     .poster-band {
       display: grid;
       grid-template-columns: 1fr;
-      p {
+      a {
         margin-bottom: 0;
+        color: rgb(14, 13, 13);
+        font-family: $brand-font;
       }
     }
   }

@@ -92,7 +92,7 @@
         <div class="poster-bands">
           <% @poster_bookings.last(8).each do |booking| %>
             <div class="poster-band">
-              <p><%= booking.band.name %></p>
+              <%= link_to booking.band.name, band_path(booking.band) %>
             </div>
           <% end %>
         </div>
