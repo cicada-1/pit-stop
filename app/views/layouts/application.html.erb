@@ -41,7 +41,7 @@
               'background'
             end %>">
 
-
+  <div class="wrapper">
     <% if params[:action] == "home" %>
        <!-- yield(:navbar_class)  -->
       <%= render 'shared/navbar_home'%>
@@ -50,6 +50,7 @@
     <% end %>
     <%= render 'shared/flashes' %>
     <%= yield %>
+  </div>
     <%= render 'shared/footer' %>
   </body>
 </html>
