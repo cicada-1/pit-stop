@@ -47,7 +47,6 @@
       width: 100%;
       height: 100%;
       border-radius: 5px;
-
     }
 
     &::before { transition-delay: 0s, 0s, $duration; }
@@ -68,7 +67,7 @@
   font: 700 1.2rem $brand-font;
   padding: 15px 20px;
   letter-spacing: 0.05rem;
-  margin-right: 5px;
+  margin: 5px;
 
   &:focus { outline: 2px dotted #55d7dc; }
 }

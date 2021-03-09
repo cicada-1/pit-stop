@@ -22,30 +22,43 @@
           <br>
 
            <h1>Couch surfing for bands on tour</h1>
+           <p>A completely free service to support all arts.</p>
             <p>We connect the fans with the bands</p>
 
+            <div class="arrow">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
        </div>
     </div>
   </div>
   <div class="homepage-card-container">
-      <div class="homepage-card">
-        <div class="container">
-          <h4><b>The best things in life are free</b></h4>
-          <p>Our hosts don't believe in cash. Thank them by brining them to your gig!</p>
-        </div>
-      </div>
-      <div class="homepage-card">
-        <div class="container">
-          <h4><b>Support your scene</b></h4>
+    <div class="homepage-card">
+        <h4>Support your scene by hosting artists</h4>
+        <hr>  
+        <div class="home-card-description">
           <p>Become a host and be a part of an unique artist community.</p>
+          <%= link_to "/rooms/new", { class: "codepen-btn draw-border", id: "add-room-btn"} do %>
+          Add PitStop
+       <% end %>
         </div>
-      </div>
-      <div class="homepage-card">
-        <div class="container">
-          <h4><b>Spend time with your favorite band</b></h4>
-          <p>Make use of that extra futon and help out an artist in need.</p>
+    </div>
+    <div class="homepage-card">      
+      <h4>Spend time with your favorite band</h4>
+      <hr>
+      <p>Make use of that extra futon and help out an artist in need.</p> 
+    </div>
+    <div class="homepage-card">
+        <h4>The best things in life are free</h4>
+        <hr>
+        <div class="home-card-description">
+          <p>Our hosts don't believe in cash. Thank them by brining them to your gig!</p>
+          <%= link_to "/bands/new", { class: "codepen-btn draw-border", id: "add-band-btn"} do %>
+             Add Band
+          <% end %>
         </div>
-      </div>
+    </div>
   </div>
 </main>
 
