@@ -1,67 +1,73 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>The change you wanted was rejected (422)</title>
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <style>
-  .rails-default-error-page {
-    background-color: #EFEFEF;
-    color: #2E2F30;
-    text-align: center;
-    font-family: arial, sans-serif;
-    margin: 0;
-  }
+  <head>
+    <title>The change you wanted was rejected (422)</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta charset="utf-8">
 
-  .rails-default-error-page div.dialog {
-    width: 95%;
-    max-width: 33em;
-    margin: 4em auto 0;
-  }
+    <meta name="description" content="Error page example with random background animation from GIPHY">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>¯\_(ツ)_/¯</title>
+    <link rel="icon" href="../images/favicon.png" type="image/png">
+    <link rel="stylesheet" href="../css/styles.css">
 
-  .rails-default-error-page div.dialog > div {
-    border: 1px solid #CCC;
-    border-right-color: #999;
-    border-left-color: #999;
-    border-bottom-color: #BBB;
-    border-top: #B00100 solid 4px;
-    border-top-left-radius: 9px;
-    border-top-right-radius: 9px;
-    background-color: white;
-    padding: 7px 12% 0;
-    box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
-  }
+    <style>
 
-  .rails-default-error-page h1 {
-    font-size: 100%;
-    color: #730E15;
-    line-height: 1.5em;
-  }
+      body, html {
+        color: #ffffff;
+        font-family: monospace;
+        height: 100%;
+        margin: 0;
+      }
 
-  .rails-default-error-page div.dialog > p {
-    margin: 0 0 1em;
-    padding: 1em;
-    background-color: #F7F7F7;
-    border: 1px solid #CCC;
-    border-right-color: #999;
-    border-left-color: #999;
-    border-bottom-color: #999;
-    border-bottom-left-radius: 4px;
-    border-bottom-right-radius: 4px;
-    border-top-color: #DADADA;
-    color: #666;
-    box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
-  }
-  </style>
-</head>
+      body {
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 100%;
+      }
 
-<body class="rails-default-error-page">
-  <!-- This file lives in public/422.html -->
-  <div class="dialog">
-    <div>
-      <h1>The change you wanted was rejected.</h1>
-      <p>Maybe you tried to change something you didn't have access to.</p>
-    </div>
-    <p>If you are the application owner check the logs for more information.</p>
+      a {
+        color: #ffffff;
+        display: inline-block;
+        margin: 10px 0;
+      }
+
+      h1 {
+        box-sizing: border-box;
+        margin: 10px 0;
+      }
+
+      .overlay {
+        background-color: rgba(0, 0, 0, .5);
+        bottom: 0;
+        left: 0;
+        position: absolute;
+        right: 0;
+        top: 0;
+      }
+
+      .bottom {
+        bottom: 30px;
+        position: absolute;
+        text-align: center;
+        width: 100%;
+      }
+
+
+    </style>
+  </head>
+
+
+    <body style="background-image:url('https://media.giphy.com/media/3oKIPs1EVbbNZYq7EA/giphy.gif')">
+      <div class="overlay">
+        <div class="bottom">
+          <h1>¯\_(ツ)_/¯</h1>
+          <h1>422 Unprocessable Entity.</h1>
+        </div>
+      </div>
+    </body>
+</html>
   </div>
 </body>
 </html>
