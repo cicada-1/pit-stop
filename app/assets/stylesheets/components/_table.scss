@@ -1,4 +1,4 @@
-.bookings-table {
+.future-bookings-table {
   thead {
     color: #B1DDF1;
   }
@@ -16,7 +16,7 @@
   }
 }
 
-.booking-requests-table {
+.past-bookings-table {
   thead {
     color: #B1DDF1;
   }
@@ -30,6 +30,34 @@
   }
 }
 
+.future-booking-requests-table {
+  thead {
+    color: #B1DDF1;
+  }
+
+  tbody {
+    color: rgba(255,255,255,0.87);
+  }
+
+  th, td {
+    width: 20%;
+  }
+}
+
+.past-booking-requests-table {
+  thead {
+    color: #B1DDF1;
+  }
+
+  tbody {
+    color: rgba(255,255,255,0.87);
+  }
+
+  th, td {
+    width: 25%;
+  }
+}
+
 .confirmation-status-yellow {
   color: #F7B32B;
 }
@@ -40,4 +68,22 @@
 
 .confirmation-status-red {
   color: #ED303A;
+}
+
+.title-and-key {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  h2 {
+    line-height: 1.6;
+  }
+
+  .bookings-key {
+    display: flex;
+
+    p {
+      margin-left: 16px;
+    }
+  }
 }

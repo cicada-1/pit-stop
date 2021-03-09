@@ -1,0 +1,90 @@
+<div class="row justify-content-center">
+  <div class="col-8 col-sm-8 col-lg-8 ">
+    
+    <div class="my-room-bookings bookings-card">
+      <div class="title-and-key">
+        <h2>Upcoming Bookings<br>for my PitStop</h2>
+        <div class="bookings-key">
+          <p><strong>Key:</strong> <i class="far fa-question-circle confirmation-status-yellow"></i> = Booking unconfirmed</p>
+          <p><i class="far fa-check-circle confirmation-status-green"></i> = Booking confirmed</p>
+          <p><i class="far fa-times-circle confirmation-status-red"></i> = Booking rejected</p>
+        </div>
+      </div>
+
+      <table class="table future-booking-requests-table">
+        <thead>
+          <tr>
+            <th>Band</th>
+            <th>Booking Start Date</th>
+            <th>Booking End Date</th>
+            <th>Confirmation Status</th>
+            <th>Accept Booking?</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @future_booking_requests.each do |request| %>
+            <tr>
+              <td><%= link_to request.band.name, request.band, class: 'table-column-one' %></td>
+              <td><%= request.start_date.strftime('%d/%m/%Y') %></td>
+              <td><%= request.end_date.strftime('%d/%m/%Y') %></td>
+              <td>
+                <% if request.confirmation.nil? %>
+                  <i class="far fa-question-circle confirmation-status-yellow"></i>
+                <% elsif request.confirmation %>
+                  <i class="far fa-check-circle confirmation-status-green"></i>
+                <% else %>
+                  <i class="far fa-times-circle confirmation-status-red"></i>
+                <% end %>
+              </td>
+              <td class="requests-table-last-column">
+                <%= link_to confirm_booking_path(request), method: :patch, class: "booking-btn-green-hover" do %>
+                  <i class="fas fa-check-circle"></i>
+                <% end %>
+                <%= link_to reject_booking_path(request), method: :patch, class: "booking-btn-red-hover" do %>
+                  <i class="fas fa-times-circle"></i>
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+
+    <% if !@past_booking_requests.empty? %>
+      <div class="my-room-bookings bookings-card">
+        <h2>Past Bookings for my PitStop</h2>
+
+        <table class="table past-booking-requests-table">
+          <thead>
+            <tr>
+              <th>Band</th>
+              <th>Booking Start Date</th>
+              <th>Booking End Date</th>
+              <th>Confirmation Status</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <% @past_booking_requests.each do |request| %>
+              <tr>
+                <td><%= link_to request.band.name, request.band, class: 'table-column-one' %></td>
+                <td><%= request.start_date.strftime('%d/%m/%Y') %></td>
+                <td><%= request.end_date.strftime('%d/%m/%Y') %></td>
+                <td>
+                  <% if request.confirmation.nil? %>
+                    <i class="far fa-question-circle confirmation-status-yellow"></i>
+                  <% elsif request.confirmation %>
+                    <i class="far fa-check-circle confirmation-status-green"></i>
+                  <% else %>
+                    <i class="far fa-times-circle confirmation-status-red"></i>
+                  <% end %>
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    <% end %>
+  </div>
+</div>

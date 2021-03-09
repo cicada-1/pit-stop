@@ -1,5 +1,10 @@
 .footer {
+  padding-top: 1px;
   margin-top: 1rem;
   background-color: #16141E;
   color: $light-gray;
+}
+
+.wrapper {
+    min-height: calc(100vh - 138px);
 }
