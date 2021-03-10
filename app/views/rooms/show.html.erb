@@ -33,7 +33,11 @@
       <div  class="description-text">
         <h2 class="card-header">My Bio</h2>
       <span class="room-decryption"><%= @room.bio %></span>
-      <div class="room-name-btn">
+   
+      <h2 class="card-header"><%= @room.name.upcase %></h2>
+      <span class="room-decryption"><%= @room.description %></span>
+    </div>
+       <div class="room-name-btn">
         <button
         type="button"
         id="booking-btn"
@@ -42,12 +46,6 @@
         data-target="#booking_room"
         >Request Booking</button>
       </div>
-      <h2 class="card-header"><%= @room.name.upcase %></h2>
-      <span class="room-decryption"><%= @room.description %></span>
-    </div>
-    
-    <div class="room-sm-icons">
-      <h2 class="card-header">Social Media Profiles</h2>
       <div class="sm-icons">
         <div class="social-media-icons">
           <% if @room_socials %>
@@ -70,7 +68,7 @@
             <% end %>
           <% end %>
         </div>
-      </div>
+   
     </div>
   </div>
 
