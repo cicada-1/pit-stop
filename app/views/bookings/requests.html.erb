@@ -19,6 +19,7 @@
             <th>Booking End Date</th>
             <th>Confirmation Status</th>
             <th>Accept Booking?</th>
+            <th></th>
           </tr>
         </thead>
 
@@ -43,6 +44,11 @@
                 <% end %>
                 <%= link_to reject_booking_path(request), method: :patch, class: "booking-btn-red-hover" do %>
                   <i class="fas fa-times-circle"></i>
+                <% end %>
+              </td>
+              <td>
+                <%= link_to chatrooms_path(request.room), method: :post do %>
+                  Chat
                 <% end %>
               </td>
             </tr>
