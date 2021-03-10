@@ -22,10 +22,11 @@
 	flex-direction: row;
 	justify-content: space-around;
 	align-items: center;
-  img {
-    width: 100%;
-    border-radius: 6px;
-  }
+}
+.band-cover-image {
+  width: 90%;
+  border-radius: 6px;
+  
 }
 // bottom card styling
 .band-description-container{
