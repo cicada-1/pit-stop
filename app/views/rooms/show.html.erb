@@ -12,7 +12,7 @@
     <div  class="show-page-card-div">
     <div class="show-user-card">
       <div class="card-user-header">
-        <%= cl_image_tag @room.photos.first.key, class: "avatar-show" %>
+        <%= cl_image_tag @room.user.photo.key, class: "avatar-show" %>
         <h2 class="card-stagename"><%= @room.user.stage_name.upcase %></h2>
       </div>
       <div class="setting-dropdown">
