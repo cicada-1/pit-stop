@@ -3,47 +3,119 @@
 }
 
 .chats-sidebar {
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 1fr;
-  text-align: center;
   width: 30%;
 }
 
 .chats-sidebar-top {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   width: 100%;
-  height: 200px;
-  border: solid 1px $battleship-gray;
-  border-left: hidden;
-  border-top: hidden;
+  padding: 16px 0;
+
+  p {
+    font-size: larger;
+    margin-bottom: 0;
+  }
 }
 
 .chats-list {
-  display: grid;
-  grid-template-columns: 1fr;
-  p {
+  overflow: hidden;
+  scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+    display: none;
+    }
+    
+  .chat-listing {
+    display: flex;
     padding: 16px;
-    border: solid 1px $battleship-gray;
-    border-left: hidden;
-    border-bottom: hidden;
+    border-top: solid 1px $battleship-gray;
     margin: 0;
+
+    &:hover {
+      text-decoration: none;
+      color: $pit-gray;
+      background-color: $pit-background;
+    }
   }
 
-  a {
+  p {
     margin: 0;
+    margin-left: 16px;
+    padding: 8px 0;
   }
 }
+
 .chat-window {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 16px;
   width: 100%;
   height: 90vh;
+  border-left: solid 1px $battleship-gray;
+
+  .chat-window-top {
+    display: flex;
+    align-items: center;
+    padding: 16px 32px;
+    border-bottom: solid 1px $battleship-gray;
+
+    h2 {
+      margin-left: 32px;
+    }
+  }
+
+  .chat-window-bottom {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 0 32px;
+  }
+
   .new_message {
     width: 100%;
+    padding-top: 16px;
+    padding-bottom: 32px;
   }
+
   small {
     color: rgba(255,255,255,0.6);
+  }
+  
+  #messages {
+    max-height: 650px;
+    overflow: scroll;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+    display: none;
+    }
+  }
+
+  
+  .message-block {
+    display: flex;
+  }
+
+  .message-container {
+    background-color: $pit-background;
+    border-radius: 5px;
+    padding: 8px 16px;
+    margin: 16px 0;
+    max-width: fit-content;
+    
+    .author {
+      margin-bottom: 8px;
+    }
+    
+    p {
+      margin-bottom: 8px;
+    }
+  }
+
+  .message-right {
+    background-color: $pit-munsell;
   }
 }

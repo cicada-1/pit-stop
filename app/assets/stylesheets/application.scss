@@ -2,7 +2,7 @@
 @import "config/colors";
 @font-face {
     font-family: 'Blackout 2am';
-    src: url('blackout/Blackout-2am.ttf') format('truetype');
+    src: font-url('blackout/Blackout-2am.ttf') format('truetype');
 }
 @import "config/fonts";
 @import "config/mixins";

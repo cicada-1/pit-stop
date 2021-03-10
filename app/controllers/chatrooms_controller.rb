@@ -19,7 +19,7 @@ class ChatroomsController < ApplicationController
     @chatroom.name = @room.user.stage_name + current_user.stage_name
     unless Chatroom.find_by(name: @chatroom.name).nil?
       chatroom = Chatroom.find_by(name: @chatroom.name)
-      redirect_to chatroom_path(@chatroom)
+      redirect_to chatroom_path(chatroom)
     else
       @chatroom.user = current_user
       @chatroom.room = @room
