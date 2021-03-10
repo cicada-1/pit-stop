@@ -7,12 +7,15 @@
   padding: 16px;
   margin: 32px;
 }
-
+.show-review-header {
+  text-align: center;
+  margin-bottom: 16px;
+}
 .review-card {
-  min-width: 100%;
+  min-width: 90%;
   box-shadow: 2px 2px 16px $box-shadow;
   border-radius: 6px;
-  margin: 16px 0;
+  margin: 16px 64px;
   padding: 32px;
   position: relative;
   background-color: $pit-background;
