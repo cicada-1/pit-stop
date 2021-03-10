@@ -7,10 +7,10 @@
 
 .nav-link-right {
   text-decoration: none;
-  color: rgba(0, 0, 0, 0.55);
+  color: $pit-gray;
   &:hover {
     text-decoration: none;
-    color: rgba(0, 0, 0, 0.7);
+    color: $pit-gray;
   }
 }
 /////////////
@@ -28,9 +28,9 @@
   width: 100%;
 
    a {
-    color: white !important;
+    color: $pit-gray !important;
     font-weight: bold;
-   }
+  }
 }
 
 .logo {
@@ -58,5 +58,5 @@
 
 .navbar-right .nav-item {
   margin-left: 4px;
-
 }
+

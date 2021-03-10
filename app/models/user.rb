@@ -12,7 +12,6 @@ class User < ApplicationRecord
 
   USER_TYPES = %w[host band both]
 
-  validates :first_name, :last_name, :user_type, presence: true
+  validates :first_name, :last_name, presence: true
   validates :stage_name, uniqueness: true
-  validates :user_type, inclusion: { in: USER_TYPES }
 end

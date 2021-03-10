@@ -14,14 +14,7 @@ $poster-head-font: 'Blackout 2am', 'Special Elite', cursive;
 }
 
 // show cards header
-.card-header{
-	text-align: center;
-	padding: 8px;
-  background: $pit-background;
-  color: $pit-gray;
-	@extend %card-header;
-  font-family: $headers-font;
-}
+
 
 // SHOUTOUTS Style
 .page-main-text {

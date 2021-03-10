@@ -1,5 +1,5 @@
 
-<div class="container">
+<div class="how-page-container">
   <%= render 'modal' %>
   <%= render partial: 'room_socials/modal' %>
   <%= render partial: 'rooms_reviews/modal'%>
@@ -8,19 +8,12 @@
   <%= render partial: 'add_photos_room/modal' %>
 
 
-  <div class="row">
-    <div  class="col-lg-6 col-md-6 col-sm-12">
-    <div class="show-user-info margin-32">
-      <div class="container">
-        <div class="row">
-          <div class="col-4">
-            <%= cl_image_tag @room.photos.first.key, class: "avatar-show" %>
-          </div>
-          <div class="col-8 card-name-location">
-              <h2 class="card-header"><%= @room.name.upcase %></h2>
-              <p class="show-location"><%= @room.city %></p>
-          </div>
-        </div>
+  <div class="show-page-row">
+    <div  class="show-page-card-div">
+    <div class="show-user-card">
+      <div class="card-user-header">
+        <%= cl_image_tag @room.user.photo.key, class: "avatar-show" %>
+        <h2 class="card-stagename"><%= @room.user.stage_name.upcase %></h2>
       </div>
       <div class="setting-dropdown">
       <% if @room.user_id == current_user.id %>
@@ -37,10 +30,14 @@
         </div>
         <% end %>
       </div>
-    <div class="room-card">
-      <hr>
-      <div class="col-12 room-name-btn">
-        <h2 class="card-header"><%= @room.name.upcase %></h2>
+      <div  class="description-text">
+        <h2 class="card-header">My Bio</h2>
+      <span class="room-decryption"><%= @room.bio %></span>
+   
+      <h2 class="card-header"><%= @room.name.upcase %></h2>
+      <span class="room-decryption"><%= @room.description %></span>
+    </div>
+       <div class="room-name-btn">
         <button
         type="button"
         id="booking-btn"
@@ -48,22 +45,7 @@
         data-toggle="modal"
         data-target="#booking_room"
         >Request Booking</button>
-        </div>
       </div>
-
-      <div  class="description-text">
-        <h2 class="card-header">My Bio</h2>
-      <p class="room-decription"><%= @room.bio %></p>
-      <h2 class="card-header">About Room</h2>
-      <p class="room-decription"><%= @room.description %></p>
-      <div class="room-info-icons">
-        <p><i class="fas fa-car"></i>  <%= @room.parking %></p>
-        <p><i class="fas fa-user-friends"></i> <%= @room.capacity%></p>
-      </div>
-    </div>
-    
-    <div class="room-sm-icons">
-      <h2 class="card-header">Social Media Profiles</h2>
       <div class="sm-icons">
         <div class="social-media-icons">
           <% if @room_socials %>
@@ -86,14 +68,14 @@
             <% end %>
           <% end %>
         </div>
-      </div>
+   
     </div>
   </div>
 
     </div>
  
     <!-- poster -->
-    <div class="col-lg-6 col-md-6 col-sm-12">
+    <div class="show-page-poster-div">
       <div class="poster-box room-poster">
         <div class="poster-gig poster-top">
           <% if @room.user.stage_name %>
@@ -118,8 +100,8 @@
   </div>
 
 
-  <div class="row col-12 show-photo-container ">
-    <span class="card-header col-12">Photos</span>
+  <div class="show-page-photos">
+    <span class="card-header ">Photos</span>
     <div class="show-photos-display">
       <% @room.photos.each do |photo| %>
         <div class="show-photo-box">
@@ -131,7 +113,7 @@
 
 
   <div class="row col-12 show-review">
-    <div>
+    <div class="show-review-header">
       <h2 class="page-main-text">Shoutouts</h2>
       <button
   type="button"

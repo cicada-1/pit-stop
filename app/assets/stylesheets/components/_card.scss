@@ -1,12 +1,12 @@
-.lexbox-right {
+.flexbox-right {
   display: flex;
   flex-direction: column;
   width: 60%;
+  margin-right: 16px;
 }
 .flexbox-left {
-  display: flex;
-  flex-direction: column;
   width: 40%;
+  height: 100vh;
 }
 
 .index-container {
@@ -14,21 +14,39 @@
     font-family: $headers-font;
   }
 }
+.index-card {
+  text-decoration: none;
+}
 .card-main-photo {
-  width: 260px;
-  height: 260px;
-  margin-left:16px;
+  width: 40%;
+  height: 100%;
 }
 .card-image {
-    width: 260px;
-    height: 260px;
+    width: 300px;
+    height: 200px;
     border-radius: 6px;
     object-fit: cover;
   }
+.index-card-info {
+  display:flex;
+  flex-direction: column;
+  position: relative;
+  width: 60%;
+  img {
+    height: 32px;
+    width: 32px;
+    border-radius: 50%;
+    position: absolute;
+    right: 10px;
+    bottom: 8px;
+  }
+}
+
 
 #card-title {
   color: $pit-gray;
-  @extend %card-subheader;
+  font-size: 24px;
+  font-family: $body-font;
 }
 #index-card-descriptions {
   @extend %card-text;
@@ -38,10 +56,12 @@
   font-weight: 300;
   font-style: italic;
   color: #5c635b;
+  position: absolute;
+  bottom: 8px;
+  display: block;
 }
 .card-link {
-  display: block;
-  margin: 16px auto;
+  display: block; 
   a {
     font-size: 14px;
     text-decoration: none;
@@ -51,7 +71,7 @@
     border: 1px solid $pit-munsell;
     margin-bottom: 8px;
     &:hover {
-      color: $pit-gray;
+      color: $pit-background;
       background: $pit-munsell;
 
       border-radius: 16px;
@@ -63,24 +83,22 @@
 .index-card {
  display: flex;
  justify-content: space-between;
- background-color: #1F1E27;
+ background-color: $pit-body-bg;
  padding: 10px;
  border-radius: 6px;
- // margin-top: 8px;
- margin-bottom: 16px;
+ margin-top: 16px;
  width: 100%;
+ border: none;
+ border-bottom: solid 2px $pit-background;
+ border-bottom: solid 2px $pit-background;
  }
 
-.index-card-body {
-  text-align: center;
-  width: 100%;
 
-}
 
 .index-content-container {
   display: flex;
+  width: 100%;
   justify-content: space-evenly;
-  margin: 32px;
  }
 
  .homepage-card {
