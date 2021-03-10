@@ -13,16 +13,16 @@
       position: relative;
       border: none;
       cursor: pointer;
-      color: $pit-munsell;
+      color: $pit-blue;
       background: none;
-      border: 1px solid $pit-munsell;
+      border: 1px solid $pit-blue;
   }
 
   &:hover {
       transform: translateY(-3px);
-      box-shadow: 2px 5px 10px rgba($pit-munsell, 0.2);
+      box-shadow: 2px 5px 10px rgba(177,221,241, 0.2);
       color: $pit-background;
-      background: #528aa0;
+      background: $pit-munsell;
  
       border: 1px solid $pit-munsell;
       &::after{

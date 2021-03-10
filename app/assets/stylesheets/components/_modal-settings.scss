@@ -3,8 +3,8 @@
   height: 100vh;
 	-webkit-backdrop-filter: blur(16px);
 	backdrop-filter: blur(16px);
-	background-color: $pit-gray;
-  opacity: 0.6;
+	background-color: $pit-body-bg;
+  opacity: 0.9;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -42,14 +42,16 @@
  }
 
 .delete-text{
-  color: $bright-red;
+  margin-top: 16px;
+  color: $pit-munsell;
   @extend %card-subheader;
   border: none;
   background: none;
   padding-top: 16px;
+  text-decoration: none;
   &:hover {
     border: none;
-    color: $dark-red;
+    color: $red;
   }
 }
 

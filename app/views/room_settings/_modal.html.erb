@@ -41,10 +41,11 @@
 					>
 					Add Photos
 					</button>
-
-					<%= link_to room_path(@room), method: :delete, data: { confirm: "Are you sure?" }, id: 'btn-bin' do %>
-						<span class="delete-text">Dissolve Room</span>
-					<% end %>
+					<div>
+						<%= link_to room_path(@room), method: :delete, data: { confirm: "Are you sure?" } do %>
+							<span class="delete-text">Delete Room</span>
+						<% end %>
+					</div>
       
 				</div>
 			</div>

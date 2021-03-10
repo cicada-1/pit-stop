@@ -25,7 +25,13 @@
     border-radius: 6px;
     object-fit: cover;
   }
-
+.card-left-side {
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
 #card-title {
   color: $pit-gray;
   @extend %card-subheader;
@@ -38,10 +44,12 @@
   font-weight: 300;
   font-style: italic;
   color: #5c635b;
+  position: absolute;
+  bottom: 8px;
+  display: block;
 }
 .card-link {
-  display: block;
-  margin: 16px auto;
+  display: block; 
   a {
     font-size: 14px;
     text-decoration: none;
@@ -51,7 +59,7 @@
     border: 1px solid $pit-munsell;
     margin-bottom: 8px;
     &:hover {
-      color: $pit-gray;
+      color: $pit-background;
       background: $pit-munsell;
 
       border-radius: 16px;
@@ -74,7 +82,7 @@
 .index-card-body {
   text-align: center;
   width: 100%;
-
+  position: relative;
 }
 
 .index-content-container {
