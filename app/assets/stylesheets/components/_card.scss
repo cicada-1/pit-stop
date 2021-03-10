@@ -14,6 +14,9 @@
     font-family: $headers-font;
   }
 }
+.index-card {
+  text-decoration: none;
+}
 .card-main-photo {
   width: 40%;
   height: 100%;
@@ -42,7 +45,8 @@
 
 #card-title {
   color: $pit-gray;
-  @extend %card-subheader;
+  font-size: 24px;
+  font-family: $body-font;
 }
 #index-card-descriptions {
   @extend %card-text;
