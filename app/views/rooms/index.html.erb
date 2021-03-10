@@ -1,20 +1,22 @@
-<div class="index-container">
+
   <div class="index-content-container">
   <div class="flexbox-right">
     <% @rooms.each do |room| %>
       <div class="index-card">
-        <div class="index-card-body">
-          <div class="card-left-side">
-
-            <%= image_tag "emma-copy.jpg", class: "card-avatar" %>
+        <div class="card-main-photo">
+          <%= cl_image_tag room.photos.first.key, class: "card-image" %>
+        </div>
+        <div class="index-card-info">
+            
             <h5 id="card-title"><%= room.name %></h5>
             <p id="index-card-description"><%= room.description.truncate(50) %></p>
             <span class="card-link"><%= link_to "See details", room_path(room) %></span>
-          </div>
-          <span id="text-muted">Last updated <%= time_ago_in_words(room.updated_at) %> ago</span>
-        </div>
-        <div class="card-main-photo">
-          <%= cl_image_tag room.photos.first.key, class: "card-image" %>
+     
+            <span id="text-muted">Last updated <%= time_ago_in_words(room.updated_at) %> ago</span>
+
+              <%= image_tag "emma-copy.jpg", class: "card-avatar" %>
+           
+      
         </div>
         </div>
     <% end %>
@@ -22,10 +24,10 @@
 
 <div class="flexbox-left">
   <div id="map"
-       style="width: 60%; height: 600px;"
+       style="width: 60%; height: 90vh;"
        data-markers="<%= @markers.to_json %>"
        data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
    </div>
 </div>
 </div>
-</div>
+

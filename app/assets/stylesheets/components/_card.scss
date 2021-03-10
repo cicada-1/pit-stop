@@ -1,12 +1,11 @@
-.lexbox-right {
+.flexbox-right {
   display: flex;
   flex-direction: column;
   width: 60%;
 }
 .flexbox-left {
-  display: flex;
-  flex-direction: column;
   width: 40%;
+  height: 100vh;
 }
 
 .index-container {
@@ -15,23 +14,28 @@
   }
 }
 .card-main-photo {
-  width: 260px;
-  height: 260px;
-  margin-left:16px;
+  width: 40%;
+  height: 100%;
 }
 .card-image {
-    width: 260px;
-    height: 260px;
+    width: 300px;
+    height: 200px;
     border-radius: 6px;
     object-fit: cover;
   }
-.card-left-side {
-    height: 80%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
+.index-card-info {
+  display:flex;
+  flex-direction: column;
+  position: relative;
+  width: 60%;
+  img {
+    position: absolute;
+    right: 10px;
+    bottom: 8px;
+  }
 }
+
+
 #card-title {
   color: $pit-gray;
   @extend %card-subheader;
@@ -71,24 +75,22 @@
 .index-card {
  display: flex;
  justify-content: space-between;
- background-color: #1F1E27;
+ background-color: $pit-body-bg;
  padding: 10px;
  border-radius: 6px;
- // margin-top: 8px;
- margin-bottom: 16px;
+ margin-top: 16px;
  width: 100%;
+ border: none;
+ border-bottom: solid 2px $pit-background;
+ border-bottom: solid 2px $pit-background;
  }
 
-.index-card-body {
-  text-align: center;
-  width: 100%;
-  position: relative;
-}
+
 
 .index-content-container {
   display: flex;
+  width: 100%;
   justify-content: space-evenly;
-  margin: 32px;
  }
 
  .homepage-card {
