@@ -1,2 +1,19 @@
-<%= render 'chat' %>
-<%= render 'indexchat' %>
+<div class="chatroom">
+  <div class="chats-sidebar">
+    <div class="chats-sidebar-top">
+
+    </div>
+    <div class="chats-list">
+      <%  @chatrooms.each do |chatroom| %>
+        <% if chatroom.room.user == current_user %>
+          <p><%= link_to chatroom.user.stage_name, chatroom_path(chatroom) %></p>
+        <% else %>
+          <p><%= link_to chatroom.room.user.stage_name, chatroom_path(chatroom) %></p>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+  <div class="chat-window">
+    <%= render 'chat', chatroom: @chatroom %>
+  </div>
+</div>
