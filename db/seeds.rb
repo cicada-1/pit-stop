@@ -8,10 +8,10 @@
 require "faker"
 
 puts "cleaning database"
-# Room.destroy_all
-# BandMember.destroy_all
-# Band.destroy_all
-# User.destroy_all
+ Room.destroy_all
+ BandMember.destroy_all
+ Band.destroy_all
+ User.destroy_all
 
 
 
@@ -22,33 +22,33 @@ puts "cleaning database"
 #         avatars_to_attach << { io: URI.open(uploaded_file['secure_url']), filename: file, content_type: 'image/png' }
 # end
 
-# 10.times do
-#   user = User.new(
-#     email: Faker::Internet.email,
-#     first_name: Faker::Name.first_name,
-#     last_name: Faker::Name.last_name,
-#     stage_name: Faker::Music::RockBand.name,
-#     user_type: 'band',
-#     password: '123123')
-#     user.save
-# end
+ 10.times do
+   user = User.new(
+     email: Faker::Internet.email,
+     first_name: Faker::Name.first_name,
+     last_name: Faker::Name.last_name,
+     stage_name: Faker::Music::RockBand.name,
+     user_type: 'band',
+     password: '123123')
+     user.save
+ end
 
 
-# 5.times do
-#   band = Band.new(
-#     name: Faker::Music::RockBand.name,
-#     location: Faker::Address.full_address,
-#     description: Faker::Lorem.paragraph,
-#     number_of_members: 4)
-#     band.save
-# end
+ 5.times do
+   band = Band.new(
+     name: Faker::Music::RockBand.name,
+     location: Faker::Address.full_address,
+     description: Faker::Lorem.paragraph,
+     number_of_members: 4)
+     band.save
+ end
 
-# 20.times do
-#   band_member = BandMember.new(
-#     user_id: User.where(user_type:"band").pluck(:id).sample,
-#     band_id: Band.pluck(:id).sample)
-#     band_member.save
-# end
+ 20.times do
+   band_member = BandMember.new(
+     user_id: User.where(user_type:"band").pluck(:id).sample,
+     band_id: Band.pluck(:id).sample)
+     band_member.save
+ end
 
 room_details =
 
