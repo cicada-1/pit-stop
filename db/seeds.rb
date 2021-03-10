@@ -13,41 +13,43 @@ puts "cleaning database"
  Band.destroy_all
  User.destroy_all
 
+avatars = ["image.png", "image (1).png", "image (2).png", "image (3).png", "image (4).png", "image (5).png", "image (6).png", "image (7).png"]
+avatars_to_attach = []
+avatars.each do |avatar|
+  uploaded_file = Cloudinary::Uploader.upload(File.join("app/assets/images/room-images-pitstop", avatar))
+        avatars_to_attach << { io: URI.open(uploaded_file['secure_url']), filename: file, content_type: 'image/png' }
+        p "avatr uploded"
+end
 
-
-# avatars = ["image.png", "image (1).png", "image (2).png", "image (3).png", "image (4).png", "image (5).png", "image (6).png", "image (7).png"]
-# avatars_to_attach = []
-# avatars.each do |avatar|
-#   uploaded_file = Cloudinary::Uploader.upload(File.join("app/assets/images/room-images-pitstop", avatar))
-#         avatars_to_attach << { io: URI.open(uploaded_file['secure_url']), filename: file, content_type: 'image/png' }
-# end
-
- 10.times do
-   user = User.new(
-     email: Faker::Internet.email,
-     first_name: Faker::Name.first_name,
-     last_name: Faker::Name.last_name,
-     stage_name: Faker::Music::RockBand.name,
-     user_type: 'band',
-     password: '123123')
-     user.save
- end
-
+5.times do |i|
+  p "Start user"
+  user = User.create!(
+    email: Faker::Internet.email,
+    first_name: Faker::Name.first_name,
+    last_name: Faker::Name.last_name,
+    stage_name: Faker::Music::RockBand.name,
+    password: '123123',
+    photo: avatars_to_attach[i]
+  )
+  p "user created"
+end
 
  5.times do
    band = Band.new(
      name: Faker::Music::RockBand.name,
      location: Faker::Address.full_address,
      description: Faker::Lorem.paragraph,
-     number_of_members: 4)
-     band.save
+     number_of_members: 4
+    )
+    band.save
  end
 
  20.times do
    band_member = BandMember.new(
-     user_id: User.where(user_type:"band").pluck(:id).sample,
-     band_id: Band.pluck(:id).sample)
-     band_member.save
+     user_id: User.all.sample.id,
+     band_id: Band.pluck(:id).sample
+    )
+    band_member.save
  end
 
 room_details =

@@ -3,6 +3,6 @@
   <%= f.input :location %>
   <%= f.input :description, as: :text%>
   <%= f.input :number_of_members, as: :integer%>
-  <%= f.input :photos, as: :file %>
+  <%= f.input :photos, as: :file, input_html: { multiple: true }%>
   <%= f.button :submit %>
 <% end %>

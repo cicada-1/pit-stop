@@ -2,6 +2,7 @@
   display: flex;
   flex-direction: column;
   width: 60%;
+  margin-right: 16px;
 }
 .flexbox-left {
   width: 40%;
@@ -29,6 +30,9 @@
   position: relative;
   width: 60%;
   img {
+    height: 32px;
+    width: 32px;
+    border-radius: 50%;
     position: absolute;
     right: 10px;
     bottom: 8px;

@@ -32,7 +32,7 @@
 				<% end %>
 			</div>
 			<div class="user-info-main-photo">
-				<%= image_tag("pexels-friends-in-livingroom") %>
+				<%= cl_image_tag @band.photos.first.key, class: 'band-cover-image' %>
 			</div>
 		</div>
 		<div class="band-description-container margin-32 ">
@@ -97,18 +97,11 @@
 <div class="row col-12 show-photo-container ">
 	<span class="card-header col-12">Photos</span>
 	<div class="show-photos-display">
-		<div class="show-photo-box">
-	  	<%= image_tag("pexels-friends-in-livingroom") %>
-		</div>
-		<div class="show-photo-box">
-	  	<%= image_tag("pexels-friends-in-livingroom") %>
-		</div>
-		<div class="show-photo-box">
-	  	<%= image_tag("pexels-friends-in-livingroom") %>
-		</div>
-		<div class="show-photo-box">
-	  	<%= image_tag("pexels-friends-in-livingroom") %>
-		</div>
+		<% @band.photos.each do |photo| %>
+        <div class="show-photo-box">
+          <%= cl_image_tag photo.key %>
+        </div>
+      <% end %>
 	</div>
 </div>
 

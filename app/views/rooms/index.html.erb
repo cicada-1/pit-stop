@@ -14,7 +14,7 @@
      
             <span id="text-muted">Last updated <%= time_ago_in_words(room.updated_at) %> ago</span>
 
-              <%= image_tag "emma-copy.jpg", class: "card-avatar" %>
+            <%= cl_image_tag room.user.photo.key, class: "card-image" %>
            
       
         </div>
