@@ -27,7 +27,7 @@
     &::-webkit-scrollbar {
     display: none;
     }
-    
+
   .chat-listing {
     display: flex;
     padding: 16px;
@@ -70,7 +70,6 @@
   .chat-window-bottom {
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
     padding: 0 32px;
   }
 
@@ -85,7 +84,7 @@
   }
   
   #messages {
-    max-height: 650px;
+    max-height: 69%;
     overflow: scroll;
     scrollbar-width: none;
 
