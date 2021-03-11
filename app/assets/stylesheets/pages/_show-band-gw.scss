@@ -20,7 +20,7 @@
 }
 .band-header {
   display: block;
-  padding-top: 16px;
+  padding: 10px;
   font-size: 24px;
   font-family: $body-font;
   font-weight: 600;
@@ -33,19 +33,9 @@
  padding: 16px;
  color: $pit-gray;
  font-family: $body-font;
-}
-
-// social media style
-.sm-icons {
-  height: 64px;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  width: 100%;
-  margin: 16px;
-  position: relative;
-  margin: 0;
-  position: relative;
+ p {
+   margin: 0;
+ }
 }
 
 .show-photo-container {
