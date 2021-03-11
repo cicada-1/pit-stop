@@ -130,7 +130,7 @@
       <div class="review-card">
         <div class="review-top">
           <div class="reviewavatar">
-            <%= image_tag('poster') %>
+            <%= cl_image_tag item.band.first.photo.key, height: 32, width: 32, crop: :fill %>
           </div>
           <div class="review-header">
             <strong class="review-author"><%= item.band.name %></strong>

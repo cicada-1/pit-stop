@@ -1,5 +1,5 @@
 <div class="chat-window-top">
-  <%= cl_image_tag current_user.photo.key, height: 64, width: 64, gravity: :face, radius: :max, crop: :crop, class: 'active-chat-avatar' %>
+  <%= cl_image_tag current_user.photo.key, height: 64, width: 64, crop: :fill, class: 'active-chat-avatar' %>
   <h2><%= @chatroom_name %></h2>
 </div>
 
