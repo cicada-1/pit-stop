@@ -4,6 +4,14 @@
     font-family: 'Blackout 2am';
     src: url('blackout/Blackout-2am.ttf') format('truetype');
 }
+
+
+@font-face {
+    font-family: 'Special Elite';
+    src: url('special-elite/SpecialElite-Regular.ttf') format('truetype');
+}
+
+
 @import "config/fonts";
 @import "config/mixins";
 @import "config/bootstrap_variables";
