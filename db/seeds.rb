@@ -316,7 +316,7 @@ end
   room = Room.new(
     name: room_detail[:name],
     description: room_detail[:description],
-    capacity: room_detail[:capacity]
+    capacity: room_detail[:capacity],
     parking: ["street parking", "private parking", "car park", "unavailable"].sample,
     bio: room_detail[:bio],
     postcode: room_detail[:postcode],
