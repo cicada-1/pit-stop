@@ -7,7 +7,7 @@
 	<%= render partial: 'show-settings/modal'%>
 	<%= render partial: 'band_reviews/modal'%>
 
-	
+
 <!-- BAND INFO LEFT SIDE OF SCREEN -->
 
 
@@ -15,6 +15,7 @@
 		<div class="show-page-card-div">
 			<div class="show-band-info">
 				<span class="band-header" ><%= @band.name %></span>
+        <br>
 				<div class="setting-dropdown">
       	  <% if current_user.bands.ids.include?(@band.id) %>
 					<div id="my-tooltip" class="tooltip">
@@ -33,14 +34,16 @@
 				<div class="band-main-photo">
 					<%= cl_image_tag @band.photos.first.key, class: 'band-cover-image', height: 240, width: 360, crop: :fill  %>
 				</div>
-				<span class="band-header">About us</span>
+        <br>
+				<span class="band-sub-headers">About</span>
 				<div class="user-description">
 					<p><%= @band.description %></p>
 				</div>
+        <hr>
 				<!-- Follow Section -->
-				<span class="band-header">Follow</span>
+				<span class="band-sub-headers">Follow us</span>
 				<div class="social-media-icons">
-				<% if @socials %> 
+				<% if @socials %>
 					<% @socials.each do |item| %>
 						<% if item.social_type == "Instagram" %>
               <%= link_to item.profile_url do %>
@@ -63,7 +66,7 @@
                 <i class="band-social-icon fab fa-bandcamp"></i>
               <% end %>
             <% end %>
-					<% end %> 
+					<% end %>
 				<% end %>
 				</div>
 			</div>
@@ -73,24 +76,21 @@
 		<div class="poster-box room-poster">
 			<div class="poster-gig poster-top">
 				<span class="poster-title">GIGS</span>
-				<% if @gigs %> 
-					<% @gigs.each do |item| %> 
-					<span class="poster-date"><%= item.date.strftime('%d/%m/%Y') %></span>
-					<span class="poster-location"><%= item.location  %></span>
-					<%end %> 
-				<% end %>
-				</div>
+			</div>
+      <div class="poster-body">
+          <% @gigs.each do |item| %>
+          <span class="poster-date"><%= item.date.strftime('%d/%m/%Y') %></span>
+          <span class="poster-location"><%= item.location  %></span>
+          <% end %>
+      </div>
 		</div>
 		</div>
 	</div>
 
-
-
-
 <!-- Phots Section -->
 <div class="show-photo-container">
 	<div class="show-page-photos">
-		<span class="band-header">Photos</span>
+		<span class="band-header"></span>
 		<div class="show-photos-display">
 			<% @band.photos.each do |photo| %>
 					<div class="show-photo-box">
@@ -104,19 +104,19 @@
 
 <div class="show-review">
 	<div class="show-review-header">
-<h2 class="page-main-text">Shoutouts</h2>
+<h2 class="band-header">Shoutouts</h2>
 <button
 type="button"
 id="add-review-btn"
 data-toggle="modal"
 data-target="#rooms_review">
-	<i class="fas fa-plus-square"></i> 
+	<i class="fas fa-plus-square"></i>
 	Add Review
 </button>
 </div>
 
 <% if @band_reviews %>
-  <% @band_reviews.each do |item| %> 
+  <% @band_reviews.each do |item| %>
 
 	<div class="review-card">
 		<div class="review-avatar-box">
@@ -132,7 +132,7 @@ data-target="#rooms_review">
 				   <%= item.room.user.first_name %>
 			    <% else %>
 				   <%= item.room.user.stage_name %>
-			    <% end %>  
+			    <% end %>
 				</span>
 				<div class="review-content">
 					<span class="review-text-content"><%= item.content %></span>
@@ -143,7 +143,7 @@ data-target="#rooms_review">
 					confirm: "Are you sure?" } %>
 			<% end %>
 	</div>
-	<% end %>	
+	<% end %>
 	<% end %>
 	</div>
 	</div>
