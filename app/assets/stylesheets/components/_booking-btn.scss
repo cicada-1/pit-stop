@@ -50,3 +50,11 @@
       transition: all .4s;
   }
 }
+
+// Calendar icon 
+input[type="date"]::-webkit-calendar-picker-indicator {
+    cursor: pointer;
+    color: $pit-gray;
+    filter: invert(0.8);
+  }
+  
