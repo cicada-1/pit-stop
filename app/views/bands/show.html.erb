@@ -121,31 +121,30 @@ data-target="#rooms_review">
   <% @band_reviews.each do |item| %> 
 
 	<div class="review-card">
-		<div class="review-top">
-			<div class="reviewavatar">
-				<%= cl_image_tag item.room.user.photo.key, height: 32, width: 32, crop: :fill %>
-			</div>
-			<div class="review-header">
-				<strong class="review-author">
+		<div class="review-avatar-box">
+			<% if item.room.user.photo.attached? %>
+				<%= cl_image_tag item.room.user.photo.key, height: 80, width: 80, crop: :fill %>
+			<% else %>
+				<%= image_tag "default-avatar.png" %>
+			<% end %>
+		</div>
+		<div class="review-text">
+				<span class="review-author">
 				  <% if item.room.user.stage_name.nil? %>
 				   <%= item.room.user.first_name %>
 			    <% else %>
 				   <%= item.room.user.stage_name %>
 			    <% end %>  
-				</strong>
-				<strong class="review-title">
-					This is review title
-				</strong>
-			</div>
+				</span>
+				<div class="review-content">
+					<span class="review-text-content"><%= item.content %></span>
+				</div>
 		</div>
-		<div class="review-content">
 			<% if item.room.user_id == current_user.id %>
 				<%= link_to "x", band_review_path(item), method: :delete, data: {
 					confirm: "Are you sure?" } %>
 			<% end %>
-	
-			<span class="review-text-content"><%= item.content %></span>
-		</div>
+	</div>
 	</div>
 		<% end %>	
 	<% end %>

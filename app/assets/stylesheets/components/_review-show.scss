@@ -7,10 +7,7 @@
   padding: 16px;
   margin: 32px;
 }
-.show-review-header {
-  text-align: center;
-  margin-bottom: 16px;
-}
+
 .review-card {
   min-width: 90%;
   box-shadow: 2px 2px 16px $box-shadow;
@@ -20,6 +17,7 @@
   position: relative;
   background-color: $pit-background;
   box-shadow: $box-shadow;
+  display: flex;
   a {
     position: absolute;
     top: 8px;
@@ -29,10 +27,15 @@
       color: $red;
     }
   }
-  // Avatar test iin review
+}
+
+.review-avatar-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   img {
-    height: 60px;
-    width: 60px;
+    height: 80px;
+    width: 80px;
     border-radius: 100%;
   }
 }
@@ -41,8 +44,8 @@
   justify-content: flex-start;
   align-items: center;
 }
-.review-header {
-  margin-left: 32px;
+.review-text {
+  margin-left: 20px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
