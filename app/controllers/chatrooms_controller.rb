@@ -2,6 +2,10 @@ class ChatroomsController < ApplicationController
   skip_after_action :verify_authorized
   skip_after_action :verify_policy_scoped
 
+  def index
+    @chatrooms = Chatroom.where(room_id: current_user.room_ids).or(Chatroom.where(user_id: current_user.id))
+  end
+
   def show
     @chatrooms = Chatroom.where(room_id: current_user.room_ids).or(Chatroom.where(user_id: current_user.id))
     @message = Message.new
