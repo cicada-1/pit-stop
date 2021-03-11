@@ -5,10 +5,10 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_one_attached :photo
-  has_many :rooms
-  has_many :band_members
+  has_many :rooms, dependent: :destroy
+  has_many :band_members, dependent: :destroy
   has_many :bands, through: :band_members
-  has_many :chatrooms
+  has_many :chatrooms, dependent: :destroy
 
   USER_TYPES = %w[host band both]
 

@@ -4,7 +4,7 @@ class Room < ApplicationRecord
   has_many :room_reviews, dependent: :destroy
   has_many :bookings, dependent: :destroy
   has_many :room_socials, dependent: :destroy
-  has_many :chatrooms
+  has_many :chatrooms, dependent: :destroy
 
   PARKING_TYPES = ["street parking", "private parking", "car park", "unavailable"]
 
