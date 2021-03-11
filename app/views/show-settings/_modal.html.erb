@@ -60,10 +60,12 @@
 					>
 						Add Gig
 					</button>
-					<%= link_to band_path(@band), method: :delete, data: { confirm: "Are
-					you sure?" } do %>
-					<span class="delete-text">Dissolve Band</span>
-					<% end %>
+					<div class="modal-delete-link">
+						<%= link_to band_path(@band), method: :delete, data: { confirm: "Are
+						you sure?" } do %>
+						<span class="delete-text">Dissolve Band</span>
+						<% end %>
+					</div>
       
 				</div>
 			</div>

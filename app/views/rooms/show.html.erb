@@ -1,5 +1,5 @@
 
-<div class="how-page-container">
+<div class="show-page-container">
   <%= render 'modal' %>
   <%= render partial: 'room_socials/modal' %>
   <%= render partial: 'rooms_reviews/modal'%>
@@ -99,15 +99,16 @@
     </div>
   </div>
 
-
-  <div class="show-page-photos">
-    <span class="card-header ">Photos</span>
-    <div class="show-photos-display">
-      <% @room.photos.each do |photo| %>
-        <div class="show-photo-box">
-          <%= cl_image_tag photo.key %>
-        </div>
-      <% end %>
+  <div class="show-photo-container">
+    <div class="show-page-photos">
+      <span class="card-header">Photos</span>
+      <div class="show-photos-display">
+        <% @room.photos.each do |photo| %>
+          <div class="show-photo-box">
+            <%= cl_image_tag photo.key %>
+          </div>
+        <% end %>
+      </div>
     </div>
   </div>
 
