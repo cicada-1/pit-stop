@@ -43,13 +43,13 @@
               <% end %>
               </td>
               <td>
-                <%= link_to booking_path(booking), method: :delete, data: { confirm: "Delete booking for #{booking.room.name}?" }, id: "btn-bin" do %>
-                  <i class="far fa-trash-alt"></i>
+                <%= link_to chatrooms_path(booking), method: :post, class: "booking-chat-btn" do %>
+                  Chat <i class="far fa-comment"></i>
                 <% end %>
               </td>
               <td>
-                <%= link_to chatrooms_path(booking), method: :post do %>
-                  Chat
+                <%= link_to booking_path(booking), method: :delete, data: { confirm: "Delete booking for #{booking.room.name}?" }, id: "btn-bin" do %>
+                  <i class="far fa-trash-alt"></i>
                 <% end %>
               </td>
             </tr>
