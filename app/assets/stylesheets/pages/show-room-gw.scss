@@ -59,9 +59,6 @@ body {
 .room-name-btn {
  display: block;
  text-align: center;
- button {
-   margin:16px;
- }
 }
 .card-name-location {
   display: flex;
@@ -96,7 +93,7 @@ body {
 
 // social media style
 .social-media-icons {
-  height: 64px;
+  height: 32px;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
