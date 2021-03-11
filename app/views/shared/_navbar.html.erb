@@ -53,6 +53,7 @@
             <% if current_user.rooms.exists? %>
               <%= link_to "My PitStop Bookings", "/bookings/requests", class: "dropdown-item" %>
             <% end %>
+            <%= link_to "Chats", "/chatrooms", class: "dropdown-item" %>
             <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
           </div>
         </li>

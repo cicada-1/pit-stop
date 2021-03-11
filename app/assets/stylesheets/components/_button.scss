@@ -44,7 +44,10 @@
   border-radius: 100%;
   border: none;
   background: none;
-  color: $red;
+  
+  &:hover {
+    color: $red;
+  }
 }
 // Booking Button
 // #booking-btn {
@@ -96,3 +99,19 @@
   }
 }
 
+
+.booking-chat-btn {
+  background-color: $pit-munsell;
+  color: $pit-gray;
+  text-align: center;
+  width: 72px;
+  padding: 8px;
+  border-radius: 5px;
+
+  &:hover {
+  text-decoration: none;
+  color: $pit-background;
+  background-color: $light-blue;
+  }
+}
+  
