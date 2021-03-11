@@ -25,6 +25,7 @@ import "bootstrap";
 import { initMapbox } from '../plugins/init_mapbox';
 import { pressExitBtn } from '../modal-settings/modalSettings';
 import { initChatroomCable } from '../channels/chatroom_channel';
+import highlightActiveChat from '../plugins/highlight_active_chat';
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
@@ -36,5 +37,9 @@ document.addEventListener('turbolinks:load', () => {
    initMapbox();
    pressExitBtn();
    initChatroomCable();
+   if (document.getElementById('chatroom')) {
+     highlightActiveChat();
+     console.log(document.getElementById('chatroom').getAttribute('data-action'));
+   }
 
 });
