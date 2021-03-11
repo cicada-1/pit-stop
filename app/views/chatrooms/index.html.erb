@@ -1,19 +1,19 @@
 <div class="chatroom">
   <div class="chats-sidebar">
     <div class="chats-sidebar-top">
-      <%= cl_image_tag current_user.photo.key, height: 80, width: 80, gravity: :face, radius: :max, crop: :crop, class: 'chat-user-avatar' %>
+      <%= cl_image_tag current_user.photo.key, height: 80, width: 80, crop: :fill, class: 'chat-user-avatar' %>
       <p><strong><%= current_user.stage_name %></strong></p>
     </div>
     <div class="chats-list">
       <%  @chatrooms.each do |chatroom| %>
         <% if chatroom.room.user == current_user %>
           <%= link_to chatroom_path(chatroom), class: 'chat-listing' do %>
-              <%= cl_image_tag chatroom.user.photo.key, height: 40, width: 40, gravity: :face, radius: :max, crop: :crop, class: 'avatar' %>
+              <%= cl_image_tag chatroom.user.photo.key, height: 40, width: 40, crop: :fill, class: 'avatar' %>
               <p><%= chatroom.user.stage_name %></p>
           <% end %>
         <% else %>
           <%= link_to chatroom_path(chatroom), class: 'chat-listing' do %>
-              <%= cl_image_tag chatroom.room.user.photo.key, height: 40, width: 40, gravity: :face, radius: :max, crop: :crop, class: 'avatar' %>
+              <%= cl_image_tag chatroom.room.user.photo.key, height: 40, width: 40, crop: :fill, class: 'avatar' %>
               <p><%= chatroom.room.user.stage_name %></p>
           <% end %>
         <% end %>
