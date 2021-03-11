@@ -12,7 +12,7 @@
     <div  class="show-page-card-div">
     <div class="show-user-card">
       <div class="card-user-header">
-        <%= cl_image_tag @room.user.photo.key, class: "avatar-show" %>
+        <%= cl_image_tag @room.user.photo.key, class: "avatar-show", height: 120, width: 120, crop: :fill%>
         <h2 class="card-stagename"><%= @room.user.stage_name.upcase %></h2>
       </div>
       <div class="setting-dropdown">
@@ -105,7 +105,7 @@
       <div class="show-photos-display">
         <% @room.photos.each do |photo| %>
           <div class="show-photo-box">
-            <%= cl_image_tag photo.key %>
+            <%= cl_image_tag photo.key, height: 260, width: 260, crop: :fill %>
           </div>
         <% end %>
       </div>
