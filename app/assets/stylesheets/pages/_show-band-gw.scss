@@ -10,7 +10,7 @@
 }
 .band-cover-image {
   width: 360px;
-  height: 200px;
+  height: 240px;
   border-radius: 6px;
 }
 .band-main-photo {
@@ -26,26 +26,8 @@
   font-weight: 600;
   color: $pit-gray;
   text-align: center;
-
 }
-// bottom card styling
-// .band-description-container{
-//   border-radius: 6px;
-//   background-color: $pit-background;
-//   box-shadow: 2px 2px 16px $box-shadow;
-//   display: flex;
-//   flex-direction: column;
-//   align-items: center;
-//   justify-content: space-between;
-//   hr {
-//     height: 1px;
-//     border: none;
-//     border-bottom: 1px solid $pit-gray;
-//     width: 30%;
-//     margin: 8px auto;
-//     color: $pit-gray;
-//   }
-// }
+
 .user-description {
  @extend %card-text;
  padding: 16px;

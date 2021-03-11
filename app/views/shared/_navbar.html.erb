@@ -39,7 +39,11 @@
 
       <% if user_signed_in? %>
         <li class="nav-item dropdown">
-          <%= image_tag "emma-copy.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <% if current_user.photo.attached? %>
+          <%= cl_image_tag current_user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+        <% else %>
+          <%= image_tag "default-avatar.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+        <% end %>
           <div class="dropdown-menu dropdown-menu-right drop-menu" aria-labelledby="navbarDropdown">
             <% if current_user.bands.exists? %>
               <%= link_to "Tour Itinerary", "/bookings", class: "dropdown-item" %>

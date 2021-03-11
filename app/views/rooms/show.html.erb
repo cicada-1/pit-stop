@@ -12,7 +12,7 @@
     <div  class="show-page-card-div">
     <div class="show-user-card">
       <div class="card-user-header">
-        <%= cl_image_tag @room.user.photo.key, class: "avatar-show" %>
+        <%= cl_image_tag @room.user.photo.key, class: "avatar-show", height: 120, width: 120, crop: :fill%>
         <h2 class="card-stagename"><%= @room.user.stage_name.upcase %></h2>
       </div>
       <div class="setting-dropdown">
@@ -105,7 +105,7 @@
       <div class="show-photos-display">
         <% @room.photos.each do |photo| %>
           <div class="show-photo-box">
-            <%= cl_image_tag photo.key %>
+            <%= cl_image_tag photo.key, height: 260, width: 260, crop: :fill %>
           </div>
         <% end %>
       </div>
@@ -125,26 +125,29 @@
     Add Review
       </button>
     </div> 
+    
     <% if @room_reviews %>
     <% @room_reviews.each do |item| %> 
+
       <div class="review-card">
-        <div class="review-top">
-          <div class="reviewavatar">
-            <%= image_tag('poster') %>
+        <div class="review-avatar-box"> 
+            <% if item.band.photos.attached? %>
+            <%= cl_image_tag item.band.photos.first.key, height: 80, width: 80, crop: :fill %>
+          <% else %>
+            <%= image_tag "default-avatar.png" %>
+          <% end %>
           </div>
-          <div class="review-header">
-            <strong class="review-author"><%= item.band.name %></strong>
-            <strong class="review-title">
-              This is review title</strong>
-          </div>
-        </div>
-          <div class="review-content">
+          <div class="review-text">
+            <span class="review-author"><%= item.band.name %></span>
+            <div class="review-content">
+              <span class="review-text-content"><%= item.content %></span>
+            </div>
+        </div> 
             <% if item.band.band_members.select { |element| element.user == current_user }[0] %>
             <%= link_to "x", room_review_path(item), method: :delete, data: { confirm: "Are you sure?" } %>
             <% end %>
-            <span class="review-text-content"><%= item.content %></span>
-          </div>
       </div>
+    </div>
     <% end %>
     <% end %>
   </div>
