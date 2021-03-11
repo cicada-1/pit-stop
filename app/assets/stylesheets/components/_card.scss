@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   width: 60%;
-  margin-right: 16px;
+  margin: 16px;
 }
 .flexbox-left {
   position: sticky;
@@ -10,21 +10,15 @@
   height: 100vh;
   top: 0;
   margin-top: 20px;
-
 }
 
-.index-container {
-  h1 {
-    font-family: $headers-font;
+.index-card{
+  &:hover {
+   text-decoration: none;
+   color: $pit-gray;
   }
 }
-.index-card {
-  text-decoration: none;
-}
-.card-main-photo {
-  width: 40%;
-  height: 100%;
-}
+  
 .card-image {
     width: 300px;
     height: 200px;
@@ -37,20 +31,30 @@
   position: relative;
   width: 60%;
   img {
-    height: 32px;
-    width: 32px;
+    width: 60px;
+    height: 60px;
     border-radius: 50%;
+    border: 1px solid $pit-gray;
     position: absolute;
     right: 10px;
     bottom: 8px;
   }
 }
 
-
+.index-card-text-box {
+  height: 70%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  text-decoration: none;
+ 
+}
 #card-title {
+  display: block;
   color: $pit-gray;
   font-size: 24px;
   font-family: $body-font;
+  margin-bottom:16px;
 }
 #index-card-descriptions {
   @extend %card-text;
@@ -85,16 +89,15 @@
 }
 
 .index-card {
+text-decoration: none;
  display: flex;
  justify-content: space-between;
  background-color: $pit-body-bg;
- padding: 10px;
- border-radius: 6px;
- margin-top: 16px;
+ padding: 8px;
  width: 100%;
  border: none;
- border-bottom: solid 2px $pit-background;
- border-bottom: solid 2px $pit-background;
+ border-bottom: solid 1px $pit-background;
+ border-top: solid 1px $pit-background;
  }
 
 

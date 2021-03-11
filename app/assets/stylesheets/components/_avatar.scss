@@ -30,6 +30,17 @@
   object-fit: cover;
 }
 
+// room show page
+.avatar-show {
+	width: 120px;
+	height: 120px;
+	border-radius: 100%;
+	text-align: center;
+	border: 1px solid $pit-gray;
+}
+
+// Chat Room Avatars
+  
 .chat-user-avatar {
   width: 80px;
   border-radius: 50%;
@@ -39,4 +50,5 @@
 .active-chat-avatar {
   width: 64px;
   border-radius: 50%;
+
 }

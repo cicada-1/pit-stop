@@ -40,7 +40,11 @@
   max-width: 500px;
   margin: 160px auto;
  }
-
+// Modal Delete Link
+.modal-delete-link {
+  width: 100%;
+  text-align: center;
+}
 .delete-text{
   margin-top: 16px;
   color: $pit-munsell;

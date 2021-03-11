@@ -1,4 +1,4 @@
-<div class="container">
+<div class="show-page-container">
 	<%= render 'modal' %>
 	<%= render partial: 'add_photos/modal' %>
 	<%= render partial: 'band_socials/modal' %>
@@ -11,40 +11,37 @@
 <!-- BAND INFO LEFT SIDE OF SCREEN -->
 
 
-	<div class="row">
-		<div class="col-lg-6 col-md-6 col-sm-12">
-		<div class="show-user-info margin-32 ">
-
-			<span class="card-header" ><%= @band.name %></span>
-			<div class="setting-dropdown">
-        <% if current_user.bands.ids.include?(@band.id) %>
-				<div id="my-tooltip" class="tooltip">
-					<button
-					type="button"
-					id="btn-plus"
-					data-toggle="modal"
-					data-target="#user_settings"
-					>
-					<i class="fas fa-user-cog"></i>
-					</button>
-					<span class="tooltiptext">Band Settings</span>
+	<div class="show-page-row">
+		<div class="show-page-card-div">
+			<div class="show-band-info">
+				<span class="band-header" ><%= @band.name %></span>
+				<div class="setting-dropdown">
+      	  <% if current_user.bands.ids.include?(@band.id) %>
+					<div id="my-tooltip" class="tooltip">
+						<button
+						type="button"
+						id="btn-plus"
+						data-toggle="modal"
+						data-target="#user_settings"
+						>
+						<i class="fas fa-user-cog"></i>
+						</button>
+						<span class="tooltiptext">Band Settings</span>
+					</div>
+					<% end %>
 				</div>
-				<% end %>
-			</div>
-			<div class="user-info-main-photo">
-				<%= cl_image_tag @band.photos.first.key, class: 'band-cover-image' %>
-			</div>
-		</div>
-		<div class="band-description-container margin-32 ">
-			<span class="card-header">About us</span>
-			<hr>
-			<div class="user-description">
-				<p><%= @band.description %></p>
-			</div>
-			<!-- Follow Section -->
-			<span class="card-header">Follow</span>
-			<hr>
-			<div class="social-media-icons">
+				<div class="band-main-photo">
+					<%= cl_image_tag @band.photos.first.key, class: 'band-cover-image', height: 240, width: 360, crop: :fill  %>
+				</div>
+				<span class="band-header">About us</span>
+				<hr>
+				<div class="user-description">
+					<p><%= @band.description %></p>
+				</div>
+				<!-- Follow Section -->
+				<span class="band-header">Follow</span>
+				<hr>
+				<div class="social-media-icons">
 				<% if @socials %> 
 					<% @socials.each do |item| %>
 						<% if item.social_type == "Instagram" %>
@@ -70,14 +67,13 @@
             <% end %>
 					<% end %> 
 				<% end %>
+				</div>
 			</div>
-		</div>
-
-		</div>
+	</div>
 <!-- Poster -->
-		<div class="col-lg-6 col-md-6 col-sm-12">
-		<div class="poster-box">
-			<div class="poster-gig">
+		<div class="show-page-poster-div">
+		<div class="poster-box room-poster">
+			<div class="poster-gig poster-top">
 				<span class="poster-title">GIGS</span>
 				<% if @gigs %> 
 					<% @gigs.each do |item| %> 
@@ -89,19 +85,21 @@
 		</div>
 		</div>
 	</div>
-</div>
-<div class="container d-flex flex-column justify-content-center">
+
+
 
 
 <!-- Phots Section -->
-<div class="row col-12 show-photo-container ">
-	<span class="card-header col-12">Photos</span>
-	<div class="show-photos-display">
-		<% @band.photos.each do |photo| %>
-        <div class="show-photo-box">
-          <%= cl_image_tag photo.key %>
-        </div>
-      <% end %>
+<div class="show-photo-container">
+	<div class="show-page-photos">
+		<span class="band-header">Photos</span>
+		<div class="show-photos-display">
+			<% @band.photos.each do |photo| %>
+					<div class="show-photo-box">
+						<%= cl_image_tag photo.key, height: 260, width: 260, crop: :fill %>
+					</div>
+				<% end %>
+		</div>
 	</div>
 </div>
 
@@ -123,33 +121,32 @@ data-target="#rooms_review">
   <% @band_reviews.each do |item| %> 
 
 	<div class="review-card">
-		<div class="review-top">
-			<div class="reviewavatar">
-			<%= image_tag('poster') %>
-			</div>
-			<div class="review-header">
-				<strong class="review-author">
+		<div class="review-avatar-box">
+			<% if item.room.user.photo.attached? %>
+				<%= cl_image_tag item.room.user.photo.key, height: 80, width: 80, crop: :fill %>
+			<% else %>
+				<%= image_tag "default-avatar.png" %>
+			<% end %>
+		</div>
+		<div class="review-text">
+				<span class="review-author">
 				  <% if item.room.user.stage_name.nil? %>
 				   <%= item.room.user.first_name %>
 			    <% else %>
 				   <%= item.room.user.stage_name %>
 			    <% end %>  
-				</strong>
-				<strong class="review-title">
-					This is review title
-				</strong>
-			</div>
+				</span>
+				<div class="review-content">
+					<span class="review-text-content"><%= item.content %></span>
+				</div>
 		</div>
-		<div class="review-content">
 			<% if item.room.user_id == current_user.id %>
 				<%= link_to "x", band_review_path(item), method: :delete, data: {
 					confirm: "Are you sure?" } %>
 			<% end %>
-	
-			<span class="review-text-content"><%= item.content %></span>
-		</div>
+	</div>
 	</div>
 		<% end %>	
 	<% end %>
 	</div>
-	</div>
+</div>

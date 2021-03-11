@@ -1,12 +1,12 @@
 <div class="chat-window-top">
-  <%= cl_image_tag current_user.photo.key, height: 64, width: 64, gravity: :face, radius: :max, crop: :crop, class: 'active-chat-avatar' %>
+  <%= cl_image_tag current_user.photo.key, height: 64, width: 64, crop: :fill, class: 'active-chat-avatar' %>
   <h2><%= @chatroom_name %></h2>
 </div>
 
 <div class="chat-window-bottom">
   <div id="messages" data-chatroom-id="<%= @chatroom.id %>">
     <% @chatroom.messages.each do |message| %>
-      <div class="message-block <%= 'justify-content-end' if message.user == current_user %>">
+      <div class="message-block <%= 'justify-content-end message-right' if message.user == current_user %>">
         <%= render 'messages/message', message: message %>
       </div>
     <% end %>
