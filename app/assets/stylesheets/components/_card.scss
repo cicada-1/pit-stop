@@ -5,10 +5,13 @@
   margin: 16px;
 }
 .flexbox-left {
-  margin: 16px;
+  position: sticky;
   width: 40%;
   height: 100vh;
+  top: 0;
+  margin-top: 20px;
 }
+
 .index-card{
   &:hover {
    text-decoration: none;
@@ -66,7 +69,7 @@
   display: block;
 }
 .card-link {
-  display: block; 
+  display: block;
   a {
     font-size: 14px;
     text-decoration: none;
