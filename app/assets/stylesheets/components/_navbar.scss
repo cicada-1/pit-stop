@@ -32,11 +32,16 @@
    }
 }
 
-
-.nav-search {
-  border-radius: 6px;
-  box-shadow: 2px 2px 16px $box-shadow;
-  width: 500px;
+.navbar {
+  .nav-search-box {
+    flex-grow: 1;
+    max-width: 500px;
+    
+    .nav-search {
+      border-radius: 6px;
+      box-shadow: 2px 2px 16px $box-shadow;
+    }
+  }
 }
 
 .navbar-left {

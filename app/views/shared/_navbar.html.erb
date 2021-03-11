@@ -7,15 +7,13 @@
 
   </div>
 
-  <div>
-    <%= form_tag rooms_path, method: :get, class: "nav-search-box" do %>
-      <%= text_field_tag :query,
-        params[:query],
-        class: "form-control nav-search",
-        placeholder: "Find a PitStop"
-        %>
-    <% end %>
-  </div>
+  <%= form_tag rooms_path, method: :get, class: "nav-search-box" do %>
+    <%= text_field_tag :query,
+      params[:query],
+      class: "form-control nav-search",
+      placeholder: "Find a PitStop"
+      %>
+  <% end %>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
