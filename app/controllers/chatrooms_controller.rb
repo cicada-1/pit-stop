@@ -19,13 +19,14 @@ class ChatroomsController < ApplicationController
 
   def create
     @chatroom = Chatroom.new
-    @room = Room.find(params[:format])
-    @chatroom.name = @room.user.stage_name + current_user.stage_name
+    @room = Room.find(Booking.find(params[:format]).room.id)
+    @user = User.find(Booking.find(params[:format]).band.band_members.first.user.id)
+    @chatroom.name = @room.user.stage_name + @user.stage_name
     unless Chatroom.find_by(name: @chatroom.name).nil?
       chatroom = Chatroom.find_by(name: @chatroom.name)
       redirect_to chatroom_path(chatroom)
     else
-      @chatroom.user = current_user
+      @chatroom.user = @user
       @chatroom.room = @room
       if @chatroom.save
         redirect_to chatroom_path(@chatroom)
