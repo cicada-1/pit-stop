@@ -26,13 +26,14 @@ body {
 }
 .card-header {
   display: block;
-  text-align: center;
-    text-align: center;
+  text-align: left;
+    text-align: left;
     background: $pit-background;
     color: $pit-gray;
     font-size: 20px;
     font-family: $headers-font;
-
+    border-bottom: none;
+    margin-top: 16px;
 }
 .show-page-row {
   display: flex;
@@ -53,6 +54,7 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
 // top card styling
 
 
@@ -68,7 +70,7 @@ body {
 }
 .room-decryption {
   font-size: 16px;
-  margin: 16px;
+  margin: 16px 16px 32px 16px;
   float: left;
 }
 .card-user-header {
@@ -85,7 +87,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
   position: relative;
   background: $pit-background;
   padding: 20px;
@@ -94,8 +96,8 @@ body {
   display: block;
   text-align: center;
   justify-content: space-around;
-  span {
-    margin: 16px;
+  // span {
+  //   margin: 16px;
     i {
       font-size: 16px;
       text-align: center;
@@ -105,7 +107,10 @@ body {
       color: $blue;
       margin-right: 8px;
     }
-  }
+    i:last-child {
+      margin-left: 16px;
+    }
+  
 }
 // social media style
 .social-media-icons {
@@ -148,7 +153,9 @@ body {
   border-radius: 6px;
   box-shadow: $box-shadow;
 }
-
+.show-photos-display {
+  padding: 16px;
+}
 .show-photo-box {
   // width: 240px;
   // height: 240px;

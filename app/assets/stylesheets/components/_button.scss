@@ -22,7 +22,7 @@
     text-align: center;
     border-radius: 16px;
     border: 1px solid ;
-    background: $blue;
+    background: $pit-blue;
     color: $pit-background;
     box-shadow: 2px 2px 16px $box-shadow;
     transform: translateY(-2px);
@@ -83,7 +83,6 @@
 
 .booking-btn-green-hover {
   font-size: 20px;
-
   &:hover {
     text-decoration: none;
     color: #46A833;
