@@ -79,8 +79,10 @@
 			</div>
       <div class="poster-body">
           <% @gigs.each do |item| %>
-          <span class="poster-date"><%= item.date.strftime('%d/%m/%Y') %></span>
-          <span class="poster-location"><%= item.location  %></span>
+          <div class="gig-wrapper">
+            <span class="poster-date"><%= item.date.strftime('%d/%m/%Y') %></span>
+            <span class="poster-location"><%= item.location  %></span>
+          </div>
           <% end %>
       </div>
 		</div>

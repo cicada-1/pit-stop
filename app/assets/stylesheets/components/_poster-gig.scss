@@ -30,17 +30,18 @@
 
 .poster-body {
   color: black;
+  font-family: $brand-font;
 }
 
 .poster-date {
-  font-family: $headers-font;
+  // font-family: $headers-font;
   @extend %card-text;
   color: $poster-font;
   margin-bottom: 8px;
 }
 
 .poster-location {
-  font-family: $headers-font;
+  // font-family: $headers-font;
   @extend %card-subheader;
   color: $poster-font;
   margin-bottom: 8px;
