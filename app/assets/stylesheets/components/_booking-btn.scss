@@ -13,18 +13,18 @@
       position: relative;
       border: none;
       cursor: pointer;
-      color: $pit-blue;
+      color: $blue;
       background: none;
-      border: 1px solid $pit-blue;
+      border: 1px solid $blue;
   }
 
   &:hover {
       transform: translateY(-3px);
       box-shadow: 2px 5px 10px rgba(177,221,241, 0.2);
       color: $pit-background;
-      background: $pit-munsell;
+      background: $blue;
  
-      border: 1px solid $pit-munsell;
+      border: 1px solid $blue;
       &::after{
           transform: scaleX(1.4) scaleY(1.6);
           opacity: 0;
@@ -35,7 +35,7 @@
   &:focus {
       outline: none;
       transform: translateY(3px);
-      box-shadow: 2px 5px 10px rgba($pit-blue, 0.2);
+      box-shadow: 2px 5px 10px rgba($blue, 0.2);
   }
   &::after{
       content: "";

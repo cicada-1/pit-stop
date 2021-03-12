@@ -40,6 +40,10 @@
    
       <h2 class="card-header"><%= @room.name.upcase %></h2>
       <span class="room-decryption"><%= @room.description %></span>
+      <div class="room-info-icons">
+        <i class="fas fa-car"></i>  <%= @room.parking %>
+        <i class="fas fa-user-friends"></i> <%= @room.capacity%>
+      </div>
     </div>
        <div class="room-name-btn">
         <button
@@ -105,7 +109,6 @@
 
   <div class="show-photo-container">
     <div class="show-page-photos">
-      <span class="card-header">Photos</span>
       <div class="show-photos-display">
         <% @room.photos.each do |photo| %>
           <div class="show-photo-box">
