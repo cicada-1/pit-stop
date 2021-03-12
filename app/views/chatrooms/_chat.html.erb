@@ -1,5 +1,17 @@
 <div class="chat-window-top">
-  <%= cl_image_tag current_user.photo.key, height: 64, width: 64, crop: :fill, class: 'active-chat-avatar' %>
+  <% if @chatroom.room.user == current_user %>
+    <% if @chatroom.user.photo.attached? %>
+      <%= cl_image_tag @chatroom.user.photo.key, height: 64, width: 64, crop: :fill, class: 'active-chat-avatar' %>
+    <% else %>
+      <%= image_tag "default-avatar.png", class: 'active-chat-avatar' %>
+    <% end %>
+  <% else %>
+    <% if @chatroom.room.user.photo.attached? %>
+      <%= cl_image_tag @chatroom.room.user.photo.key, height: 64, width: 64, crop: :fill, class: 'active-chat-avatar' %>
+    <% else %>
+      <%= image_tag "default-avatar.png", class: 'active-chat-avatar' %>
+    <% end %>
+  <% end %>
   <h2><%= @chatroom_name %></h2>
 </div>
 
