@@ -199,3 +199,48 @@ text-decoration: none;
     margin-bottom: 16px;
   }
 }
+
+.bands-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+
+  .bands-list-header {
+    margin: 32px 0;
+  }
+
+  .bands-cards {
+    width: 60%;
+  }
+
+  .band-card {
+    text-decoration: none;
+    display: flex;
+    background-color: $pit-background;
+    padding: 8px;
+    max-width: 100%;
+    margin-bottom: 16px;
+    border-radius: 5px;
+
+    &:hover {
+      color: $pit-gray;
+    }
+
+    .card-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      margin-left: 16px;
+
+      p {
+        font-size: 24px;
+        font-weight: bold;
+      }
+    }
+  }
+}
+

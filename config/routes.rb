@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     resources :room_socials, only: [:create]
   end
 
-  resources :bands, only: [:show, :new, :edit, :create, :update, :destroy] do
+  resources :bands, only: [:index, :show, :new, :edit, :create, :update, :destroy] do
     resources :band_reviews, only: [:update, :create]
     resources :gigs, only: [:update, :create]
     resources :band_socials, only: [:create]

@@ -1,0 +1,16 @@
+<div class="bands-list">
+  <div class="bands-list-header">
+    <h1>My Bands</h1>
+  </div>
+  <div class="bands-cards">
+    <% @user_bands.each do |band| %>
+      <%= link_to band_path(band), class: 'band-card' do %>
+        <%= cl_image_tag band.photos.first.key, class: "card-image", height: 200, width: 300, crop: :fill  %>
+        <div class="card-content">
+          <p class="card-title"><%= band.name %></p>
+          <p class="card-title"><%= band.location %></p>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>

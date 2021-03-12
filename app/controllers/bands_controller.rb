@@ -1,6 +1,10 @@
 class BandsController < ApplicationController
   before_action :set_band, only: %i[show edit update destroy]
 
+  def index
+    @user_bands = policy_scope(Band).where(id: current_user.bands.ids)
+  end
+
   def show
     @band_social = BandSocial.new
     @socials = BandSocial.where(band_id: @band.id)
