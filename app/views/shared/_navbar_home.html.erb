@@ -19,11 +19,13 @@
           <div class="dropdown-menu dropdown-menu-right drop-menu" aria-labelledby="navbarDropdown">
             <% if current_user.bands.exists? %>
               <%= link_to "Tour Itinerary", "/bookings", class: "dropdown-item" %>
+              <%= link_to "My Bands", "/bands", class: "dropdown-item" %>
             <% else %>
               <%= link_to "Tour Itinerary", "/bands/new", class: "dropdown-item" %>
             <% end %>
             <% if current_user.rooms.exists? %>
               <%= link_to "My PitStop Bookings", "/bookings/requests", class: "dropdown-item" %>
+              <%= link_to "My PitStop", room_path(current_user.rooms.first), class: "dropdown-item" %>
             <% end %>
             <%= link_to "Chats", "/chatrooms", class: "dropdown-item" %>
             <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
