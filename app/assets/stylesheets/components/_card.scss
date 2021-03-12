@@ -18,26 +18,52 @@
    color: $pit-gray;
   }
 }
-  
+
 .card-image {
     width: 300px;
     height: 200px;
     border-radius: 6px;
     object-fit: cover;
   }
+
 .index-card-info {
   display:flex;
   flex-direction: column;
   position: relative;
   width: 60%;
-  img {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    border: 1px solid $pit-gray;
+
+  .index-card-avatar-name {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     position: absolute;
-    right: 10px;
-    bottom: 8px;
+    right: -18px;
+    bottom: -8px;
+    width: 100px;
+
+    p {
+      text-align: center;
+      margin-top: 8px;
+
+    }
+
+    img {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      border: 1px solid $pit-gray;
+
+    }
+  }
+}
+
+.index-page-icons {
+  i {
+    color: $pit-munsell;
+  }
+
+  i:last-child {
+    margin-left: 16px;
   }
 }
 
@@ -47,7 +73,7 @@
   flex-direction: column;
   justify-content: flex-start;
   text-decoration: none;
- 
+
 }
 #card-title {
   display: block;
