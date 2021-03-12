@@ -25,21 +25,25 @@
 .poster-title {
   font-family: $brand-font;
   font-size: 40px;
-  color: $pit-gray;
+  color: black;
+}
 
+.poster-body {
+  color: black;
+  font-family: $brand-font;
 }
 
 .poster-date {
-  font-family: $headers-font;
+  // font-family: $headers-font;
   @extend %card-text;
-  color: $pit-gray;
+  color: $poster-font;
   margin-bottom: 8px;
 }
 
 .poster-location {
-  font-family: $headers-font;
+  // font-family: $headers-font;
   @extend %card-subheader;
-  color: $pit-gray;
+  color: $poster-font;
   margin-bottom: 8px;
 }
 
@@ -58,7 +62,7 @@
   text-transform: uppercase;
   text-align: center;
   align-items: center;
-  
+
   .poster-top {
     overflow: hidden;
     height: 15%;
@@ -71,12 +75,12 @@
       transform: rotate(-2deg);
     }
   }
-  
+
   .poster-bands {
     height: 75%;
     font-weight: bolder;
     font-size: 32px;
-    
+
     .poster-band {
       display: grid;
       grid-template-columns: 1fr;

@@ -21,12 +21,22 @@
 .band-header {
   display: block;
   padding: 10px;
-  font-size: 24px;
-  font-family: $body-font;
+  font-size: 40px;
+  font-family: $allcaps-title;
   font-weight: 600;
   color: $pit-gray;
   text-align: center;
 }
+
+.band-sub-headers {
+  display: block;
+  padding: 16px;
+  font-size: 24px;
+  font-family: $allcaps-title;
+  font-weight: 600;
+  color: $pit-gray;
+}
+
 
 .user-description {
  @extend %card-text;

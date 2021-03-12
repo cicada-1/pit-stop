@@ -6,10 +6,12 @@
   // background-color: #181832;
   background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), image-url("pexels-dariusz-grosa-736355.jpg");
   background-size: cover;
+  text-align: ceter;
+
   h1 {
     color: white;
     font-weight: bold;
-    font-family: $headers-font;
+    font-family: $body-font;
     font-size: 40px;
     line-height: 1.6;
     letter-spacing: 1px;
