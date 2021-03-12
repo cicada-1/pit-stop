@@ -39,32 +39,34 @@
 				</div>
 				<!-- Follow Section -->
 				<span class="band-header">Follow</span>
-				<div class="social-media-icons">
-				<% if @socials %> 
-					<% @socials.each do |item| %>
-						<% if item.social_type == "Instagram" %>
-              <%= link_to item.profile_url do %>
-                <i class="band-social-icon fab fa-instagram"></i>
-              <% end %>
-            <% elsif item.social_type == "Twitter" %>
-              <%= link_to item.profile_url do %>
-                <i class="band-social-icon fab fa-twitter"></i>
-              <% end %>
-            <% elsif item.social_type == "Facebook" %>
-              <%= link_to item.profile_url do %>
-                <i class="band-social-icon fab fa-facebook-square"></i>
-              <% end %>
-						<% elsif item.social_type == "Soundcloud" %>
-							<%= link_to item.profile_url do %>
-                <i class="band-social-icon fab fa-soundcloud"></i>
-              <% end %>
-						<% elsif item.social_type == "Bandcamp" %>
-							<%= link_to item.profile_url do %>
-                <i class="band-social-icon fab fa-bandcamp"></i>
-              <% end %>
-            <% end %>
-					<% end %> 
-				<% end %>
+				<div class="room-info-icons">
+					<div class="social-media-icons">
+						<% if @socials %> 
+							<% @socials.each do |item| %>
+								<% if item.social_type == "Instagram" %>
+									<%= link_to item.profile_url do %>
+										<i class="band-social-icon fab fa-instagram"></i>
+									<% end %>
+								<% elsif item.social_type == "Twitter" %>
+									<%= link_to item.profile_url do %>
+										<i class="band-social-icon fab fa-twitter"></i>
+									<% end %>
+								<% elsif item.social_type == "Facebook" %>
+									<%= link_to item.profile_url do %>
+										<i class="band-social-icon fab fa-facebook-square"></i>
+									<% end %>
+								<% elsif item.social_type == "Soundcloud" %>
+									<%= link_to item.profile_url do %>
+										<i class="band-social-icon fab fa-soundcloud"></i>
+									<% end %>
+								<% elsif item.social_type == "Bandcamp" %>
+									<%= link_to item.profile_url do %>
+										<i class="band-social-icon fab fa-bandcamp"></i>
+									<% end %>
+								<% end %>
+							<% end %> 
+						<% end %>
+					</div>
 				</div>
 			</div>
 	</div>

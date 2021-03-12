@@ -90,22 +90,44 @@ body {
   background: $pit-background;
   padding: 20px;
 }
-
+.room-info-icons {
+  display: block;
+  text-align: center;
+  justify-content: space-around;
+  span {
+    margin: 16px;
+    i {
+      font-size: 16px;
+      text-align: center;
+      border-radius: 100%;
+      border: none;
+      background: none;
+      color: $blue;
+      margin-right: 8px;
+    }
+  }
+}
 // social media style
 .social-media-icons {
   height: 32px;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
   align-items: center;
   width: 100%;
   position: relative;
   margin: 0;
   position: relative;
+  i {
+    font-size: 24px;
+    color: $blue;
+    margin: 16px;
+  }
 }
 .room-social-icon {
   i {
+    margin: 16px;
     font-size: 24px;
-    color: $pit-blue;
+    color: $blue;
   }
 }
 
