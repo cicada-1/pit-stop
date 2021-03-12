@@ -18,7 +18,7 @@ body {
 }
 .show-page-photos{
   display: flex;
-  flex-direction: column;
+  // flex-direction: column;
   justify-content: center;
   align-items: center;
   background: $pit-background;
@@ -110,7 +110,7 @@ body {
     i:last-child {
       margin-left: 16px;
     }
-  
+
 }
 // social media style
 .social-media-icons {
