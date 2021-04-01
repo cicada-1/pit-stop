@@ -8,28 +8,27 @@
     <div class="banner-content">
 
       <h1 class="animated-logo"><span class='one'>P</span><span class='two'>i</span><span class='three'>t</span><span class='four'>S</span><span class='five'>t</span><span class='six'>o</span><span class='seven'>p</span></h1>
+        <div class="homepage-banner-container">
+          <%= form_tag rooms_path, method: :get, class: "nav-search-box" do %>
+              <%= text_field_tag :query,
+                params[:query],
+                class: "form-control search-form",
+                placeholder: "Find a Pit Stop"
+                %>
+            <% end %>
 
-        <%= form_tag rooms_path, method: :get, class: "nav-search-box" do %>
-            <%= text_field_tag :query,
-              params[:query],
-              class: "form-control search-form",
-              placeholder: "Find a Pit Stop"
-              %>
-          <% end %>
+            <br>
+            <br>
 
-          <br>
-          <br>
-
-           <h1>Couch surfing for bands on tour</h1>
-           <p>A completely free service to support all arts</p>
-            <p>We connect the fans with the bands</p>
-
+             <h1>Couch surfing for bands on tour</h1>
+             <p>A completely free service to support all arts</p>
+              <p>We connect the fans with the bands</p>
+        </div>
             <div class="arrow">
                 <span></span>
                 <span></span>
                 <span></span>
             </div>
-       </div>
     </div>
   </div>
   <div class="homepage-card-container">
