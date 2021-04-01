@@ -26,6 +26,14 @@ body {
     color: #a3cef1;
     font-family: $brand-font;
   }
+
+  /* For mobile phones: */
+    @media screen and (max-width: 768px) {
+    .animated-logo { font-size: 4rem;}
+    // #primary { width:100%; }
+    // #secondary { width:100%; margin:0; border:none; }
+}
+
   a {
     font-family: 'Teko', sans-serif;
     color: $light-gray;
@@ -46,4 +54,5 @@ body {
   }
 
  }
+
 

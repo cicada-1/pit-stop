@@ -7,9 +7,12 @@
   margin-bottom: 2rem;
   margin-left: 1rem;
   margin-right: 1rem;
-  color: #181832;
   text-align: center;
 
+}
+
+  @media screen and (max-width: 768px) {
+    .homepage-card-container { flex-direction: column;}
 }
 
 .homepage-icon {
@@ -20,4 +23,12 @@
 //  margin-right: 5rem;
 //  padding: 1rem;
 //}
+
+@media screen and (max-width: 1060px) {
+    #primary { width:67%; }
+    #secondary { width:30%; margin-left:3%;}
+}
+
+
+
 
