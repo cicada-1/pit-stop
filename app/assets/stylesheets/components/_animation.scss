@@ -27,12 +27,24 @@ body {
     font-family: $brand-font;
   }
 
-  /* For mobile phones: */
-    @media screen and (max-width: 768px) {
-    .animated-logo { font-size: 4rem;}
+  /* For tablet phones: */
+  @media (min-width: 415px) and (max-width: 768px) {
+    .animated-logo { font-size: 8rem;}
     // #primary { width:100%; }
     // #secondary { width:100%; margin:0; border:none; }
-}
+  }
+
+  /* For mobile phones: */
+  @media (max-width: 414px) {
+    .animated-logo { font-size: 4rem;
+    margin-top: 5rem; }
+    // #primary { width:100%; }
+    // #secondary { width:100%; margin:0; border:none; }
+  }
+
+  // @media (max-width: 375px) {
+  //   .animated-logo { margin-top: 5rem;}
+  // }
 
   a {
     font-family: 'Teko', sans-serif;
