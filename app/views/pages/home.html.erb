@@ -9,7 +9,7 @@
 
       <h1 class="animated-logo"><span class='one'>P</span><span class='two'>i</span><span class='three'>t</span><span class='four'>S</span><span class='five'>t</span><span class='six'>o</span><span class='seven'>p</span></h1>
         <div class="homepage-banner-container">
-          <%= form_tag rooms_path, method: :get, class: "nav-search-box" do %>
+          <%= form_tag rooms_path, method: :get, class: "nav-search-box home-search-box" do %>
               <%= text_field_tag :query,
                 params[:query],
                 class: "form-control search-form",
@@ -17,18 +17,15 @@
                 %>
             <% end %>
 
-            <br>
-            <br>
-
-             <h1>Couch surfing for bands on tour</h1>
-             <p>A completely free service to support all arts</p>
-              <p>We connect the fans with the bands</p>
-        </div>
+            <h1>Couch surfing for bands on tour</h1>
+            <p>A completely free service to support all arts</p>
+            <p>We connect the fans with the bands</p>
             <div class="arrow">
                 <span></span>
                 <span></span>
                 <span></span>
             </div>
+        </div>
     </div>
   </div>
   <div class="homepage-card-container">
@@ -53,7 +50,6 @@
     </div>
     <div class="homepage-card">
         <h4>The best things in life are free</h4>
-        <br>
         <hr>
         <div class="home-card-description">
           <p>Our hosts don't believe in cash. Thank them by bringing them to your gig!</p>
